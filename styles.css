@@ -658,13 +658,13 @@ a {
 }
 
 .user-name strong {
-  color: rgb(248, 244, 244);
+  color: black;
   font-size: 1.1rem;
   letter-spacing: 0.5px;
 }
 
 .user-name span {
-  color: rgb(208, 207, 207);
+  color: 37353E;
   font-size: 0.8rem;
 }
 
