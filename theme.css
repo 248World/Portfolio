@@ -1,0 +1,110 @@
+:root {
+    /* Light theme (default) */
+    --body-color: #cbc9c9;
+    --text-color: #0c0c0c;
+    --title-color: #0c0c0c;
+    --title-color-dark: #000;
+    --container-color: #fafafa;
+    --section-bg: #f5f5f5;
+    --card-bg: #fff;
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --skills-bar-color: #4070f4;
+    --button-bg: #4070f4;
+    --button-color: #fff;
+    --border-color: #e0e0e0;
+    --footer-bg: #0b0a0a;
+    --footer-text: #fff;
+  }
+  
+  [data-theme="dark"] {
+    /* Dark theme */
+    --body-color: #110d1e;
+    --text-color: #f6f3f3;
+
+    --title-color: #f5f0f0;
+    --title-color-dark: #fff;
+    --container-color: white;
+    --section-bg: #f8f4f4;
+    --card-bg: #1e1e1e;
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    --skills-bar-color: #9bb4fa;
+    --button-bg: #7a9cf9;
+    --button-color: #fff;
+    --border-color: #fbf7f7;
+    --footer-bg: #000;
+    --footer-text: #f0f0f0;
+
+  }
+  .contact_input{
+    color: #f0f0f0;
+  } 
+  
+  
+  body {
+    background-color: var(--body-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+  }
+  
+  .section-title,
+  .home__title,
+  .about__subtitle,
+  .skills__subtitle,
+  .certification__name,
+  .card h2 {
+    color: var(--title-color);
+  }
+  
+  .home__title-color {
+    color: var(--skills-bar-color);
+  }
+  
+  .card,
+  .testimonials-box {
+    background-color: var(--card-bg);
+    box-shadow: var(--card-shadow);
+  }
+  
+  .button,
+  .button1,
+  .contact__button {
+    background-color: var(--button-bg);
+    color: white;
+  }
+  
+  .skills__bar {
+    background-color: var(--border-color);
+  }
+  
+  .skills__html,
+  .skills__css,
+  .skills__js,
+  .skills__ux {
+    background-color: var(--skills-bar-color);
+  }
+  
+  .footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+  }
+  
+  /* Theme toggle button */
+  .theme-toggle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-left: 1rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+  }
+  
+  .theme-toggle:hover {
+    color: var(--skills-bar-color);
+  }
+  
+  .theme-toggle i {
+    font-size: 1.5rem;
+  }
+  
