@@ -839,6 +839,7 @@ a {
   .home__social-icon {
     margin-bottom: 0;
     margin-right: var(--mb-4);
+    color: white;
   }
 
   .home__img {
