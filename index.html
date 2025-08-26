@@ -9,56 +9,15 @@
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
         <link rel="stylesheet" href="theme.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+        <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
         <link rel="shortcut icon" href="var.JPG" type="image/x-icon">
         <link href='https://unpkg.com/boxicons@2.1.4/dist/boxicons.js' rel='stylesheet'>
         <link rel="stylesheet" href="swiper-bundle.min.css">
         <link rel="stylesheet" href="responsive-navbar.css">
         
-        <style>
-            .language-toggle {
-                display: flex;
-                gap: 12px;
-                align-items: center;
-                padding: 0.5rem 1rem;
-                border-radius: 20px;
-                background-color: #f5f5f5;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-                transition: background-color 0.3s ease;
-                z-index: 1000; /* Ensure it’s above other elements */
-            }
-            .language-toggle:hover {
-                background-color: #e0e0e0;
-            }
-            .flag {
-                width: 32px;
-                height: 22px;
-                border-radius: 4px;
-                cursor: pointer;
-                transition: transform 0.3s ease, opacity 0.3s ease;
-                border: 1px solid #ddd;
-                display: inline-block; /* Ensure flags are visible */
-                object-fit: cover;
-            }
-            .flag:hover {
-                transform: scale(1.1);
-                opacity: 0.9;
-            }
-            .flag.active {
-                border: 2px solid hsl(224, 89%, 60%);
-                transform: scale(1.15);
-            }
-            @media screen and (max-width: 768px) {
-                .language-toggle {
-                    padding: 0.3rem 0.8rem;
-                    gap: 8px;
-                }
-                .flag {
-                    width: 28px;
-                    height: 20px;
-                }
-            }
-        </style>
 
         <title>Varneyd.fahnbullehportfolio</title>
     </head>
@@ -89,14 +48,9 @@
                                 <i id="theme-icon" class='bx bx-sun'></i>
                             </div>
                         </li>
-                        <li class="nav__item">
-                            <div class="language-toggle">
-                                <img src="https://flagcdn.com/w20/gb.png" onerror="this.src='images/gb.png'" alt="English" class="flag" data-lang="en" onclick="toggleLanguage('en')">
-                                <img src="https://flagcdn.com/w20/fr.png" onerror="this.src='images/fr.png'" alt="French" class="flag" data-lang="fr" onclick="toggleLanguage('fr')">
-                            </div>
-                        </li>
                     </ul>
                 </div>
+
             </nav>
         </header>
 
@@ -104,14 +58,13 @@
 
             <section class="home bd-grid" id="home">
                 <div class="home__data">
-                    <h1 class="home__title" data-lang="en">Hi,<br>I am <span class="home__title-color">Varney D. Fahnbulleh</span><br><span class="auto-type"></span></h1>
-                    <h1 class="home__title" data-lang="fr" style="display: none;">Salut,<br>Je suis <span class="home__title-color">Varney D. Fahnbulleh</span><br><span class="auto-type"></span></h1>
+                    <h1 class="home__title">Hi,<br>I am <span class="home__title-color">Varney D. Fahnbulleh</span><br><span class="auto-type"></span></h1>
 
-                    <a href="cvVarney.pdf" image class="button1">Download CV</a>
-                    <a href="#contact" class="Button" data-lang="en">Let's Talk</a>
-                    <a href="#contact" class="Button" data-lang="fr" style="display: none;">Parlons</a>
+                    <a  href="cvVarney.pdf" image class="button1">Download CV</a>
+                    <a href="#contact" class="Button">Let's Talk</a>
                 </div>
                 
+
                 <div class="home__social">
                     <a href="https://www.linkedin.com/in/varney-d-fahnbulleh-784449281?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
                     <a href="https://youtube.com/@Varkode248?si=a-yNBB1W20hJZBbX" class="home__social-icon"><i class='bx bxl-youtube' ></i></a>
@@ -131,37 +84,35 @@
                 </div>
             </section>
 
-            <section class="about section" id="about">
-                <h2 class="section-title" data-lang="en">About Me</h2>
-                <h2 class="section-title" data-lang="fr" style="display: none;">À propos de moi</h2>
+            <section class="about section " id="about">
+                <h2 class="section-title">About Me</h2>
 
                 <div class="about__container bd-grid">
+                    
                     <div>
-                        <h2 class="about__subtitle" data-lang="en">I'am available for your <span class="nam2">frontend</span> and <span class="nam2">backend</span> projects.</h2>
-                        <h2 class="about__subtitle" data-lang="fr" style="display: none;">Je suis disponible pour vos projets <span class="nam2">frontend</span> et <span class="nam2">backend</span>.</h2>
-                        <p class="about__text" data-lang="en">I’m a Computer Science student and developer who enjoys turning ideas into real applications. Some of my projects include a Basketball Scoreboard, a Weather App, and this portfolio site. Each one has helped me sharpen my skills, write better code, and build things people can actually use.</p>
-                        <p class="about__text" data-lang="fr" style="display: none;">Je suis étudiant en informatique et développeur, passionné par la transformation d'idées en applications réelles. Parmi mes projets, on trouve un tableau de score de basketball, une application météo et ce site de portfolio. Chacun d'eux m'a aidé à affiner mes compétences, à écrire un meilleur code et à créer des choses que les gens peuvent réellement utiliser.</p>
+                        <h2 class="about__subtitle">I'am available for your <span class="nam2">frontend</span> and <span class="nam2">backend</span> projects.</h2>
+                        <p class="about__text">  
+                           I’m a Computer Science student and developer who enjoys turning ideas into real applications. Some of my projects include a Basketball Scoreboard, a Weather App, and this portfolio site. Each one has helped me sharpen my skills, write better code, and build things people can actually use.
                     </div>                                   
                 </div>
             </section>
 
             <section class="skills section" id="skills">
-                <h2 class="section-title" data-lang="en">Skills</h2>
-                <h2 class="section-title" data-lang="fr" style="display: none;">Compétences</h2>
+                <h2 class="section-title">Skills</h2>
 
                 <div class="skills__container bd-grid">          
                     <div>
-                        <h2 class="skills__subtitle" data-lang="en">Professional Skills</h2>
-                        <h2 class="skills__subtitle" data-lang="fr" style="display: none;">Compétences professionnelles</h2>
-                        <p class="varr" data-lang="en">My journey as a developer reflects my deep passion for technology and my commitment to growth and innovation. From building sleek user interfaces to solving complex backend challenges, I bring a versatile and future-focused skill set to the table.</p>
-                        <p class="varr" data-lang="fr" style="display: none;">Mon parcours en tant que développeur reflète ma profonde passion pour la technologie et mon engagement envers la croissance et l'innovation. De la création d'interfaces utilisateur élégantes à la résolution de défis complexes en backend, j'apporte un ensemble de compétences polyvalent et tourné vers l'avenir.</p><br>
+                        <h2 class="skills__subtitle">Profesional Skills</h2>
+                        <p class="varr">My journey as a developer reflects my deep passion for technology and my commitment to growth and innovation. From building sleek user interfaces to solving complex backend challenges, I bring a versatile and future-focused skill set to the table.</p><br>
 
                         <div class="skills__data">
                             <div class="skills__names">
                                 <i class='bx bxl-html5 skills__icon'></i>
                                 <span class="skills__name">HTML</span>
                             </div>
-                            <div class="skills__bar skills__html"></div>
+                            <div class="skills__bar skills__html">
+
+                            </div>
                             <div>
                                 <span class="skills__percentage">95%</span>
                             </div>
@@ -171,7 +122,9 @@
                                 <i class='bx bxl-css3 skills__icon'></i>
                                 <span class="skills__name">CSS</span>
                             </div>
-                            <div class="skills__bar skills__css"></div>
+                            <div class="skills__bar skills__css">
+                                
+                            </div>
                             <div>
                                 <span class="skills__percentage">85%</span>
                             </div>
@@ -181,103 +134,117 @@
                                 <i class='bx bxl-javascript skills__icon'></i>
                                 <span class="skills__name">JAVASCRIPT</span>
                             </div>
-                            <div class="skills__bar skills__css"></div>
+                            <div class="skills__bar skills__css">
+                                
+                            </div>
                             <div>
                                 <span class="skills__percentage">85%</span>
                             </div>
                         </div>
+                
                         <div class="skills__data">
                             <div class="skills__names">
                                 <i class="fa-brands fa-php skills__icon"></i>
+        
                                 <span class="skills__name">PHP</span>
                             </div>
-                            <div class="skills__bar skills__ux"></div>
+                            <div class="skills__bar skills__ux">
+                                
+                            </div>
                             <div>
                                 <span class="skills__percentage">85%</span>
                             </div>
                         </div>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class="fa-brands fa-java skills__icon"></i>
-                                <span class="skills__name">Java</span>
-                            </div>
-                            <div class="skills__bar skills__ux"></div>
-                            <div>
-                                <span class="skills__percentage">85%</span>
-                            </div>
+                        
+                       
+
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <i class="fa-brands fa-java skills__icon"></i>
+    
+                            <span class="skills__name">Java</span>
+                        </div>
+                        <div class="skills__bar skills__ux">
+                            
+                        </div>
+                        <div>
+                            <span class="skills__percentage">85%</span>
                         </div>
                     </div>
-                </section> 
+                    
+                   
+                </div>
+               
+            </section> 
            
             <section class="work section" id="work">
-                <h2 class="section-title" data-lang="en">Projects</h2>
-                <h2 class="section-title" data-lang="fr" style="display: none;">Projets</h2>
+                <h2 class="section-title">Projects</h2>
 
                 <div class="work__container bd-grid">
                     <a href="scoreindex.html" class="work__img">
                         <img src="work.JPG" alt="">
+                        
                     </a>
+    
                     <a href="weather.html" class="work__img">
                         <img src="Capture.JPG" alt="">
                     </a>
+
                     <a href="todo.html" class="work__img">
                         <img src="todolist.png" alt="">
                     </a>
+
                     <a href="index.html" class="work__img">
                         <img src="248 (2).png" alt="">
                     </a>
+
                     <a href="noteapp.html" class="work__img">
                         <img src="noteApp.png" alt="">
                     </a>
+                   
                     <script src="app.js"></script>
                 </div>
             </section>
             <section class="work section" id="services">
-                <h2 class="section-title" data-lang="en">Services</h2>
-                <h2 class="section-title" data-lang="fr" style="display: none;">Services</h2>
+                <h2 class="section-title">Services</h2>
                 <div class="services">
-                    <div class="card">
-                        <div class="icons">
-                            <i class="fa-solid fa-mobile"></i>
-                        </div>
-                        <h2 data-lang="en">Mobile Development</h2>
-                        <h2 data-lang="fr" style="display: none;">Développement mobile</h2>
-                        <p data-lang="en">I am committed to bringing your mobile app ideas to life with sleek, user-friendly designs that captivate and engage. With my expertise in mobile development and cutting-edge tools, I create apps that stand out and deliver a seamless user experience. Trust me to enhance your digital presence with a high-performance mobile solution tailored to your needs.</p>
-                        <p data-lang="fr" style="display: none;">Je m'engage à donner vie à vos idées d'applications mobiles avec des designs élégants et conviviaux qui captivent et engagent. Avec mon expertise en développement mobile et des outils de pointe, je crée des applications qui se démarquent et offrent une expérience utilisateur fluide. Faites-moi confiance pour améliorer votre présence numérique avec une solution mobile performante adaptée à vos besoins.</p>
-                        <a href="#" class="button" data-lang="en">Read More</a>
-                        <a href="#" class="button" data-lang="fr" style="display: none;">Lire plus</a>
+                
+                  <div class="card">
+                    <div class="icons">
+                        <i class="fa-solid fa-mobile"></i>
                     </div>
-                    <div class="card">
-                        <div class="icons">
-                            <i class="fa-solid fa-paintbrush"></i>
-                        </div>
-                        <h2 data-lang="en">UI/UX Design</h2>
-                        <h2 data-lang="fr" style="display: none;">Conception UI/UX</h2>
-                        <p data-lang="en">I specialize in crafting exceptional UI/UX designs that are both visually stunning and intuitively user-friendly. By focusing on your customers' needs, I create interfaces that are engaging and easy to navigate. Let me help you elevate your digital presence with a design that captures attention and keeps users coming back.</p>
-                        <p data-lang="fr" style="display: none;">Je me spécialise dans la création de designs UI/UX exceptionnels, à la fois visuellement époustouflants et intuitivement conviviaux. En me concentrant sur les besoins de vos clients, je crée des interfaces engageantes et faciles à naviguer. Laissez-moi vous aider à améliorer votre présence numérique avec un design qui attire l'attention et fidélise les utilisateurs.</p>
-                        <a href="#" class="button" data-lang="en">Read More</a>
-                        <a href="#" class="button" data-lang="fr" style="display: none;">Lire plus</a>
+                    <h2>Mobile Development</h2>
+                    <p>I am committed to bringing your mobile app ideas to life with sleek, user-friendly designs that captivate and engage. With my expertise in mobile development and cutting-edge tools, I create apps that stand out and deliver a seamless user experience. Trust me to enhance your digital presence with a high-performance mobile solution tailored to your needs.
+                    </p>
+                        <a href="#" class="button">Read More</a>
+                  </div>
+                  <div class="card">
+                    <div class="icons">
+                        <i class="fa-solid fa-paintbrush"></i>
                     </div>
-                    <div class="card">
-                        <div class="icons">
-                            <i class="fa-solid fa-desktop"></i>
-                        </div>
-                        <h2 data-lang="en">Web Design</h2>
-                        <h2 data-lang="fr" style="display: none;">Conception web</h2>
-                        <p data-lang="en">I am passionate about creating beautiful and functional web designs that leave a lasting impression. Combining creativity with technical expertise, I craft websites that are both visually appealing and user-friendly. Whether you need a complete redesign or a new website, I will ensure that your site reflects your brand and engages your audience.</p>
-                        <p data-lang="fr" style="display: none;">Je suis passionné par la création de designs web beaux et fonctionnels qui laissent une impression durable. En combinant créativité et expertise technique, je conçois des sites web à la fois visuellement attrayants et conviviaux. Que vous ayez besoin d'une refonte complète ou d'un nouveau site, je m'assurerai que votre site reflète votre marque et engage votre public.</p>
-                        <a href="#" class="button" data-lang="en">Read More</a>
-                        <a href="#" class="button" data-lang="fr" style="display: none;">Lire plus</a>
+                    <h2>UI/UX Design</h2>
+                    <p>I specialize in crafting exceptional UI/UX designs that are both visually stunning and intuitively user-friendly. By focusing on your customers' needs, I create interfaces that are engaging and easy to navigate. Let me help you elevate your digital presence with a design that captures attention and keeps users coming back.</p>
+                        <a href="#" class="button">Read More</a>
+                  </div>
+                  <div class="card">
+                    <div class="icons">
+                        <i class="fa-solid fa-desktop"></i>
                     </div>
+                    <h2>Web Design</h2>
+                    <p>I am passionate about creating beautiful and functional web designs that leave a lasting impression. Combining creativity with technical expertise, I craft websites that are both visually appealing and user-friendly. Whether you need a complete redesign or a new website, I will ensure that your site reflects your brand and engages your audience.</p>
+                        <a href="#" class="button">Read More</a>
+                  </div>
                 </div>
             </section>
             
             <section id="testimonials">
                 <div class="testimonials-heading">
-                    <span data-lang="en">Comments</span>
-                    <span data-lang="fr" style="display: none;">Commentaires</span>
-                    <h1 data-lang="en">Testimonials</h1>
-                    <h1 data-lang="fr" style="display: none;">Témoignages</h1>
+                    <span>Comments</span>
+                    <h1>Testimonials</h1>
+                </div>
+                <div class="language-toggle">
+                    <img src="https://flagcdn.com/w20/gb.png" alt="English" class="flag" data-lang="en" onclick="toggleLanguage('en')">
+                    <img src="https://flagcdn.com/w20/fr.png" alt="French" class="flag" data-lang="fr" onclick="toggleLanguage('fr')">
                 </div>
                 <div class="testimonials-box-container">
                     <div class="testimonials-box">
@@ -358,31 +325,30 @@
             </section>
 
             <section class="contact section" id="contact">
-                <h2 class="section-title" data-lang="en">Contact Me</h2>
-                <h2 class="section-title" data-lang="fr" style="display: none;">Contactez-moi</h2>
+                <h2 class="section-title">Contact Me</h2>
                 <div class="contactbox">
                     <div class="contact__container bd-grid">
                         <form onsubmit="sendEmail(); reset(); return false;">
-                            <h3 data-lang="en">Get in Touch</h3>
-                            <h3 data-lang="fr" style="display: none;">Prenez contact</h3>
+                            <h3>Get in Touch</h3>
                             <input type="text" id="name" placeholder="Name" class="contact__input" required>
                             <input type="mail" id="email" placeholder="Email" class="contact__input" required><br>
-                            <textarea name="msg" placeholder="How can I help you?" id="msg" cols="0" rows="4" class="contact__input" data-lang="en"></textarea>
-                            <textarea name="msg" placeholder="Comment puis-je vous aider ?" id="msg" cols="0" rows="4" class="contact__input" data-lang="fr" style="display: none;"></textarea>
-                            <input type="submit" value="Send Message" class="contact__button button" data-lang="en">
-                            <input type="submit" value="Envoyer le message" class="contact__button button" data-lang="fr" style="display: none;">
+                            <textarea name="msg"  placeholder="How can i help you?" id="msg" cols="0" rows="4" class="contact__input"></textarea>
+                           
+                            <input type="submit"  value="Send Message" class="contact__button button">
+                            
+            
                         </form>
                         <div class="contact_info">
-                            <h3 data-lang="en">Contact Information</h3>
-                            <h3 data-lang="fr" style="display: none;">Informations de contact</h3>
+                            <h3>Contact Information</h3>
                             <i class="fa-solid fa-phone"><a href="tel:"> +212 621 096 641</a></i> <br>
                             <i class="fa-solid fa-envelope"><a href="mailto:varfahnbulleh@gmail.com"> varfahnbulleh@gmail.com</a></i> 
                         </div>
-                    </div>
+                </div>
                 </div>
             </section>
         </main>
 
+    
         <footer class="footer">
             <p class="footer__title"> Varney D.</p>
             <div class="footer__social">
@@ -390,8 +356,7 @@
                 <a href="https://youtube.com/@Varkode248?si=a-yNBB1W20hJZBbX" class="footer__icon"><i class='bx bxl-youtube' ></i></a>
                 <a href="https://www.github.com/248World" class="footer__icon"><i class='bx bxl-github' ></i></a>
             </div>
-            <p class="footer__copy" data-lang="en">&#169; Copyright 2025 <span class="var24"> Varney D. Fahnbulleh </span> All Rights Reserved.</p>
-            <p class="footer__copy" data-lang="fr" style="display: none;">&#169; Droits d'auteur 2025 <span class="var24"> Varney D. Fahnbulleh </span> Tous droits réservés.</p>
+            <p class="footer__copy">&#169; Copyright 2025 <span class="var24"> Varney D. Fahnbulleh </span> All Rights Reserved.</p> <br>
         </footer>
         <script src="theme.js"></script>
         <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
@@ -416,38 +381,24 @@
                     Password : "Agnesweah@24",
                     To : 'varfahnbulleh@gmail.com',
                     From : document.getElementById("email").value,
-                    Subject : "New contact from enquiry",
+                    Subject : "New contact from enauiry",
                     Body : "Name: " + document.getElementById("name").value
                     + "\n\nEmail: " + document.getElementById("email").value
                     + "\n\nMessage: " + document.getElementById("msg").value
                 }).then(
-                  message => alert("Message Sent Successfully")
+                  message => alert("Message Sent Succesfully")
                 );
             }
         </script>
         <script>
             function toggleLanguage(lang) {
-                console.log("Language toggle called with: " + lang); // Debugging
-                document.querySelectorAll('[data-lang]').forEach(element => {
-                    if (element.getAttribute('data-lang') === lang) {
-                        element.style.display = 'block';
+                document.querySelectorAll('.client-comment p').forEach(p => {
+                    if (p.getAttribute('data-lang') === lang) {
+                        p.style.display = 'block';
                     } else {
-                        element.style.display = 'none';
+                        p.style.display = 'none';
                     }
                 });
-                document.querySelectorAll('.flag').forEach(flag => {
-                    if (flag.getAttribute('data-lang') === lang) {
-                        flag.classList.add('active');
-                    } else {
-                        flag.classList.remove('active');
-                    }
-                });
-                // Update Typed.js strings based on language
-                const strings = lang === 'en' ? 
-                    ["Software Developer", "Web Designer", "UI/UX Designer", "Trainer", "Graphic Designer"] :
-                    ["Développeur logiciel", "Concepteur web", "Concepteur UI/UX", "Formateur", "Graphiste"];
-                typed.strings = strings;
-                typed.reset();
             }
             // Set default language to English
             toggleLanguage('en');
@@ -459,3 +410,4 @@
         <script src="responsive-navbar.js"></script>
     </body>
 </html>
+
