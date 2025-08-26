@@ -235,6 +235,35 @@ img {
     color: #fff;
     font-size: 1.2rem;
   }
+
+  .home {
+    display: flex;
+    flex-direction: column; /* Changed from column-reverse to column */
+    padding: 2rem 0;
+    overflow: hidden;
+  }
+
+  .home__img {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    right: auto;
+    bottom: auto;
+  }
+
+  .home__blob {
+    margin-top: 200px;
+  }
+
+  .home__blob-img {
+    width: 350px;
+  }
+
+  .home__data {
+    text-align: center;
+    padding: 20px;
+  }
 }
 
 .work__container bd-grid .h1 {
@@ -791,37 +820,6 @@ a {
 
 .contact_input {
   color: #f0f0f0;
-}
-
-@media screen and (max-width: 768px) {
-  .home {
-    display: flex;
-    flex-direction: column-reverse;
-    padding: 2rem 0;
-    overflow: hidden;
-  }
-
-  .home__img {
-    position: relative;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto 2rem;
-    right: auto;
-    bottom: auto;
-  }
-
-  .home__blob {
-    margin-top: 200px;
-  }
-
-  .home__blob-img {
-    width: 350px;
-  }
-
-  .home__data {
-    text-align: center;
-    padding: 20px;
-  }
 }
 
 @media screen and (min-width: 576px) {
