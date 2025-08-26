@@ -238,9 +238,22 @@ img {
 
   .home {
     display: flex;
-    flex-direction: column; /* Changed from column-reverse to column */
+    flex-direction: column;
     padding: 2rem 0;
     overflow: hidden;
+  }
+
+  .home__data {
+    text-align: center;
+    padding: 20px;
+    order: 1; /* Explicitly set order to ensure it appears first */
+  }
+
+  .home__social {
+    display: flex;
+    justify-content: center; /* Center social icons horizontally */
+    margin-bottom: var(--mb-2);
+    order: 2; /* Ensure social section appears after data but before image */
   }
 
   .home__img {
@@ -250,19 +263,17 @@ img {
     margin: 0 auto 2rem;
     right: auto;
     bottom: auto;
+    order: 3; /* Ensure image appears last */
   }
 
   .home__blob {
-    margin-top: 200px;
+    margin-top: 0; /* Remove large top margin for better spacing */
+    width: 100%;
   }
 
   .home__blob-img {
-    width: 350px;
-  }
-
-  .home__data {
-    text-align: center;
-    padding: 20px;
+    width: 100%;
+    max-width: 350px;
   }
 }
 
