@@ -246,34 +246,38 @@ img {
   .home__data {
     text-align: center;
     padding: 20px;
-    order: 1; /* Explicitly set order to ensure it appears first */
+    order: 1;
   }
 
   .home__social {
     display: flex;
-    justify-content: center; /* Center social icons horizontally */
+    justify-content: center;
     margin-bottom: var(--mb-2);
-    order: 2; /* Ensure social section appears after data but before image */
+    order: 2;
   }
 
   .home__img {
     position: relative;
     width: 100%;
-    max-width: 600px;
+    max-width: 400px; /* Match computer view size more closely */
     margin: 0 auto 2rem;
     right: auto;
     bottom: auto;
-    order: 3; /* Ensure image appears last */
+    order: 3;
   }
 
   .home__blob {
-    margin-top: 0; /* Remove large top margin for better spacing */
     width: 100%;
+    height: auto;
+    margin: 0 auto;
   }
 
   .home__blob-img {
     width: 100%;
-    max-width: 350px;
+    height: auto;
+    object-fit: cover; /* Ensure image fits within SVG mask */
+    object-position: center; /* Center image within SVG */
+    transform: translate(0, 0); /* Reset any SVG-specific offsets for consistency */
   }
 }
 
