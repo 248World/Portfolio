@@ -259,7 +259,7 @@ img {
   .home__img {
     position: relative;
     width: 100%;
-    max-width: 300px; /* Adjusted for better fit on mobile */
+    max-width: 250px; /* Adjusted to match blob size */
     margin: 0 auto 2rem;
     right: auto;
     bottom: auto;
@@ -267,20 +267,20 @@ img {
   }
 
   .home__blob {
-    width: 100%;
+    width: 250px; /* Set to match blob size */
     height: auto;
     margin: 0 auto;
     display: block;
-    animation: rotateBlob 10s linear infinite; /* Apply rotation animation */
+    animation: rotateBlob 10s linear infinite; /* Keep rotation on blob */
     transform-origin: center center; /* Ensure rotation is centered */
   }
 
   .home__blob-img {
-    width: 250px; /* Fixed width for mobile */
+    width: 200px; /* Resized to fit within blob */
     height: auto;
-    object-fit: cover; /* Ensure image fits within SVG mask */
-    object-position: center; /* Center within SVG */
-    transform: translate(0, 0); /* Reset SVG x, y offsets */
+    object-fit: cover; /* Ensure image fits within blob */
+    object-position: center; /* Center the image */
+    transform: translate(0, 0); /* Reset SVG offsets */
     display: block;
     margin: 0 auto; /* Center the image */
   }
@@ -771,7 +771,7 @@ a {
   cursor: pointer;
 }
 
-/card:hover {
+.card:hover {
   background-color: var(--first-color);
   transition: 0.4s ease;
 }
