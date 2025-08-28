@@ -270,14 +270,15 @@ img {
     width: 100%;
     height: auto;
     margin: 0 auto;
+    display: block;
   }
 
   .home__blob-img {
     width: 250px; /* Fixed width for better control */
     height: auto;
     object-fit: cover; /* Ensure image fits within SVG mask */
-    object-position: center; /* Center image within SVG */
-    transform: translate(0, 0); /* Reset any SVG-specific offsets */
+    object-position: center; /* Center within SVG */
+    transform: translate(0, 0); /* Reset SVG x, y offsets */
     display: block;
     margin: 0 auto; /* Center the image */
   }
@@ -858,7 +859,7 @@ a {
   }
 
   .home__img {
-    width: 250px;
+    width: 300px;
     bottom: 40%;
   }
 
