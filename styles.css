@@ -259,7 +259,7 @@ img {
   .home__img {
     position: relative;
     width: 100%;
-    max-width: 400px; /* Match computer view size more closely */
+    max-width: 300px; /* Adjusted for better fit on mobile */
     margin: 0 auto 2rem;
     right: auto;
     bottom: auto;
@@ -273,11 +273,13 @@ img {
   }
 
   .home__blob-img {
-    width: 100%;
+    width: 250px; /* Fixed width for better control */
     height: auto;
     object-fit: cover; /* Ensure image fits within SVG mask */
     object-position: center; /* Center image within SVG */
-    transform: translate(0, 0); /* Reset any SVG-specific offsets for consistency */
+    transform: translate(0, 0); /* Reset any SVG-specific offsets */
+    display: block;
+    margin: 0 auto; /* Center the image */
   }
 }
 
@@ -386,7 +388,7 @@ nav ul.social {
 
 .emoji i {
   transform: translateX(0);
-  transition: .2cki s;
+  transition: .2s;
 }
 
 .rating {
