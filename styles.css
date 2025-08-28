@@ -271,16 +271,27 @@ img {
     height: auto;
     margin: 0 auto;
     display: block;
+    animation: rotateBlob 10s linear infinite; /* Apply rotation animation */
+    transform-origin: center center; /* Ensure rotation is centered */
   }
 
   .home__blob-img {
-    width: 250px; /* Fixed width for better control */
+    width: 250px; /* Fixed width for mobile */
     height: auto;
     object-fit: cover; /* Ensure image fits within SVG mask */
     object-position: center; /* Center within SVG */
     transform: translate(0, 0); /* Reset SVG x, y offsets */
     display: block;
     margin: 0 auto; /* Center the image */
+  }
+}
+
+@keyframes rotateBlob {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -760,7 +771,7 @@ a {
   cursor: pointer;
 }
 
-.card:hover {
+/card:hover {
   background-color: var(--first-color);
   transition: 0.4s ease;
 }
