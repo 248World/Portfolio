@@ -271,12 +271,12 @@ img {
     height: auto;
     margin: 0 auto;
     display: block;
-    animation: rotateBlob 10s linear infinite; /* Keep rotation on blob */
+    /*animation: rotateBlob 10s linear infinite; /* Keep rotation on blob */
     transform-origin: center center; /* Ensure rotation is centered */
   }
 
   .home__blob-img {
-    width: 200px; /* Resized to fit within blob */
+    width: 180px; /* Resized to fit within blob */
     height: auto;
     object-fit: cover; /* Ensure image fits within blob */
     object-position: center; /* Center the image */
