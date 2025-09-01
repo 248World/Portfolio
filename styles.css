@@ -276,7 +276,7 @@ img {
   }
 
   .home__blob-img {
-    width: 180px; /* Resized to fit within blob */
+    width: 180%; /* Resized to fit within blob */
     height: auto;
     object-fit: cover; /* Ensure image fits within blob */
     object-position: center; /* Center the image */
