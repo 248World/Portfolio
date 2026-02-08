@@ -459,7 +459,7 @@
                 </div>
             </section>
             
-            <!-- Testimonials Section -->
+            <!-- Testimonials Section - UPDATED -->
             <section class="testimonials section" id="testimonials">
                 <div class="section__header">
                     <span class="section__subtitle">Client feedback</span>
@@ -480,6 +480,7 @@
                     </button>
                 </div>
                 
+                <!-- CHANGED: Removed swiper-wrapper and added testimonials-container -->
                 <div class="testimonials__slider swiper">
                     <div class="swiper-wrapper">
                         <!-- Testimonial 1 -->
@@ -576,6 +577,9 @@
                             </div>
                         </div>
                     </div>
+                    <!-- CHANGED: Added navigation buttons for better UX -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                     <div class="swiper-pagination"></div>
                 </div>
             </section>
@@ -722,7 +726,7 @@
                 // Set current year in footer
                 document.getElementById('currentYear').textContent = new Date().getFullYear();
                 
-                // Initialize Swiper
+                // Initialize Swiper with proper configuration
                 const swiper = new Swiper('.testimonials__slider', {
                     slidesPerView: 1,
                     spaceBetween: 30,
@@ -734,6 +738,10 @@
                     pagination: {
                         el: '.swiper-pagination',
                         clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
                     },
                     breakpoints: {
                         768: {
@@ -789,7 +797,7 @@
                 }
             });
             
-            // Language toggle function
+            // Language toggle function - UPDATED
             function toggleLanguage(lang) {
                 // Update active button
                 document.querySelectorAll('.language-btn').forEach(btn => {
@@ -798,12 +806,33 @@
                 
                 // Update testimonial texts
                 document.querySelectorAll('.testimonial-text').forEach(p => {
-                    p.style.display = p.getAttribute('data-lang') === lang ? 'block' : 'none';
+                    if (p.getAttribute('data-lang') === lang) {
+                        p.style.display = 'block';
+                        // Set min-height to prevent layout shift
+                        p.parentElement.style.minHeight = p.offsetHeight + 'px';
+                    } else {
+                        p.style.display = 'none';
+                    }
                 });
+                
+                // Update Swiper to recalculate heights
+                if (window.swiperInstance) {
+                    window.swiperInstance.update();
+                }
             }
             
-            // Set default language to English
-            toggleLanguage('en');
+            // Store swiper instance globally for language toggle
+            window.swiperInstance = null;
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                // ... existing code ...
+                
+                // Store swiper instance
+                window.swiperInstance = swiper;
+                
+                // Set default language to English
+                toggleLanguage('en');
+            });
             
             // Theme toggle functionality
             document.getElementById('theme-toggle').addEventListener('click', function() {
