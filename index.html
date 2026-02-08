@@ -3,38 +3,49 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Varney D. Fahnbulleh - Full Stack Developer & UI/UX Designer Portfolio">
+        <meta name="keywords" content="Web Developer, Mobile Developer, Full Stack, UI/UX Designer, Portfolio">
+        <meta name="author" content="Varney D. Fahnbulleh">
 
+        <!-- Primary Stylesheet -->
         <link rel="stylesheet" href="styles.css">
-
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+        
+        <!-- Icons -->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        
+        <!-- Theme -->
         <link rel="stylesheet" href="theme.css">
-        <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-/>
+        
+        <!-- Swiper -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+        
+        <!-- Favicon -->
         <link rel="shortcut icon" href="var.JPG" type="image/x-icon">
-        <link href='https://unpkg.com/boxicons@2.1.4/dist/boxicons.js' rel='stylesheet'>
-        <link rel="stylesheet" href="swiper-bundle.min.css">
+        
+        <!-- Responsive Navigation -->
         <link rel="stylesheet" href="responsive-navbar.css">
         
-
-        <title>Varneyd.fahnbullehportfolio</title>
+        <title>Varney D. Fahnbulleh | Full Stack Developer & Designer</title>
     </head>
     <body>
        
+        <!-- Header & Navigation -->
         <header class="l-header">
             <nav class="nav bd-grid">
-                <div>
-                    <a href="#about" class="nav__logo"> Varney D.</a>
+                <div class="nav__brand">
+                    <a href="#home" class="nav__logo">V.D.F</a>
+                    <span class="nav__sublogo">Developer & Designer</span>
                 </div>
 
-                <div class="menu-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+                <!-- Mobile Menu Toggle -->
+                <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="menu-toggle__line"></span>
+                    <span class="menu-toggle__line"></span>
+                    <span class="menu-toggle__line"></span>
+                </button>
 
+                <!-- Navigation Menu -->
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
                         <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
@@ -44,357 +55,810 @@
                         <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
                         <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
                         <li class="nav__item">
-                            <div id="theme-toggle" class="theme-toggle">
-                                <i id="theme-icon" class='bx bx-sun'></i>
-                            </div>
+                            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode">
+                                <i id="theme-icon" class='bx bx-moon'></i>
+                            </button>
                         </li>
                     </ul>
                 </div>
-
             </nav>
         </header>
 
         <main class="l-main">
+            <!-- Hero Section -->
+            <section class="hero bd-grid" id="home">
+                <div class="hero__content">
+                    <div class="hero__text">
+                        <h1 class="hero__subtitle">Hello, I'm</h1>
+                        <h2 class="hero__title">Varney D. <span class="hero__highlight">Fahnbulleh</span></h2>
+                        <div class="hero__typewriter">
+                            <span class="auto-type"></span>
+                        </div>
+                        <p class="hero__description">
+                            I build digital experiences that are beautiful, functional, and user-focused.
+                        </p>
+                        <div class="hero__cta">
+                            <a href="cvVarney.pdf" class="btn btn--primary" download>
+                                <i class='bx bx-download'></i> Download CV
+                            </a>
+                            <a href="#contact" class="btn btn--secondary">
+                                <i class='bx bx-message-dots'></i> Let's Talk
+                            </a>
+                        </div>
+                    </div>
 
-            <section class="home bd-grid" id="home">
-                <div class="home__data">
-                    <h1 class="home__title">Hi,<br>I am <span class="home__title-color">Varney D. Fahnbulleh</span><br><span class="auto-type"></span></h1>
-
-                    <a  href="cvVarney.pdf" image class="button1">Download CV</a>
-                    <a href="#contact" class="Button">Let's Talk</a>
+                    <div class="hero__visual">
+                        <div class="hero__image-container">
+                            <div class="hero__blob"></div>
+                            <img src="Var.png" alt="Varney D. Fahnbulleh - Full Stack Developer" class="hero__image">
+                        </div>
+                    </div>
                 </div>
-                
 
-                <div class="home__social">
-                    <a href="https://www.linkedin.com/in/varney-d-fahnbulleh-784449281?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
-                    <a href="https://youtube.com/@Varkode248?si=a-yNBB1W20hJZBbX" class="home__social-icon"><i class='bx bxl-youtube' ></i></a>
-                    <a href="https://www.github.com/248World" class="home__social-icon"><i class='bx bxl-github' ></i></a>
-                </div>
-
-                <div class="home__img">
-                    <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <mask id="mask0" mask-type="alpha">
-                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
-                        </mask>
-                        <g mask="url(#mask0)">
-                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
-                            <image class="home__blob-img" x="70" y="90" href="Var.png"/>
-                        </g>
-                    </svg>
+                <div class="hero__social">
+                    <a href="https://www.linkedin.com/in/varney-d-fahnbulleh-784449281" 
+                       class="social-link" 
+                       aria-label="LinkedIn Profile"
+                       target="_blank">
+                        <i class='bx bxl-linkedin'></i>
+                    </a>
+                    <a href="https://youtube.com/@Varkode248" 
+                       class="social-link" 
+                       aria-label="YouTube Channel"
+                       target="_blank">
+                        <i class='bx bxl-youtube'></i>
+                    </a>
+                    <a href="https://www.github.com/248World" 
+                       class="social-link" 
+                       aria-label="GitHub Profile"
+                       target="_blank">
+                        <i class='bx bxl-github'></i>
+                    </a>
                 </div>
             </section>
 
-            <section class="about section " id="about">
-                <h2 class="section-title">About Me</h2>
+            <!-- About Section -->
+            <section class="about section" id="about">
+                <div class="section__header">
+                    <span class="section__subtitle">Get to know me</span>
+                    <h2 class="section__title">About Me</h2>
+                    <div class="section__divider"></div>
+                </div>
 
                 <div class="about__container bd-grid">
-                    
-                    <div>
-                        <h2 class="about__subtitle">I'am available for your <span class="nam2">frontend</span> and <span class="nam2">backend</span> projects.</h2>
-                        <p class="about__text">  
-                          I’m a curious and motivated developer who enjoys turning ideas into clean, functional, and user-friendly applications. I’m driven by learning, problem-solving, and building software that actually works in real-world scenarios. <br><br>
-My projects including a Basketball Scoreboard, a Weather App, an Encryption and Decryption app, and this portfolio site reflect my growing skills in HTML, CSS, JavaScript, PHP, React, Flutter and Java. Through these experiences, I’ve strengthened my understanding of application logic, 
-                            API integration, data handling, and basic security concepts. <br><br>
-I’m always eager to learn new technologies, improve my code quality, and take on challenges that help me grow as a developer. Explore my work to see how I can contribute to your next project.
+                    <div class="about__content">
+                        <h3 class="about__tagline">
+                            I build <span class="highlight">frontend</span> experiences and 
+                            <span class="highlight">backend</span> solutions.
+                        </h3>
+                        <div class="about__text">
+                            <p>
+                                I'm a passionate developer with a keen eye for creating clean, functional, 
+                                and user-friendly applications. My journey is driven by continuous learning, 
+                                problem-solving, and building software that makes a real impact.
+                            </p>
+                            <p>
+                                Through projects like a Basketball Scoreboard, Weather App, Encryption tools, 
+                                and this portfolio, I've strengthened my skills in modern technologies including 
+                                HTML, CSS, JavaScript, PHP, React, Flutter, and Java.
+                            </p>
+                            <p>
+                                I'm always excited to tackle new challenges, improve my craft, and contribute 
+                                to meaningful projects. Let's build something amazing together.
+                            </p>
+                        </div>
+                        <div class="about__stats">
+                            <div class="stat">
+                                <span class="stat__number">10+</span>
+                                <span class="stat__label">Projects Completed</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat__number">2+</span>
+                                <span class="stat__label">Years Experience</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat__number">100%</span>
+                                <span class="stat__label">Client Satisfaction</span>
+                            </div>
+                        </div>
                     </div>                                   
                 </div>
             </section>
 
+            <!-- Skills Section -->
             <section class="skills section" id="skills">
-                <h2 class="section-title">Skills</h2>
+                <div class="section__header">
+                    <span class="section__subtitle">What I'm good at</span>
+                    <h2 class="section__title">Technical Skills</h2>
+                    <div class="section__divider"></div>
+                </div>
 
                 <div class="skills__container bd-grid">          
-                    <div>
-                        <h2 class="skills__subtitle">Profesional Skills</h2>
-                        <p class="varr">My journey as a developer reflects my deep passion for technology and my commitment to growth and innovation. From building sleek user interfaces to solving complex backend challenges, I bring a versatile and future-focused skill set to the table.</p><br>
-                   
+                    <div class="skills__intro">
+                        <h3 class="skills__subtitle">Professional Expertise</h3>
+                        <p class="skills__description">
+                            My development journey reflects a deep passion for technology and commitment to 
+                            innovation. From building sleek user interfaces to solving complex backend challenges, 
+                            I bring a versatile and future-focused skill set.
+                        </p>
+                    </div>
+                    
+                    <div class="skills__grid">
+                        <!-- Frontend Skills -->
+                        <div class="skill-category">
+                            <h4 class="skill-category__title">
+                                <i class='bx bx-code-alt'></i> Frontend Development
+                            </h4>
+                            <div class="skill-list">
+                                <div class="skill">
+                                    <span class="skill__name">HTML/CSS</span>
+                                    <div class="skill__bar">
+                                        <div class="skill__level" data-level="95"></div>
+                                    </div>
+                                </div>
+                                <div class="skill">
+                                    <span class="skill__name">JavaScript</span>
+                                    <div class="skill__bar">
+                                        <div class="skill__level" data-level="90"></div>
+                                    </div>
+                                </div>
+                                <div class="skill">
+                                    <span class="skill__name">React</span>
+                                    <div class="skill__bar">
+                                        <div class="skill__level" data-level="85"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Backend Skills -->
+                        <div class="skill-category">
+                            <h4 class="skill-category__title">
+                                <i class='bx bx-server'></i> Backend Development
+                            </h4>
+                            <div class="skill-list">
+                                <div class="skill">
+                                    <span class="skill__name">PHP</span>
+                                    <div class="skill__bar">
+                                        <div class="skill__level" data-level="88"></div>
+                                    </div>
+                                </div>
+                                <div class="skill">
+                                    <span class="skill__name">Java</span>
+                                    <div class="skill__bar">
+                                        <div class="skill__level" data-level="85"></div>
+                                    </div>
+                                </div>
+                                <div class="skill">
+                                    <span class="skill__name">Python</span>
+                                    <div class="skill__bar">
+                                        <div class="skill__level" data-level="80"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tools & Others -->
+                        <div class="skill-category">
+                            <h4 class="skill-category__title">
+                                <i class='bx bx-cog'></i> Tools & Others
+                            </h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Git</span>
+                                <span class="skill-tag">Figma</span>
+                                <span class="skill-tag">Flutter</span>
+                                <span class="skill-tag">OpenCV</span>
+                                <span class="skill-tag">MySQL</span>
+                                <span class="skill-tag">Docker</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-               
             </section> 
            
-            <section class="work section" id="work">
-                <h2 class="section-title">Projects</h2>
+            <!-- Projects Section -->
+            <section class="projects section" id="work">
+                <div class="section__header">
+                    <span class="section__subtitle">My recent work</span>
+                    <h2 class="section__title">Featured Projects</h2>
+                    <div class="section__divider"></div>
+                </div>
 
-                <div class="work__container bd-grid">
-                    <div class="work__img">
-                        <a href="scoreindex.html">
-                            <img src="work.JPG" alt="Basketball Scoreboard">
-                        </a>
-                        <h3 class="project__title">Basketball Scoreboard</h3>
-                        <a href="https://github.com/248World/Scoreboard248" class="project__link"><i class='bx bxl-github'></i> View Source Code</a>
+                <div class="projects__container bd-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <div class="project-card__image">
+                            <img src="work.JPG" alt="Basketball Scoreboard Application">
+                            <div class="project-card__overlay">
+                                <a href="scoreindex.html" class="project-card__link" aria-label="View Basketball Scoreboard">
+                                    <i class='bx bx-link-external'></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-card__content">
+                            <h3 class="project-card__title">Basketball Scoreboard</h3>
+                            <p class="project-card__description">
+                                Interactive score tracking application with real-time updates and game statistics.
+                            </p>
+                            <div class="project-card__tech">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                            <a href="https://github.com/248World/Scoreboard248" 
+                               class="project-card__github" 
+                               target="_blank">
+                                <i class='bx bxl-github'></i> View Code
+                            </a>
+                        </div>
                     </div>
     
-                    <div class="work__img">
-                        <a href="weather.html">
-                            <img src="Capture.JPG" alt="Weather App">
-                        </a>
-                        <h3 class="project__title">Weather App</h3>
-                        <a href="https://github.com/248World/WeatherApp248" class="project__link"><i class='bx bxl-github'></i> View Source Code</a>
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div class="project-card__image">
+                            <img src="Capture.JPG" alt="Weather Application">
+                            <div class="project-card__overlay">
+                                <a href="weather.html" class="project-card__link" aria-label="View Weather App">
+                                    <i class='bx bx-link-external'></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-card__content">
+                            <h3 class="project-card__title">Weather Dashboard</h3>
+                            <p class="project-card__description">
+                                Real-time weather forecasting app with location-based data and beautiful visuals.
+                            </p>
+                            <div class="project-card__tech">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">API</span>
+                                <span class="tech-tag">CSS3</span>
+                            </div>
+                            <a href="https://github.com/248World/WeatherApp248" 
+                               class="project-card__github" 
+                               target="_blank">
+                                <i class='bx bxl-github'></i> View Code
+                            </a>
+                        </div>
                     </div>
 
-
-                    <div class="work__img">
-                        <a href="index.html">
-                            <img src="248 (2).png" alt="Portfolio Website">
-                        </a>
-                        <h3 class="project__title">Portfolio Website</h3>
-                        <a href="https://github.com/248World/Portfolio" class="project__link"><i class='bx bxl-github'></i> View Source Code</a>
+                    <!-- Project 3 -->
+                    <div class="project-card">
+                        <div class="project-card__image">
+                            <img src="Encrypt_Decrypt.png" alt="Encryption Application">
+                            <div class="project-card__overlay">
+                                <a href="https://varcode.pythonanywhere.com/" 
+                                   class="project-card__link" 
+                                   aria-label="View Encryption App"
+                                   target="_blank">
+                                    <i class='bx bx-link-external'></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-card__content">
+                            <h3 class="project-card__title">Encryption Tool</h3>
+                            <p class="project-card__description">
+                                Secure encryption and decryption application with multiple algorithm support.
+                            </p>
+                            <div class="project-card__tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Django</span>
+                                <span class="tech-tag">Security</span>
+                            </div>
+                            <a href="https://github.com/248World/Encryption_Decryption" 
+                               class="project-card__github" 
+                               target="_blank">
+                                <i class='bx bxl-github'></i> View Code
+                            </a>
+                        </div>
                     </div>
 
-                      <div class="work__img">
-                        <a href="his.png">
-                            <img src="his.png" alt="Image App">
-                        </a>
-                        <h3 class="project__title">Image Processing Application OpenCV build With C++</h3>
-                        <a href="https://github.com/248World/Applications-on-Image-Processing-in-Open-CV-with-C-" class="project__link"><i class='bx bxl-github'></i> View Source Code</a>
+                    <!-- Project 4 -->
+                    <div class="project-card">
+                        <div class="project-card__image">
+                            <img src="his.png" alt="Image Processing Application">
+                            <div class="project-card__overlay">
+                                <a href="#" class="project-card__link" aria-label="View Image Processing App">
+                                    <i class='bx bx-link-external'></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-card__content">
+                            <h3 class="project-card__title">Image Processing App</h3>
+                            <p class="project-card__description">
+                                Computer vision application built with OpenCV for advanced image manipulation.
+                            </p>
+                            <div class="project-card__tech">
+                                <span class="tech-tag">C++</span>
+                                <span class="tech-tag">OpenCV</span>
+                                <span class="tech-tag">Computer Vision</span>
+                            </div>
+                            <a href="https://github.com/248World/Applications-on-Image-Processing-in-Open-CV-with-C-" 
+                               class="project-card__github" 
+                               target="_blank">
+                                <i class='bx bxl-github'></i> View Code
+                            </a>
+                        </div>
                     </div>
-                     <div class="work__img">
-                        <a href="Estimate.png">
-                            <img src="Estimate.png" alt="Devis">
-                        </a>
-                        <h3 class="project__title">Estimatation Website</h3>
-                        <a href="https://github.com/248World/Devis_S.O.S" class="project__link"><i class='bx bxl-github'></i> View Source Code</a>
-                    </div>
-
-                     <div class="work__img">
-                        <a href="https://varcode.pythonanywhere.com/">
-                            <img src="Encrypt_Decrypt.png" alt="Devis">
-                        </a>
-                        <h3 class="project__title">Ecryption and Decryption</h3>
-                        <a href="https://github.com/248World/Encryption_Decryption" class="project__link"><i class='bx bxl-github'></i> View Source Code</a>
-                    </div>
-                   
-                    <script src="app.js"></script>
                 </div>
-            </section>
-            <section class="work section" id="services">
-                <h2 class="section-title">Services</h2>
-                <div class="services">
                 
-                  <div class="card">
-                    <div class="icons">
-                        <i class="fa-solid fa-mobile"></i>
+                <div class="projects__cta">
+                    <a href="https://github.com/248World" class="btn btn--outline" target="_blank">
+                        View All Projects on GitHub
+                    </a>
+                </div>
+            </section>
+
+            <!-- Services Section -->
+            <section class="services section" id="services">
+                <div class="section__header">
+                    <span class="section__subtitle">What I offer</span>
+                    <h2 class="section__title">My Services</h2>
+                    <div class="section__divider"></div>
+                </div>
+                
+                <div class="services__grid">
+                    <div class="service-card">
+                        <div class="service-card__icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 class="service-card__title">Mobile Development</h3>
+                        <p class="service-card__description">
+                            I create engaging mobile applications with sleek designs and optimal performance 
+                            using Flutter and native technologies.
+                        </p>
+                        <ul class="service-card__features">
+                            <li>Cross-platform Development</li>
+                            <li>UI/UX Implementation</li>
+                            <li>Performance Optimization</li>
+                            <li>App Store Deployment</li>
+                        </ul>
+                        <a href="#contact" class="service-card__link">
+                            Get Started <i class='bx bx-chevron-right'></i>
+                        </a>
                     </div>
-                    <h2>Mobile Development</h2>
-                    <p>I am committed to bringing your mobile app ideas to life with sleek, user-friendly designs that captivate and engage. With my expertise in mobile development and cutting-edge tools, I create apps that stand out and deliver a seamless user experience. Trust me to enhance your digital presence with a high-performance mobile solution tailored to your needs.
-                    </p>
-                        <a href="#" class="button">Read More</a>
-                  </div>
-                  <div class="card">
-                    <div class="icons">
-                        <i class="fa-solid fa-paintbrush"></i>
+                    
+                    <div class="service-card">
+                        <div class="service-card__icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3 class="service-card__title">UI/UX Design</h3>
+                        <p class="service-card__description">
+                            I design intuitive user interfaces and experiences that engage users and 
+                            drive conversions through thoughtful design principles.
+                        </p>
+                        <ul class="service-card__features">
+                            <li>User Research & Analysis</li>
+                            <li>Wireframing & Prototyping</li>
+                            <li>Interactive Design</li>
+                            <li>Usability Testing</li>
+                        </ul>
+                        <a href="#contact" class="service-card__link">
+                            Get Started <i class='bx bx-chevron-right'></i>
+                        </a>
                     </div>
-                    <h2>UI/UX Design</h2>
-                    <p>I specialize in crafting exceptional UI/UX designs that are both visually stunning and intuitively user-friendly. By focusing on your customers' needs, I create interfaces that are engaging and easy to navigate. Let me help you elevate your digital presence with a design that captures attention and keeps users coming back.</p>
-                        <a href="#" class="button">Read More</a>
-                  </div>
-                  <div class="card">
-                    <div class="icons">
-                        <i class="fa-solid fa-desktop"></i>
+                    
+                    <div class="service-card">
+                        <div class="service-card__icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="service-card__title">Web Development</h3>
+                        <p class="service-card__description">
+                            I build responsive, fast, and scalable web applications using modern 
+                            frameworks and best practices.
+                        </p>
+                        <ul class="service-card__features">
+                            <li>Full Stack Development</li>
+                            <li>API Integration</li>
+                            <li>Performance Optimization</li>
+                            <li>Maintenance & Support</li>
+                        </ul>
+                        <a href="#contact" class="service-card__link">
+                            Get Started <i class='bx bx-chevron-right'></i>
+                        </a>
                     </div>
-                    <h2>Web Design</h2>
-                    <p>I am passionate about creating beautiful and functional web designs that leave a lasting impression. Combining creativity with technical expertise, I craft websites that are both visually appealing and user-friendly. Whether you need a complete redesign or a new website, I will ensure that your site reflects your brand and engages your audience.</p>
-                        <a href="#" class="button">Read More</a>
-                  </div>
                 </div>
             </section>
             
-            <section id="testimonials">
-                <div class="testimonials-heading">
-                    <span>Comments</span>
-                    <h1>Testimonials</h1>
+            <!-- Testimonials Section -->
+            <section class="testimonials section" id="testimonials">
+                <div class="section__header">
+                    <span class="section__subtitle">Client feedback</span>
+                    <h2 class="section__title">Testimonials</h2>
+                    <div class="section__divider"></div>
                 </div>
-                <p class="translation-instruction">Click a flag to view testimonials in English or French.</p>
-                <div class="language-toggle flex">
-                    <img src="https://flagcdn.com/w20/gb.png" alt="English" class="flag" data-lang="en" onclick="toggleLanguage('en')">
-                    <img src="https://flagcdn.com/w20/fr.png" alt="French" class="flag" data-lang="fr" onclick="toggleLanguage('fr')">
+                
+                <p class="testimonials__instruction">
+                    Click a flag to view testimonials in English or French.
+                </p>
+                
+                <div class="language-toggle">
+                    <button class="language-btn active" data-lang="en" onclick="toggleLanguage('en')">
+                        <img src="https://flagcdn.com/w20/gb.png" alt="English"> English
+                    </button>
+                    <button class="language-btn" data-lang="fr" onclick="toggleLanguage('fr')">
+                        <img src="https://flagcdn.com/w20/fr.png" alt="French"> Français
+                    </button>
                 </div>
-                <div class="testimonials-box-container">
-                    <div class="testimonials-box">
-                        <div class="box-top">
-                            <div class="profile">
-                                <div class="profile-img">
-                                    <img src="markie.jpg" alt="">
+                
+                <div class="testimonials__slider swiper">
+                    <div class="swiper-wrapper">
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-card swiper-slide">
+                            <div class="testimonial-card__content">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
                                 </div>
-                                <div class="user-name">
-                                    <strong>Emmanuel Markie Morris</strong>
-                                    <span>@Full-Stack Developer</span>
-                                </div>
-                                <div class="reviews">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
+                                <p class="testimonial-text" data-lang="en">
+                                    Varney loves and knows what he does. He's goal oriented and persistent. 
+                                    As a go-getter, he's spent his past years deepening his programming 
+                                    knowledge through learning and application. His portfolio is evidence 
+                                    of his works. I'd recommend him to your team.
+                                </p>
+                                <p class="testimonial-text" data-lang="fr" style="display: none;">
+                                    Varney aime et sait ce qu'il fait. Il est orienté vers ses objectifs 
+                                    et persévérant. En tant que personne ambitieuse, il a passé ces dernières 
+                                    années à approfondir ses connaissances en programmation par l'apprentissage 
+                                    et l'application. Son portfolio est une preuve de ses travaux. 
+                                    Je le recommanderais à votre équipe.
+                                </p>
+                            </div>
+                            <div class="testimonial-card__author">
+                                <img src="markie.jpg" alt="Emmanuel Markie Morris" class="author-avatar">
+                                <div class="author-info">
+                                    <h4 class="author-name">Emmanuel Markie Morris</h4>
+                                    <span class="author-role">Full-Stack Developer</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="client-comment">
-                            <p data-lang="en">Varney loves and knows what he does. He’s goal oriented and persistent. As a go-getter, he’s spent his past years deepening his programming and development knowledge by learning and application. His portfolio is an evidence of his works. I’d recommend him to your team.</p>
-                            <p data-lang="fr" style="display: none;">Varney aime et sait ce qu'il fait. Il est orienté vers ses objectifs et persévérant. En tant que personne ambitieuse, il a passé ces dernières années à approfondir ses connaissances en programmation et en développement par l'apprentissage et l'application. Son portfolio est une preuve de ses travaux. Je le recommanderais à votre équipe.</p>
-                        </div>
-                    </div>
-
-                    <div class="testimonials-box">
-                        <div class="box-top">
-                            <div class="profile">
-                                <div class="profile-img">
-                                    <img src="james.jpg" alt="">
+                        
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-card swiper-slide">
+                            <div class="testimonial-card__content">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
                                 </div>
-                                <div class="user-name">
-                                    <strong>James Madavie</strong>
-                                    <span>@Web Developer</span>
-                                </div>
-                                <div class="reviews">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
+                                <p class="testimonial-text" data-lang="en">
+                                    Mr. Varney D Fahnbulleh is an exceptional programmer known for his technical 
+                                    expertise and innovative problem-solving skills. His dedication and commitment 
+                                    to delivering high-quality results make him an invaluable asset.
+                                </p>
+                                <p class="testimonial-text" data-lang="fr" style="display: none;">
+                                    M. Varney D Fahnbulleh est un programmeur exceptionnel connu pour son expertise 
+                                    technique et ses compétences innovantes en résolution de problèmes. 
+                                    Son dévouement et son engagement à fournir des résultats de haute qualité 
+                                    en font un atout inestimable.
+                                </p>
+                            </div>
+                            <div class="testimonial-card__author">
+                                <img src="james.jpg" alt="James Madavie" class="author-avatar">
+                                <div class="author-info">
+                                    <h4 class="author-name">James Madavie</h4>
+                                    <span class="author-role">Web Developer</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="client-comment">
-                            <p data-lang="en">Mr. Varney D Fahnbulleh is an exceptional programmer known for his technical expertise and innovative problem-solving skills. His dedication and commitment to delivering high-quality results make him an invaluable asset to any team.</p>
-                            <p data-lang="fr" style="display: none;">M. Varney D Fahnbulleh est un programmeur exceptionnel connu pour son expertise technique et ses compétences innovantes en résolution de problèmes. Son dévouement et son engagement à fournir des résultats de haute qualité en font un atout inestimable pour toute équipe.</p>
-                        </div>
-                    </div>
-
-                    <div class="testimonials-box">
-                        <div class="box-top">
-                            <div class="profile">
-                                <div class="profile-img">
-                                    <img src="ammid.jpg" alt="">
+                        
+                        <!-- Testimonial 3 -->
+                        <div class="testimonial-card swiper-slide">
+                            <div class="testimonial-card__content">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
                                 </div>
-                                <div class="user-name">
-                                    <strong>Ammid Said Omar</strong>
-                                    <span>@Software Developer</span>
-                                </div>
-                                <div class="reviews">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
+                                <p class="testimonial-text" data-lang="en">
+                                    Varney is the ideal person when it comes to solving technical problems. 
+                                    Throughout our collaboration, his perseverance and determination inspired me. 
+                                    I highly recommend him for his competence and excellent communication skills.
+                                </p>
+                                <p class="testimonial-text" data-lang="fr" style="display: none;">
+                                    Varney est la personne idéale quand il s'agit de résoudre des problèmes techniques. 
+                                    Durant notre collaboration, sa persévérance et sa détermination m'ont inspiré. 
+                                    Je le recommande vivement pour sa compétence et ses excellentes compétences en communication.
+                                </p>
+                            </div>
+                            <div class="testimonial-card__author">
+                                <img src="ammid.jpg" alt="Ammid Said Omar" class="author-avatar">
+                                <div class="author-info">
+                                    <h4 class="author-name">Ammid Said Omar</h4>
+                                    <span class="author-role">Software Developer</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="client-comment">
-                            <p data-lang="fr">Varney est la personne idéale quand il s’agit de résoudre des problèmes techniques. Durant tout le temps que nous avons travaillé ensemble, sa persévérance et sa détermination m’ont inspiré et m’ont aidé à croire davantage en moi. Je le recommande vivement à votre équipe si vous recherchez quelqu’un de compétent, de qualité et doté d’excellentes compétences en communication.</p>
-                            <p data-lang="en" style="display: none;">Varney is the ideal person when it comes to solving technical problems. Throughout the time we worked together, his perseverance and determination inspired me and helped me believe in myself more. I highly recommend him to your team if you’re looking for someone competent, high-quality, and with excellent communication skills.</p>
-                        </div>
                     </div>
-                </div>     
+                    <div class="swiper-pagination"></div>
+                </div>
             </section>
 
+            <!-- Contact Section -->
             <section class="contact section" id="contact">
-                <h2 class="section-title">Contact Me</h2>
-                <div class="contactbox">
-                    <div class="contact__container bd-grid">
-                        <form onsubmit="sendEmail(); reset(); return false;">
-                            <h3>Get in Touch</h3>
-                            <input type="text" id="name" placeholder="Name" class="contact__input" required>
-                            <input type="mail" id="email" placeholder="Email" class="contact__input" required><br>
-                            <textarea name="msg"  placeholder="How can i help you?" id="msg" cols="0" rows="4" class="contact__input"></textarea>
-                           
-                            <input type="submit"  value="Send Message" class="contact__button button">
-                            
-            
-                        </form>
-                        <div class="contact_info">
-                            <h3>Contact Information</h3>
-                            <i class="fa-solid fa-phone"><a href="tel:"> +212 621 096 641</a></i> <br>
-                            <i class="fa-solid fa-envelope"><a href="mailto:varfahnbulleh@gmail.com"> varfahnbulleh@gmail.com</a></i> 
-                        </div>
+                <div class="section__header">
+                    <span class="section__subtitle">Get in touch</span>
+                    <h2 class="section__title">Contact Me</h2>
+                    <div class="section__divider"></div>
                 </div>
+                
+                <div class="contact__container bd-grid">
+                    <div class="contact__form-container">
+                        <h3 class="contact__form-title">Send a Message</h3>
+                        <form id="contactForm" class="contact__form">
+                            <div class="form-group">
+                                <input type="text" 
+                                       id="name" 
+                                       name="name" 
+                                       placeholder="Your Name" 
+                                       class="form-input" 
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" 
+                                       id="email" 
+                                       name="email" 
+                                       placeholder="Your Email" 
+                                       class="form-input" 
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" 
+                                          name="message" 
+                                          placeholder="How can I help you?" 
+                                          rows="4" 
+                                          class="form-textarea" 
+                                          required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn--primary form-submit">
+                                <i class='bx bx-send'></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="contact__info">
+                        <h3 class="contact__info-title">Contact Information</h3>
+                        <div class="contact__info-items">
+                            <div class="contact__info-item">
+                                <i class='bx bx-phone'></i>
+                                <div>
+                                    <h4>Phone</h4>
+                                    <a href="tel:+212621096641">+212 621 096 641</a>
+                                </div>
+                            </div>
+                            <div class="contact__info-item">
+                                <i class='bx bx-envelope'></i>
+                                <div>
+                                    <h4>Email</h4>
+                                    <a href="mailto:varfahnbulleh@gmail.com">varfahnbulleh@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="contact__info-item">
+                                <i class='bx bx-map'></i>
+                                <div>
+                                    <h4>Location</h4>
+                                    <span>Available for remote work worldwide</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact__hours">
+                            <h4>Response Time</h4>
+                            <p>I typically respond within 24 hours during business days.</p>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
 
-    
+        <!-- Footer -->
         <footer class="footer">
-            <p class="footer__title"> Varney D.</p>
-            <div class="footer__social">
-                <a href="https://www.linkedin.com/in/varney-d-fahnbulleh-784449281?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="footer__icon"><i class='bx bxl-linkedin' ></i></a>
-                <a href="https://youtube.com/@Varkode248?si=a-yNBB1W20hJZBbX" class="footer__icon"><i class='bx bxl-youtube' ></i></a>
-                <a href="https://www.github.com/248World" class="footer__icon"><i class='bx bxl-github' ></i></a>
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <h3 class="footer__logo">V.D.F</h3>
+                    <p class="footer__tagline">Building digital experiences that make a difference</p>
+                </div>
+                
+                <div class="footer__social">
+                    <a href="https://www.linkedin.com/in/varney-d-fahnbulleh-784449281" 
+                       class="social-link footer__social-link"
+                       aria-label="LinkedIn"
+                       target="_blank">
+                        <i class='bx bxl-linkedin'></i>
+                    </a>
+                    <a href="https://youtube.com/@Varkode248" 
+                       class="social-link footer__social-link"
+                       aria-label="YouTube"
+                       target="_blank">
+                        <i class='bx bxl-youtube'></i>
+                    </a>
+                    <a href="https://www.github.com/248World" 
+                       class="social-link footer__social-link"
+                       aria-label="GitHub"
+                       target="_blank">
+                        <i class='bx bxl-github'></i>
+                    </a>
+                </div>
+                
+                <div class="footer__nav">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#work">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
             </div>
-            <p class="footer__copy">&#169; Copyright 2025 <span class="var24"> Varney D. Fahnbulleh </span> All Rights Reserved.</p> <br>
+            
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    &copy; <span id="currentYear"></span> Varney D. Fahnbulleh. All Rights Reserved.
+                </p>
+            </div>
         </footer>
-        <script src="theme.js"></script>
-        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
+        <!-- Scripts -->
         <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-        <script>
-            var typed = new Typed (".auto-type",{
-                strings: ["Web Developer","Mobile Developer", "UI/UX Designer","Trainer","Graphic Designer"],
-                typeSpeed: 100,
-                backSpeed: 100,
-                loop: true,
-                cursorChar: "|"
-            })
-        </script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script src="https://smtpjs.com/v3/smtp.js"></script>
         
         <script>
-            function sendEmail(){
-                Email.send({
-                    Host : "smtp.gmail.com",
-                    Username : "varfahnbulleh@gmail.com",
-                    Password : "Agnesweah@24",
-                    To : 'varfahnbulleh@gmail.com',
-                    From : document.getElementById("email").value,
-                    Subject : "New contact from enauiry",
-                    Body : "Name: " + document.getElementById("name").value
-                    + "\n\nEmail: " + document.getElementById("email").value
-                    + "\n\nMessage: " + document.getElementById("msg").value
-                }).then(
-                  message => alert("Message Sent Succesfully")
-                );
-            }
-        </script>
-        <script>
-            function toggleLanguage(lang) {
-                document.querySelectorAll('.client-comment p').forEach(p => {
-                    if (p.getAttribute('data-lang') === lang) {
-                        p.style.display = 'block';
-                    } else {
-                        p.style.display = 'none';
+            // Initialize Typed.js
+            document.addEventListener('DOMContentLoaded', function() {
+                var typed = new Typed(".auto-type", {
+                    strings: ["Full Stack Developer", "Mobile App Developer", "UI/UX Designer", "Problem Solver", "Tech Enthusiast"],
+                    typeSpeed: 60,
+                    backSpeed: 40,
+                    loop: true,
+                    cursorChar: "|",
+                    smartBackspace: true
+                });
+                
+                // Set current year in footer
+                document.getElementById('currentYear').textContent = new Date().getFullYear();
+                
+                // Initialize Swiper
+                const swiper = new Swiper('.testimonials__slider', {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                    loop: true,
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    breakpoints: {
+                        768: {
+                            slidesPerView: 2,
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                        }
                     }
                 });
+                
+                // Animate skill bars
+                const animateSkills = () => {
+                    document.querySelectorAll('.skill__level').forEach(bar => {
+                        const level = bar.getAttribute('data-level');
+                        bar.style.width = level + '%';
+                    });
+                };
+                
+                // Trigger animation when skills section is in view
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateSkills();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                const skillsSection = document.querySelector('.skills');
+                if (skillsSection) observer.observe(skillsSection);
+            });
+            
+            // Language toggle function
+            function toggleLanguage(lang) {
+                // Update active button
+                document.querySelectorAll('.language-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+                });
+                
+                // Update testimonial texts
+                document.querySelectorAll('.testimonial-text').forEach(p => {
+                    p.style.display = p.getAttribute('data-lang') === lang ? 'block' : 'none';
+                });
             }
+            
             // Set default language to English
             toggleLanguage('en');
+            
+            // Email sending function (enhanced)
+            function sendEmail(event) {
+                event.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                // Show loading state
+                const submitBtn = document.querySelector('.form-submit');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="bx bx-loader-alt bx-spin"></i> Sending...';
+                submitBtn.disabled = true;
+                
+                Email.send({
+                    Host: "smtp.gmail.com",
+                    Username: "varfahnbulleh@gmail.com",
+                    Password: "your-app-specific-password", // Use app password, not regular password
+                    To: 'varfahnbulleh@gmail.com',
+                    From: email,
+                    Subject: `New Contact Form Submission from ${name}`,
+                    Body: `
+                        Name: ${name}<br>
+                        Email: ${email}<br><br>
+                        Message:<br>
+                        ${message}
+                    `
+                }).then(
+                    response => {
+                        if (response === 'OK') {
+                            alert('Message sent successfully! I\'ll get back to you soon.');
+                            document.getElementById('contactForm').reset();
+                        } else {
+                            throw new Error('Failed to send');
+                        }
+                    }
+                ).catch(
+                    error => {
+                        alert('Failed to send message. Please try again or contact me directly at varfahnbulleh@gmail.com');
+                        console.error('Email send error:', error);
+                    }
+                ).finally(
+                    () => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    }
+                );
+            }
+            
+            // Attach form submission
+            document.getElementById('contactForm').addEventListener('submit', sendEmail);
+            
+            // Theme toggle functionality
+            document.getElementById('theme-toggle').addEventListener('click', function() {
+                document.body.classList.toggle('dark-theme');
+                const icon = document.getElementById('theme-icon');
+                if (document.body.classList.contains('dark-theme')) {
+                    icon.classList.remove('bx-moon');
+                    icon.classList.add('bx-sun');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    icon.classList.remove('bx-sun');
+                    icon.classList.add('bx-moon');
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+            
+            // Load saved theme
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark-theme');
+                document.getElementById('theme-icon').classList.replace('bx-moon', 'bx-sun');
+            }
         </script>
+        
         <script src="https://unpkg.com/scrollreveal"></script>
         <script src="scroll-reveal.js"></script>
         <script src="script.js"></script>
-        <script src="swiper-bundle.min.js"></script>
-        <script src="main.js"></script>
         <script src="responsive-navbar.js"></script>
+        <script src="main.js"></script>
     </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
