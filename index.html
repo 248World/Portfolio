@@ -591,10 +591,10 @@
                 <div class="contact__container bd-grid">
                     <div class="contact__form-container">
                         <h3 class="contact__form-title">Send a Message</h3>
-                        <form id="contactForm" class="contact__form">
+                        <!-- Updated Form with your Formspree ID -->
+                        <form id="contactForm" action="https://formspree.io/f/mkovndlg" method="POST" class="contact__form">
                             <div class="form-group">
                                 <input type="text" 
-                                       id="name" 
                                        name="name" 
                                        placeholder="Your Name" 
                                        class="form-input" 
@@ -602,15 +602,13 @@
                             </div>
                             <div class="form-group">
                                 <input type="email" 
-                                       id="email" 
                                        name="email" 
                                        placeholder="Your Email" 
                                        class="form-input" 
                                        required>
                             </div>
                             <div class="form-group">
-                                <textarea id="message" 
-                                          name="message" 
+                                <textarea name="message" 
                                           placeholder="How can I help you?" 
                                           rows="4" 
                                           class="form-textarea" 
@@ -619,6 +617,11 @@
                             <button type="submit" class="btn btn--primary form-submit">
                                 <i class='bx bx-send'></i> Send Message
                             </button>
+                            
+                            <!-- Formspree hidden fields for better organization -->
+                            <input type="hidden" name="_subject" value="New Contact Form Submission - Portfolio">
+                            <input type="hidden" name="_format" value="plain">
+                            <input type="text" name="_gotcha" style="display:none;">
                         </form>
                     </div>
                     
@@ -695,7 +698,7 @@
             
             <div class="footer__bottom">
                 <p class="footer__copyright">
-                    &copy; Varney D. Fahnbulleh. All Rights Reserved.
+                    &copy; <span id="currentYear">2024</span> Varney D. Fahnbulleh. All Rights Reserved.
                 </p>
             </div>
         </footer>
@@ -703,7 +706,6 @@
         <!-- Scripts -->
         <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <script src="https://smtpjs.com/v3/smtp.js"></script>
         
         <script>
             // Initialize Typed.js
@@ -763,6 +765,28 @@
                 
                 const skillsSection = document.querySelector('.skills');
                 if (skillsSection) observer.observe(skillsSection);
+                
+                // Form submission handling
+                const contactForm = document.getElementById('contactForm');
+                if (contactForm) {
+                    contactForm.addEventListener('submit', function(e) {
+                        const submitBtn = this.querySelector('.form-submit');
+                        const originalText = submitBtn.innerHTML;
+                        
+                        // Show loading state
+                        submitBtn.innerHTML = '<i class="bx bx-loader-alt bx-spin"></i> Sending...';
+                        submitBtn.disabled = true;
+                        
+                        // Form will submit to Formspree
+                        // Formspree will redirect to thank you page or show success
+                        
+                        // Reset button after form submission attempt
+                        setTimeout(() => {
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.disabled = false;
+                        }, 3000);
+                    });
+                }
             });
             
             // Language toggle function
@@ -780,58 +804,6 @@
             
             // Set default language to English
             toggleLanguage('en');
-            
-            // Email sending function (enhanced)
-            function sendEmail(event) {
-                event.preventDefault();
-                
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const message = document.getElementById('message').value;
-                
-                // Show loading state
-                const submitBtn = document.querySelector('.form-submit');
-                const originalText = submitBtn.innerHTML;
-                submitBtn.innerHTML = '<i class="bx bx-loader-alt bx-spin"></i> Sending...';
-                submitBtn.disabled = true;
-                
-                Email.send({
-                    Host: "smtp.gmail.com",
-                    Username: "varfahnbulleh@gmail.com",
-                    Password: "your-app-specific-password", // Use app password, not regular password
-                    To: 'varfahnbulleh@gmail.com',
-                    From: email,
-                    Subject: `New Contact Form Submission from ${name}`,
-                    Body: `
-                        Name: ${name}<br>
-                        Email: ${email}<br><br>
-                        Message:<br>
-                        ${message}
-                    `
-                }).then(
-                    response => {
-                        if (response === 'OK') {
-                            alert('Message sent successfully! I\'ll get back to you soon.');
-                            document.getElementById('contactForm').reset();
-                        } else {
-                            throw new Error('Failed to send');
-                        }
-                    }
-                ).catch(
-                    error => {
-                        alert('Failed to send message. Please try again or contact me directly at varfahnbulleh@gmail.com');
-                        console.error('Email send error:', error);
-                    }
-                ).finally(
-                    () => {
-                        submitBtn.innerHTML = originalText;
-                        submitBtn.disabled = false;
-                    }
-                );
-            }
-            
-            // Attach form submission
-            document.getElementById('contactForm').addEventListener('submit', sendEmail);
             
             // Theme toggle functionality
             document.getElementById('theme-toggle').addEventListener('click', function() {
@@ -853,6 +825,55 @@
                 document.body.classList.add('dark-theme');
                 document.getElementById('theme-icon').classList.replace('bx-moon', 'bx-sun');
             }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        const navMenu = document.querySelector('.nav__menu');
+                        if (navMenu.classList.contains('active')) {
+                            navMenu.classList.remove('active');
+                            document.querySelector('.menu-toggle').setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                });
+            });
+            
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('.nav__menu');
+            
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', function() {
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    navMenu.classList.toggle('active');
+                    
+                    // Toggle hamburger to X
+                    const lines = this.querySelectorAll('.menu-toggle__line');
+                    if (!isExpanded) {
+                        lines[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                        lines[1].style.opacity = '0';
+                        lines[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                    } else {
+                        lines[0].style.transform = 'none';
+                        lines[1].style.opacity = '1';
+                        lines[2].style.transform = 'none';
+                    }
+                });
+            }
         </script>
         
         <script src="https://unpkg.com/scrollreveal"></script>
@@ -862,4 +883,3 @@
         <script src="main.js"></script>
     </body>
 </html>
-
