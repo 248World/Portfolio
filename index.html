@@ -27,6 +27,76 @@
         <link rel="stylesheet" href="responsive-navbar.css">
         
         <title>Varney D. Fahnbulleh | Full Stack Developer & Designer</title>
+        
+        <style>
+            /* Language switcher styles */
+            .language-switcher {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin-right: 15px;
+            }
+            
+            .language-option {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                padding: 6px 12px;
+                background: transparent;
+                border: 1px solid var(--gray-light);
+                border-radius: var(--border-radius);
+                color: var(--dark-color);
+                font-size: var(--small-font-size);
+                cursor: pointer;
+                transition: var(--transition);
+            }
+            
+            .dark-theme .language-option {
+                color: var(--dark-color);
+                border-color: rgba(255, 255, 255, 0.2);
+            }
+            
+            .language-option.active,
+            .language-option:hover {
+                background-color: var(--first-color);
+                color: white;
+                border-color: var(--first-color);
+            }
+            
+            .language-option img {
+                width: 20px;
+                height: 15px;
+                object-fit: cover;
+                border-radius: 2px;
+            }
+            
+            .language-option-mobile {
+                display: none;
+            }
+            
+            @media screen and (max-width: 768px) {
+                .language-switcher {
+                    display: none;
+                }
+                
+                .language-option-mobile {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    padding: 15px 0;
+                    font-size: var(--h3-font-size);
+                    color: var(--dark-color);
+                }
+                
+                .dark-theme .language-option-mobile {
+                    color: var(--dark-color);
+                }
+                
+                .language-option-mobile.active {
+                    color: var(--first-color);
+                }
+            }
+        </style>
     </head>
     <body>
        
@@ -48,18 +118,41 @@
                 <!-- Navigation Menu -->
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
-                        <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
-                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                        <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-                        <li class="nav__item"><a href="#work" class="nav__link">Projects</a></li>
-                        <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
-                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                        <li class="nav__item"><a href="#home" class="nav__link active-link" data-en="Home" data-fr="Accueil">Home</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link" data-en="About" data-fr="À propos">About</a></li>
+                        <li class="nav__item"><a href="#skills" class="nav__link" data-en="Skills" data-fr="Compétences">Skills</a></li>
+                        <li class="nav__item"><a href="#work" class="nav__link" data-en="Projects" data-fr="Projets">Projects</a></li>
+                        <li class="nav__item"><a href="#services" class="nav__link" data-en="Services" data-fr="Services">Services</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link" data-en="Contact" data-fr="Contact">Contact</a></li>
+                        
+                        <!-- Language Switcher for Mobile -->
+                        <li class="nav__item language-option-mobile" onclick="changeLanguage('en')">
+                            <img src="https://flagcdn.com/w20/gb.png" alt="English">
+                            <span>English</span>
+                        </li>
+                        <li class="nav__item language-option-mobile" onclick="changeLanguage('fr')">
+                            <img src="https://flagcdn.com/w20/fr.png" alt="French">
+                            <span>Français</span>
+                        </li>
+                        
                         <li class="nav__item">
                             <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode">
                                 <i id="theme-icon" class='bx bx-moon'></i>
                             </button>
                         </li>
                     </ul>
+                </div>
+                
+                <!-- Language Switcher for Desktop -->
+                <div class="language-switcher">
+                    <button class="language-option active" onclick="changeLanguage('en')">
+                        <img src="https://flagcdn.com/w20/gb.png" alt="English">
+                        <span>EN</span>
+                    </button>
+                    <button class="language-option" onclick="changeLanguage('fr')">
+                        <img src="https://flagcdn.com/w20/fr.png" alt="French">
+                        <span>FR</span>
+                    </button>
                 </div>
             </nav>
         </header>
@@ -69,20 +162,24 @@
             <section class="hero bd-grid" id="home">
                 <div class="hero__content">
                     <div class="hero__text">
-                        <h1 class="hero__subtitle">Hello, I'm</h1>
+                        <h1 class="hero__subtitle" data-en="Hello, I'm" data-fr="Bonjour, je suis">Hello, I'm</h1>
                         <h2 class="hero__title">Varney D. <span class="hero__highlight">Fahnbulleh</span></h2>
                         <div class="hero__typewriter">
-                            <span class="auto-type"></span>
+                            <span class="auto-type" data-en='["Full Stack Developer", "Mobile App Developer", "UI/UX Designer", "Problem Solver", "Tech Enthusiast"]' 
+                                  data-fr='["Développeur Full Stack", "Développeur d\'Applications Mobiles", "Designer UI/UX", "Résolveur de Problèmes", "Passionné de Technologie"]'></span>
                         </div>
-                        <p class="hero__description">
+                        <p class="hero__description" data-en="I build digital experiences that are beautiful, functional, and user-focused."
+                           data-fr="Je crée des expériences numériques belles, fonctionnelles et centrées sur l'utilisateur.">
                             I build digital experiences that are beautiful, functional, and user-focused.
                         </p>
                         <div class="hero__cta">
                             <a href="cvVarney.pdf" class="btn btn--primary" download>
-                                <i class='bx bx-download'></i> Download CV
+                                <i class='bx bx-download'></i> 
+                                <span data-en="Download CV" data-fr="Télécharger CV">Download CV</span>
                             </a>
                             <a href="#contact" class="btn btn--secondary">
-                                <i class='bx bx-message-dots'></i> Let's Talk
+                                <i class='bx bx-message-dots'></i> 
+                                <span data-en="Let's Talk" data-fr="Discutons">Let's Talk</span>
                             </a>
                         </div>
                     </div>
@@ -120,45 +217,46 @@
             <!-- About Section -->
             <section class="about section" id="about">
                 <div class="section__header">
-                    <span class="section__subtitle">Get to know me</span>
-                    <h2 class="section__title">About Me</h2>
+                    <span class="section__subtitle" data-en="Get to know me" data-fr="Apprenez à me connaître">Get to know me</span>
+                    <h2 class="section__title" data-en="About Me" data-fr="À propos de moi">About Me</h2>
                     <div class="section__divider"></div>
                 </div>
 
                 <div class="about__container bd-grid">
                     <div class="about__content">
                         <h3 class="about__tagline">
-                            I build <span class="highlight">frontend</span> experiences and 
-                            <span class="highlight">backend</span> solutions.
+                            <span data-en="I build" data-fr="Je construis">I build</span> 
+                            <span class="highlight" data-en="frontend" data-fr="frontend">frontend</span> 
+                            <span data-en="experiences and" data-fr="expériences et">experiences and</span> 
+                            <span class="highlight" data-en="backend" data-fr="backend">backend</span> 
+                            <span data-en="solutions." data-fr="solutions.">solutions.</span>
                         </h3>
                         <div class="about__text">
-                            <p>
-                                I'm a passionate developer with a keen eye for creating clean, functional, 
-                                and user-friendly applications. My journey is driven by continuous learning, 
-                                problem-solving, and building software that makes a real impact.
+                            <p data-en="I'm a passionate developer with a keen eye for creating clean, functional, and user-friendly applications. My journey is driven by continuous learning, problem-solving, and building software that makes a real impact."
+                               data-fr="Je suis un développeur passionné avec un œil attentif pour créer des applications propres, fonctionnelles et conviviales. Mon parcours est motivé par l'apprentissage continu, la résolution de problèmes et la création de logiciels qui ont un impact réel.">
+                                I'm a passionate developer with a keen eye for creating clean, functional, and user-friendly applications. My journey is driven by continuous learning, problem-solving, and building software that makes a real impact.
                             </p>
-                            <p>
-                                Through projects like a Basketball Scoreboard, Weather App, Encryption tools, 
-                                and this portfolio, I've strengthened my skills in modern technologies including 
-                                HTML, CSS, JavaScript, PHP, React, Flutter, and Java.
+                            <p data-en="Through projects like a Basketball Scoreboard, Weather App, Encryption tools, and this portfolio, I've strengthened my skills in modern technologies including HTML, CSS, JavaScript, PHP, React, Flutter, and Java."
+                               data-fr="Grâce à des projets comme un Tableau de Score de Basketball, une Application Météo, des outils de Cryptage et ce portfolio, j'ai renforcé mes compétences dans les technologies modernes incluant HTML, CSS, JavaScript, PHP, React, Flutter et Java.">
+                                Through projects like a Basketball Scoreboard, Weather App, Encryption tools, and this portfolio, I've strengthened my skills in modern technologies including HTML, CSS, JavaScript, PHP, React, Flutter, and Java.
                             </p>
-                            <p>
-                                I'm always excited to tackle new challenges, improve my craft, and contribute 
-                                to meaningful projects. Let's build something amazing together.
+                            <p data-en="I'm always excited to tackle new challenges, improve my craft, and contribute to meaningful projects. Let's build something amazing together."
+                               data-fr="Je suis toujours enthousiaste à l'idée de relever de nouveaux défis, d'améliorer mon métier et de contribuer à des projets significatifs. Construisons quelque chose d'extraordinaire ensemble.">
+                                I'm always excited to tackle new challenges, improve my craft, and contribute to meaningful projects. Let's build something amazing together.
                             </p>
                         </div>
                         <div class="about__stats">
                             <div class="stat">
                                 <span class="stat__number">10+</span>
-                                <span class="stat__label">Projects Completed</span>
+                                <span class="stat__label" data-en="Projects Completed" data-fr="Projets Terminés">Projects Completed</span>
                             </div>
                             <div class="stat">
                                 <span class="stat__number">2+</span>
-                                <span class="stat__label">Years Experience</span>
+                                <span class="stat__label" data-en="Years Experience" data-fr="Années d'Expérience">Years Experience</span>
                             </div>
                             <div class="stat">
                                 <span class="stat__number">100%</span>
-                                <span class="stat__label">Client Satisfaction</span>
+                                <span class="stat__label" data-en="Client Satisfaction" data-fr="Satisfaction Client">Client Satisfaction</span>
                             </div>
                         </div>
                     </div>                                   
@@ -168,18 +266,17 @@
             <!-- Skills Section -->
             <section class="skills section" id="skills">
                 <div class="section__header">
-                    <span class="section__subtitle">What I'm good at</span>
-                    <h2 class="section__title">Technical Skills</h2>
+                    <span class="section__subtitle" data-en="What I'm good at" data-fr="Ce que je fais bien">What I'm good at</span>
+                    <h2 class="section__title" data-en="Technical Skills" data-fr="Compétences Techniques">Technical Skills</h2>
                     <div class="section__divider"></div>
                 </div>
 
                 <div class="skills__container bd-grid">          
                     <div class="skills__intro">
-                        <h3 class="skills__subtitle">Professional Expertise</h3>
-                        <p class="skills__description">
-                            My development journey reflects a deep passion for technology and commitment to 
-                            innovation. From building sleek user interfaces to solving complex backend challenges, 
-                            I bring a versatile and future-focused skill set.
+                        <h3 class="skills__subtitle" data-en="Professional Expertise" data-fr="Expertise Professionnelle">Professional Expertise</h3>
+                        <p class="skills__description" data-en="My development journey reflects a deep passion for technology and commitment to innovation. From building sleek user interfaces to solving complex backend challenges, I bring a versatile and future-focused skill set."
+                           data-fr="Mon parcours de développement reflète une passion profonde pour la technologie et un engagement envers l'innovation. De la construction d'interfaces utilisateur élégantes à la résolution de défis backend complexes, j'apporte un ensemble de compétences polyvalent et tourné vers l'avenir.">
+                            My development journey reflects a deep passion for technology and commitment to innovation. From building sleek user interfaces to solving complex backend challenges, I bring a versatile and future-focused skill set.
                         </p>
                     </div>
                     
@@ -187,7 +284,8 @@
                         <!-- Frontend Skills -->
                         <div class="skill-category">
                             <h4 class="skill-category__title">
-                                <i class='bx bx-code-alt'></i> Frontend Development
+                                <i class='bx bx-code-alt'></i> 
+                                <span data-en="Frontend Development" data-fr="Développement Frontend">Frontend Development</span>
                             </h4>
                             <div class="skill-list">
                                 <div class="skill">
@@ -214,7 +312,8 @@
                         <!-- Backend Skills -->
                         <div class="skill-category">
                             <h4 class="skill-category__title">
-                                <i class='bx bx-server'></i> Backend Development
+                                <i class='bx bx-server'></i> 
+                                <span data-en="Backend Development" data-fr="Développement Backend">Backend Development</span>
                             </h4>
                             <div class="skill-list">
                                 <div class="skill">
@@ -241,7 +340,8 @@
                         <!-- Tools & Others -->
                         <div class="skill-category">
                             <h4 class="skill-category__title">
-                                <i class='bx bx-cog'></i> Tools & Others
+                                <i class='bx bx-cog'></i> 
+                                <span data-en="Tools & Others" data-fr="Outils & Autres">Tools & Others</span>
                             </h4>
                             <div class="skill-tags">
                                 <span class="skill-tag">Git</span>
@@ -259,8 +359,8 @@
             <!-- Projects Section -->
             <section class="projects section" id="work">
                 <div class="section__header">
-                    <span class="section__subtitle">My recent work</span>
-                    <h2 class="section__title">Featured Projects</h2>
+                    <span class="section__subtitle" data-en="My recent work" data-fr="Mon travail récent">My recent work</span>
+                    <h2 class="section__title" data-en="Featured Projects" data-fr="Projets en Vedette">Featured Projects</h2>
                     <div class="section__divider"></div>
                 </div>
 
@@ -276,8 +376,9 @@
                             </div>
                         </div>
                         <div class="project-card__content">
-                            <h3 class="project-card__title">Basketball Scoreboard</h3>
-                            <p class="project-card__description">
+                            <h3 class="project-card__title" data-en="Basketball Scoreboard" data-fr="Tableau de Score Basketball">Basketball Scoreboard</h3>
+                            <p class="project-card__description" data-en="Interactive score tracking application with real-time updates and game statistics."
+                               data-fr="Application interactive de suivi de score avec mises à jour en temps réel et statistiques de jeu.">
                                 Interactive score tracking application with real-time updates and game statistics.
                             </p>
                             <div class="project-card__tech">
@@ -288,7 +389,8 @@
                             <a href="https://github.com/248World/Scoreboard248" 
                                class="project-card__github" 
                                target="_blank">
-                                <i class='bx bxl-github'></i> View Code
+                                <i class='bx bxl-github'></i> 
+                                <span data-en="View Code" data-fr="Voir le Code">View Code</span>
                             </a>
                         </div>
                     </div>
@@ -304,8 +406,9 @@
                             </div>
                         </div>
                         <div class="project-card__content">
-                            <h3 class="project-card__title">Weather Dashboard</h3>
-                            <p class="project-card__description">
+                            <h3 class="project-card__title" data-en="Weather Dashboard" data-fr="Tableau de Bord Météo">Weather Dashboard</h3>
+                            <p class="project-card__description" data-en="Real-time weather forecasting app with location-based data and beautiful visuals."
+                               data-fr="Application de prévisions météorologiques en temps réel avec données géolocalisées et visuels magnifiques.">
                                 Real-time weather forecasting app with location-based data and beautiful visuals.
                             </p>
                             <div class="project-card__tech">
@@ -316,7 +419,8 @@
                             <a href="https://github.com/248World/WeatherApp248" 
                                class="project-card__github" 
                                target="_blank">
-                                <i class='bx bxl-github'></i> View Code
+                                <i class='bx bxl-github'></i> 
+                                <span data-en="View Code" data-fr="Voir le Code">View Code</span>
                             </a>
                         </div>
                     </div>
@@ -335,8 +439,9 @@
                             </div>
                         </div>
                         <div class="project-card__content">
-                            <h3 class="project-card__title">Encryption Tool</h3>
-                            <p class="project-card__description">
+                            <h3 class="project-card__title" data-en="Encryption Tool" data-fr="Outil de Cryptage">Encryption Tool</h3>
+                            <p class="project-card__description" data-en="Secure encryption and decryption application with multiple algorithm support."
+                               data-fr="Application sécurisée de cryptage et décryptage avec support de multiples algorithmes.">
                                 Secure encryption and decryption application with multiple algorithm support.
                             </p>
                             <div class="project-card__tech">
@@ -347,7 +452,8 @@
                             <a href="https://github.com/248World/Encryption_Decryption" 
                                class="project-card__github" 
                                target="_blank">
-                                <i class='bx bxl-github'></i> View Code
+                                <i class='bx bxl-github'></i> 
+                                <span data-en="View Code" data-fr="Voir le Code">View Code</span>
                             </a>
                         </div>
                     </div>
@@ -363,8 +469,9 @@
                             </div>
                         </div>
                         <div class="project-card__content">
-                            <h3 class="project-card__title">Image Processing App</h3>
-                            <p class="project-card__description">
+                            <h3 class="project-card__title" data-en="Image Processing App" data-fr="Application de Traitement d'Image">Image Processing App</h3>
+                            <p class="project-card__description" data-en="Computer vision application built with OpenCV for advanced image manipulation."
+                               data-fr="Application de vision par ordinateur construite avec OpenCV pour la manipulation avancée d'images.">
                                 Computer vision application built with OpenCV for advanced image manipulation.
                             </p>
                             <div class="project-card__tech">
@@ -375,7 +482,8 @@
                             <a href="https://github.com/248World/Applications-on-Image-Processing-in-Open-CV-with-C-" 
                                class="project-card__github" 
                                target="_blank">
-                                <i class='bx bxl-github'></i> View Code
+                                <i class='bx bxl-github'></i> 
+                                <span data-en="View Code" data-fr="Voir le Code">View Code</span>
                             </a>
                         </div>
                     </div>
@@ -383,7 +491,7 @@
                 
                 <div class="projects__cta">
                     <a href="https://github.com/248World" class="btn btn--outline" target="_blank">
-                        View All Projects on GitHub
+                        <span data-en="View All Projects on GitHub" data-fr="Voir Tous les Projets sur GitHub">View All Projects on GitHub</span>
                     </a>
                 </div>
             </section>
@@ -391,8 +499,8 @@
             <!-- Services Section -->
             <section class="services section" id="services">
                 <div class="section__header">
-                    <span class="section__subtitle">What I offer</span>
-                    <h2 class="section__title">My Services</h2>
+                    <span class="section__subtitle" data-en="What I offer" data-fr="Ce que j'offre">What I offer</span>
+                    <h2 class="section__title" data-en="My Services" data-fr="Mes Services">My Services</h2>
                     <div class="section__divider"></div>
                 </div>
                 
@@ -401,19 +509,19 @@
                         <div class="service-card__icon">
                             <i class="fas fa-mobile-alt"></i>
                         </div>
-                        <h3 class="service-card__title">Mobile Development</h3>
-                        <p class="service-card__description">
-                            I create engaging mobile applications with sleek designs and optimal performance 
-                            using Flutter and native technologies.
+                        <h3 class="service-card__title" data-en="Mobile Development" data-fr="Développement Mobile">Mobile Development</h3>
+                        <p class="service-card__description" data-en="I create engaging mobile applications with sleek designs and optimal performance using Flutter and native technologies."
+                           data-fr="Je crée des applications mobiles engageantes avec des designs élégants et des performances optimales utilisant Flutter et les technologies natives.">
+                            I create engaging mobile applications with sleek designs and optimal performance using Flutter and native technologies.
                         </p>
                         <ul class="service-card__features">
-                            <li>Cross-platform Development</li>
-                            <li>UI/UX Implementation</li>
-                            <li>Performance Optimization</li>
-                            <li>App Store Deployment</li>
+                            <li data-en="Cross-platform Development" data-fr="Développement multiplateforme">Cross-platform Development</li>
+                            <li data-en="UI/UX Implementation" data-fr="Implémentation UI/UX">UI/UX Implementation</li>
+                            <li data-en="Performance Optimization" data-fr="Optimisation des performances">Performance Optimization</li>
+                            <li data-en="App Store Deployment" data-fr="Déploiement sur App Store">App Store Deployment</li>
                         </ul>
                         <a href="#contact" class="service-card__link">
-                            Get Started <i class='bx bx-chevron-right'></i>
+                            <span data-en="Get Started" data-fr="Commencer">Get Started</span> <i class='bx bx-chevron-right'></i>
                         </a>
                     </div>
                     
@@ -421,19 +529,19 @@
                         <div class="service-card__icon">
                             <i class="fas fa-paint-brush"></i>
                         </div>
-                        <h3 class="service-card__title">UI/UX Design</h3>
-                        <p class="service-card__description">
-                            I design intuitive user interfaces and experiences that engage users and 
-                            drive conversions through thoughtful design principles.
+                        <h3 class="service-card__title" data-en="UI/UX Design" data-fr="Design UI/UX">UI/UX Design</h3>
+                        <p class="service-card__description" data-en="I design intuitive user interfaces and experiences that engage users and drive conversions through thoughtful design principles."
+                           data-fr="Je conçois des interfaces utilisateur et des expériences intuitives qui engagent les utilisateurs et stimulent les conversions grâce à des principes de design réfléchis.">
+                            I design intuitive user interfaces and experiences that engage users and drive conversions through thoughtful design principles.
                         </p>
                         <ul class="service-card__features">
-                            <li>User Research & Analysis</li>
-                            <li>Wireframing & Prototyping</li>
-                            <li>Interactive Design</li>
-                            <li>Usability Testing</li>
+                            <li data-en="User Research & Analysis" data-fr="Recherche et analyse utilisateur">User Research & Analysis</li>
+                            <li data-en="Wireframing & Prototyping" data-fr="Wireframing & Prototypage">Wireframing & Prototyping</li>
+                            <li data-en="Interactive Design" data-fr="Design interactif">Interactive Design</li>
+                            <li data-en="Usability Testing" data-fr="Tests d'utilisabilité">Usability Testing</li>
                         </ul>
                         <a href="#contact" class="service-card__link">
-                            Get Started <i class='bx bx-chevron-right'></i>
+                            <span data-en="Get Started" data-fr="Commencer">Get Started</span> <i class='bx bx-chevron-right'></i>
                         </a>
                     </div>
                     
@@ -441,46 +549,48 @@
                         <div class="service-card__icon">
                             <i class="fas fa-code"></i>
                         </div>
-                        <h3 class="service-card__title">Web Development</h3>
-                        <p class="service-card__description">
-                            I build responsive, fast, and scalable web applications using modern 
-                            frameworks and best practices.
+                        <h3 class="service-card__title" data-en="Web Development" data-fr="Développement Web">Web Development</h3>
+                        <p class="service-card__description" data-en="I build responsive, fast, and scalable web applications using modern frameworks and best practices."
+                           data-fr="Je construis des applications web réactives, rapides et évolutives utilisant des frameworks modernes et les meilleures pratiques.">
+                            I build responsive, fast, and scalable web applications using modern frameworks and best practices.
                         </p>
                         <ul class="service-card__features">
-                            <li>Full Stack Development</li>
-                            <li>API Integration</li>
-                            <li>Performance Optimization</li>
-                            <li>Maintenance & Support</li>
+                            <li data-en="Full Stack Development" data-fr="Développement Full Stack">Full Stack Development</li>
+                            <li data-en="API Integration" data-fr="Intégration d'API">API Integration</li>
+                            <li data-en="Performance Optimization" data-fr="Optimisation des performances">Performance Optimization</li>
+                            <li data-en="Maintenance & Support" data-fr="Maintenance & Support">Maintenance & Support</li>
                         </ul>
                         <a href="#contact" class="service-card__link">
-                            Get Started <i class='bx bx-chevron-right'></i>
+                            <span data-en="Get Started" data-fr="Commencer">Get Started</span> <i class='bx bx-chevron-right'></i>
                         </a>
                     </div>
                 </div>
             </section>
             
-            <!-- Testimonials Section - UPDATED -->
+            <!-- Testimonials Section -->
             <section class="testimonials section" id="testimonials">
                 <div class="section__header">
-                    <span class="section__subtitle">Client feedback</span>
-                    <h2 class="section__title">Testimonials</h2>
+                    <span class="section__subtitle" data-en="Client feedback" data-fr="Retour client">Client feedback</span>
+                    <h2 class="section__title" data-en="Testimonials" data-fr="Témoignages">Testimonials</h2>
                     <div class="section__divider"></div>
                 </div>
                 
-                <p class="testimonials__instruction">
+                <p class="testimonials__instruction" data-en="Click a flag to view testimonials in English or French."
+                   data-fr="Cliquez sur un drapeau pour voir les témoignages en anglais ou en français.">
                     Click a flag to view testimonials in English or French.
                 </p>
                 
                 <div class="language-toggle">
-                    <button class="language-btn active" data-lang="en" onclick="toggleLanguage('en')">
-                        <img src="https://flagcdn.com/w20/gb.png" alt="English"> English
+                    <button class="language-btn active" data-lang="en" onclick="toggleTestimonialLanguage('en')">
+                        <img src="https://flagcdn.com/w20/gb.png" alt="English"> 
+                        <span data-en="English" data-fr="Anglais">English</span>
                     </button>
-                    <button class="language-btn" data-lang="fr" onclick="toggleLanguage('fr')">
-                        <img src="https://flagcdn.com/w20/fr.png" alt="French"> Français
+                    <button class="language-btn" data-lang="fr" onclick="toggleTestimonialLanguage('fr')">
+                        <img src="https://flagcdn.com/w20/fr.png" alt="French"> 
+                        <span data-en="Français" data-fr="Français">Français</span>
                     </button>
                 </div>
                 
-                <!-- CHANGED: Removed swiper-wrapper and added testimonials-container -->
                 <div class="testimonials__slider swiper">
                     <div class="swiper-wrapper">
                         <!-- Testimonial 1 -->
@@ -511,7 +621,7 @@
                                 <img src="markie.jpg" alt="Emmanuel Markie Morris" class="author-avatar">
                                 <div class="author-info">
                                     <h4 class="author-name">Emmanuel Markie Morris</h4>
-                                    <span class="author-role">Full-Stack Developer</span>
+                                    <span class="author-role" data-en="Full-Stack Developer" data-fr="Développeur Full-Stack">Full-Stack Developer</span>
                                 </div>
                             </div>
                         </div>
@@ -542,7 +652,7 @@
                                 <img src="james.jpg" alt="James Madavie" class="author-avatar">
                                 <div class="author-info">
                                     <h4 class="author-name">James Madavie</h4>
-                                    <span class="author-role">Web Developer</span>
+                                    <span class="author-role" data-en="Web Developer" data-fr="Développeur Web">Web Developer</span>
                                 </div>
                             </div>
                         </div>
@@ -572,12 +682,11 @@
                                 <img src="ammid.jpg" alt="Ammid Said Omar" class="author-avatar">
                                 <div class="author-info">
                                     <h4 class="author-name">Ammid Said Omar</h4>
-                                    <span class="author-role">Software Developer</span>
+                                    <span class="author-role" data-en="Software Developer" data-fr="Développeur Logiciel">Software Developer</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- CHANGED: Added navigation buttons for better UX -->
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-pagination"></div>
@@ -587,14 +696,14 @@
             <!-- Contact Section -->
             <section class="contact section" id="contact">
                 <div class="section__header">
-                    <span class="section__subtitle">Get in touch</span>
-                    <h2 class="section__title">Contact Me</h2>
+                    <span class="section__subtitle" data-en="Get in touch" data-fr="Entrer en contact">Get in touch</span>
+                    <h2 class="section__title" data-en="Contact Me" data-fr="Contactez-moi">Contact Me</h2>
                     <div class="section__divider"></div>
                 </div>
                 
                 <div class="contact__container bd-grid">
                     <div class="contact__form-container">
-                        <h3 class="contact__form-title">Send a Message</h3>
+                        <h3 class="contact__form-title" data-en="Send a Message" data-fr="Envoyer un Message">Send a Message</h3>
                         <!-- Updated Form with your Formspree ID -->
                         <form id="contactForm" action="https://formspree.io/f/mkovndlg" method="POST" class="contact__form">
                             <div class="form-group">
@@ -602,6 +711,8 @@
                                        name="name" 
                                        placeholder="Your Name" 
                                        class="form-input" 
+                                       data-en-placeholder="Your Name"
+                                       data-fr-placeholder="Votre Nom"
                                        required>
                             </div>
                             <div class="form-group">
@@ -609,6 +720,8 @@
                                        name="email" 
                                        placeholder="Your Email" 
                                        class="form-input" 
+                                       data-en-placeholder="Your Email"
+                                       data-fr-placeholder="Votre Email"
                                        required>
                             </div>
                             <div class="form-group">
@@ -616,10 +729,13 @@
                                           placeholder="How can I help you?" 
                                           rows="4" 
                                           class="form-textarea" 
+                                          data-en-placeholder="How can I help you?"
+                                          data-fr-placeholder="Comment puis-je vous aider?"
                                           required></textarea>
                             </div>
                             <button type="submit" class="btn btn--primary form-submit">
-                                <i class='bx bx-send'></i> Send Message
+                                <i class='bx bx-send'></i> 
+                                <span data-en="Send Message" data-fr="Envoyer le Message">Send Message</span>
                             </button>
                             
                             <!-- Formspree hidden fields for better organization -->
@@ -630,33 +746,39 @@
                     </div>
                     
                     <div class="contact__info">
-                        <h3 class="contact__info-title">Contact Information</h3>
+                        <h3 class="contact__info-title" data-en="Contact Information" data-fr="Informations de Contact">Contact Information</h3>
                         <div class="contact__info-items">
                             <div class="contact__info-item">
                                 <i class='bx bx-phone'></i>
                                 <div>
-                                    <h4>Phone</h4>
+                                    <h4 data-en="Phone" data-fr="Téléphone">Phone</h4>
                                     <a href="tel:+212621096641">+212 621 096 641</a>
                                 </div>
                             </div>
                             <div class="contact__info-item">
                                 <i class='bx bx-envelope'></i>
                                 <div>
-                                    <h4>Email</h4>
+                                    <h4 data-en="Email" data-fr="Email">Email</h4>
                                     <a href="mailto:varfahnbulleh@gmail.com">varfahnbulleh@gmail.com</a>
                                 </div>
                             </div>
                             <div class="contact__info-item">
                                 <i class='bx bx-map'></i>
                                 <div>
-                                    <h4>Location</h4>
-                                    <span>Available for remote work worldwide</span>
+                                    <h4 data-en="Location" data-fr="Localisation">Location</h4>
+                                    <span data-en="Available for remote work worldwide" 
+                                          data-fr="Disponible pour le travail à distance dans le monde entier">
+                                        Available for remote work worldwide
+                                    </span>
                                 </div>
                             </div>
                         </div>
                         <div class="contact__hours">
-                            <h4>Response Time</h4>
-                            <p>I typically respond within 24 hours during business days.</p>
+                            <h4 data-en="Response Time" data-fr="Temps de Réponse">Response Time</h4>
+                            <p data-en="I typically respond within 24 hours during business days."
+                               data-fr="Je réponds généralement dans les 24 heures pendant les jours ouvrables.">
+                                I typically respond within 24 hours during business days.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -668,7 +790,10 @@
             <div class="footer__content">
                 <div class="footer__brand">
                     <h3 class="footer__logo">Varney D. Fahnbulleh</h3>
-                    <p class="footer__tagline">Building digital experiences that make a difference</p>
+                    <p class="footer__tagline" data-en="Building digital experiences that make a difference"
+                       data-fr="Créer des expériences numériques qui font la différence">
+                        Building digital experiences that make a difference
+                    </p>
                 </div>
                 
                 <div class="footer__social">
@@ -693,16 +818,17 @@
                 </div>
                 
                 <div class="footer__nav">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#work">Projects</a>
-                    <a href="#contact">Contact</a>
+                    <a href="#home" data-en="Home" data-fr="Accueil">Home</a>
+                    <a href="#about" data-en="About" data-fr="À propos">About</a>
+                    <a href="#work" data-en="Projects" data-fr="Projets">Projects</a>
+                    <a href="#contact" data-en="Contact" data-fr="Contact">Contact</a>
                 </div>
             </div>
             
             <div class="footer__bottom">
                 <p class="footer__copyright">
-                    &copy; <span id="currentYear">2024</span> Varney D. Fahnbulleh. All Rights Reserved.
+                    &copy; <span id="currentYear">2024</span> Varney D. Fahnbulleh. 
+                    <span data-en="All Rights Reserved." data-fr="Tous droits réservés.">All Rights Reserved.</span>
                 </p>
             </div>
         </footer>
@@ -712,46 +838,21 @@
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         
         <script>
-            // Initialize Typed.js
+            // Global variables
+            let currentLanguage = 'en';
+            let typedInstance = null;
+            let swiperInstance = null;
+            
+            // Initialize everything
             document.addEventListener('DOMContentLoaded', function() {
-                var typed = new Typed(".auto-type", {
-                    strings: ["Full Stack Developer", "Mobile App Developer", "UI/UX Designer", "Problem Solver", "Tech Enthusiast"],
-                    typeSpeed: 60,
-                    backSpeed: 40,
-                    loop: true,
-                    cursorChar: "|",
-                    smartBackspace: true
-                });
-                
                 // Set current year in footer
                 document.getElementById('currentYear').textContent = new Date().getFullYear();
                 
-                // Initialize Swiper with proper configuration
-                const swiper = new Swiper('.testimonials__slider', {
-                    slidesPerView: 1,
-                    spaceBetween: 30,
-                    loop: true,
-                    autoplay: {
-                        delay: 5000,
-                        disableOnInteraction: false,
-                    },
-                    pagination: {
-                        el: '.swiper-pagination',
-                        clickable: true,
-                    },
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
-                    breakpoints: {
-                        768: {
-                            slidesPerView: 2,
-                        },
-                        1024: {
-                            slidesPerView: 3,
-                        }
-                    }
-                });
+                // Initialize Typed.js
+                initializeTyped();
+                
+                // Initialize Swiper
+                initializeSwiper();
                 
                 // Animate skill bars
                 const animateSkills = () => {
@@ -785,9 +886,6 @@
                         submitBtn.innerHTML = '<i class="bx bx-loader-alt bx-spin"></i> Sending...';
                         submitBtn.disabled = true;
                         
-                        // Form will submit to Formspree
-                        // Formspree will redirect to thank you page or show success
-                        
                         // Reset button after form submission attempt
                         setTimeout(() => {
                             submitBtn.innerHTML = originalText;
@@ -795,11 +893,111 @@
                         }, 3000);
                     });
                 }
+                
+                // Load saved language preference
+                const savedLanguage = localStorage.getItem('portfolioLanguage');
+                if (savedLanguage) {
+                    changeLanguage(savedLanguage);
+                }
+                
+                // Set default language to English if not saved
+                if (!savedLanguage) {
+                    changeLanguage('en');
+                }
             });
             
-            // Language toggle function - UPDATED
-            function toggleLanguage(lang) {
-                // Update active button
+            // Initialize Typed.js with current language
+            function initializeTyped() {
+                const typewriterElement = document.querySelector('.auto-type');
+                if (typewriterElement && typedInstance) {
+                    typedInstance.destroy();
+                }
+                
+                const strings = typewriterElement.getAttribute(`data-${currentLanguage}`);
+                typedInstance = new Typed(".auto-type", {
+                    strings: JSON.parse(strings),
+                    typeSpeed: 60,
+                    backSpeed: 40,
+                    loop: true,
+                    cursorChar: "|",
+                    smartBackspace: true
+                });
+            }
+            
+            // Initialize Swiper
+            function initializeSwiper() {
+                swiperInstance = new Swiper('.testimonials__slider', {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                    loop: true,
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    breakpoints: {
+                        768: {
+                            slidesPerView: 2,
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                        }
+                    }
+                });
+            }
+            
+            // Main language change function
+            function changeLanguage(lang) {
+                currentLanguage = lang;
+                localStorage.setItem('portfolioLanguage', lang);
+                
+                // Update language switcher buttons
+                document.querySelectorAll('.language-option').forEach(btn => {
+                    const isActive = btn.textContent.includes(lang === 'en' ? 'EN' : 'FR');
+                    btn.classList.toggle('active', isActive);
+                });
+                
+                document.querySelectorAll('.language-option-mobile').forEach(btn => {
+                    const isActive = btn.textContent.includes(lang === 'en' ? 'English' : 'Français');
+                    btn.classList.toggle('active', isActive);
+                });
+                
+                // Update all elements with data-en and data-fr attributes
+                document.querySelectorAll('[data-en]').forEach(element => {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        const placeholderAttr = `data-${lang}-placeholder`;
+                        if (element.hasAttribute(placeholderAttr)) {
+                            element.placeholder = element.getAttribute(placeholderAttr);
+                        }
+                    } else {
+                        element.textContent = element.getAttribute(`data-${lang}`);
+                    }
+                });
+                
+                // Update testimonial section separately
+                toggleTestimonialLanguage(lang);
+                
+                // Reinitialize Typed.js with new language strings
+                initializeTyped();
+                
+                // Update Swiper
+                if (swiperInstance) {
+                    setTimeout(() => {
+                        swiperInstance.update();
+                    }, 100);
+                }
+            }
+            
+            // Testimonial language toggle (for testimonial section only)
+            function toggleTestimonialLanguage(lang) {
+                // Update testimonial toggle buttons
                 document.querySelectorAll('.language-btn').forEach(btn => {
                     btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
                 });
@@ -808,31 +1006,20 @@
                 document.querySelectorAll('.testimonial-text').forEach(p => {
                     if (p.getAttribute('data-lang') === lang) {
                         p.style.display = 'block';
-                        // Set min-height to prevent layout shift
                         p.parentElement.style.minHeight = p.offsetHeight + 'px';
                     } else {
                         p.style.display = 'none';
                     }
                 });
                 
-                // Update Swiper to recalculate heights
-                if (window.swiperInstance) {
-                    window.swiperInstance.update();
-                }
+                // Update author roles in testimonials
+                document.querySelectorAll('.author-role').forEach(role => {
+                    const text = role.getAttribute(`data-${lang}`);
+                    if (text) {
+                        role.textContent = text;
+                    }
+                });
             }
-            
-            // Store swiper instance globally for language toggle
-            window.swiperInstance = null;
-            
-            document.addEventListener('DOMContentLoaded', function() {
-                // ... existing code ...
-                
-                // Store swiper instance
-                window.swiperInstance = swiper;
-                
-                // Set default language to English
-                toggleLanguage('en');
-            });
             
             // Theme toggle functionality
             document.getElementById('theme-toggle').addEventListener('click', function() {
