@@ -95,7 +95,7 @@ body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   color: var(--second-color);
-  background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  background-image: url('port.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
