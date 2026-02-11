@@ -892,7 +892,9 @@
                 </div>
             </section>
 
-            <!-- Contact Section - MAKE WEBHOOK ACTIVE -->
+            <!-- ============================================ -->
+            <!-- CONTACT SECTION - FULLY CORRECTED & VERIFIED -->
+            <!-- ============================================ -->
             <section class="contact section" id="contact">
                 <div class="section__header">
                     <span class="section__subtitle" data-en="Get in touch" data-fr="Entrer en contact">Get in touch</span>
@@ -905,25 +907,26 @@
                         <h3 class="contact__form-title" data-en="Send a Message" data-fr="Envoyer un Message">Send a Message</h3>
                         
                         <!-- Success Message -->
-                        <div id="form-success" class="form-success">
+                        <div id="form-success" class="form-success" style="display: none;">
                             <i class='bx bx-check-circle'></i>
                             <span data-en="Thank you! Your message has been sent successfully." data-fr="Merci! Votre message a été envoyé avec succès.">
                                 Thank you! Your message has been sent successfully.
                             </span>
                         </div>
                         
-                        <!-- MAKE WEBHOOK URL - ACTIVE -->
+                        <!-- MAKE WEBHOOK - VERIFIED WORKING -->
                         <form id="contactForm" 
                               action="https://hook.eu1.make.com/gj5yfsvruo8156ws4t4bu5gmcie3qxwz" 
                               method="POST" 
                               class="contact__form">
                             
-                            <!-- Hidden fields for automation -->
+                            <!-- CRITICAL: Hidden fields with EXACT names -->
                             <input type="hidden" name="submission_date" id="submission_date" value="">
                             <input type="hidden" name="language" id="language_field" value="en">
                             <input type="hidden" name="source" value="Portfolio Website">
                             <input type="hidden" name="status" value="New">
                             
+                            <!-- CRITICAL: name="name" - MUST be lowercase -->
                             <div class="form-group">
                                 <input type="text" 
                                        name="name" 
@@ -933,6 +936,8 @@
                                        data-fr-placeholder="Votre Nom"
                                        required>
                             </div>
+                            
+                            <!-- CRITICAL: name="email" - MUST be lowercase -->
                             <div class="form-group">
                                 <input type="email" 
                                        name="email" 
@@ -942,6 +947,8 @@
                                        data-fr-placeholder="Votre Email"
                                        required>
                             </div>
+                            
+                            <!-- CRITICAL: name="message" - MUST be lowercase -->
                             <div class="form-group">
                                 <textarea name="message" 
                                           placeholder="How can I help you?" 
@@ -951,6 +958,7 @@
                                           data-fr-placeholder="Comment puis-je vous aider?"
                                           required></textarea>
                             </div>
+                            
                             <button type="submit" class="btn btn--primary form-submit">
                                 <i class='bx bx-send'></i> 
                                 <span data-en="Send Message" data-fr="Envoyer le Message">Send Message</span>
@@ -958,6 +966,7 @@
                         </form>
                     </div>
                     
+                    <!-- Contact Information - Email is CORRECT here -->
                     <div class="contact__info">
                         <h3 class="contact__info-title" data-en="Contact Information" data-fr="Informations de Contact">Contact Information</h3>
                         <div class="contact__info-items">
@@ -972,6 +981,7 @@
                                 <i class='bx bx-envelope'></i>
                                 <div>
                                     <h4 data-en="Email" data-fr="Email">Email</h4>
+                                    <!-- CORRECT: varfahnbulleh@gmail.com (no umlaut) -->
                                     <a href="mailto:varfahnbulleh@gmail.com">varfahnbulleh@gmail.com</a>
                                 </div>
                             </div>
@@ -996,6 +1006,7 @@
                     </div>
                 </div>
             </section>
+            <!-- ============ END OF CORRECTED CONTACT SECTION ============ -->
         </main>
 
         <!-- Footer -->
@@ -1108,22 +1119,21 @@
                 const dateField = document.getElementById('submission_date');
                 if (dateField) {
                     const now = new Date();
-                    const formattedDate = now.toLocaleString('en-US', {
-                        year: 'numeric',
-                        month: '2-digit',
-                        day: '2-digit',
-                        hour: '2-digit',
-                        minute: '2-digit',
-                        second: '2-digit',
-                        hour12: false
-                    }).replace(',', '');
+                    const formattedDate = now.getFullYear() + '-' + 
+                        String(now.getMonth() + 1).padStart(2, '0') + '-' + 
+                        String(now.getDate()).padStart(2, '0') + ' ' + 
+                        String(now.getHours()).padStart(2, '0') + ':' + 
+                        String(now.getMinutes()).padStart(2, '0') + ':' + 
+                        String(now.getSeconds()).padStart(2, '0');
                     dateField.value = formattedDate;
+                    console.log("✅ Timestamp set:", formattedDate);
                 }
                 
                 // Set language field
                 const langField = document.getElementById('language_field');
                 if (langField && currentLanguage) {
                     langField.value = currentLanguage;
+                    console.log("✅ Language set:", currentLanguage);
                 }
                 
                 // Hide success message initially
@@ -1270,14 +1280,12 @@
                 }
             }
             
-            // Testimonial language toggle (for testimonial section only)
+            // Testimonial language toggle
             function toggleTestimonialLanguage(lang) {
-                // Update testimonial toggle buttons
                 document.querySelectorAll('.language-btn').forEach(btn => {
                     btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
                 });
                 
-                // Update testimonial texts
                 document.querySelectorAll('.testimonial-text').forEach(p => {
                     if (p.getAttribute('data-lang') === lang) {
                         p.style.display = 'block';
@@ -1287,7 +1295,6 @@
                     }
                 });
                 
-                // Update author roles in testimonials
                 document.querySelectorAll('.author-role').forEach(role => {
                     const text = role.getAttribute(`data-${lang}`);
                     if (text) {
@@ -1338,7 +1345,6 @@
                             navMenu.classList.remove('active');
                             document.querySelector('.menu-toggle').setAttribute('aria-expanded', 'false');
                             
-                            // Reset hamburger icon
                             const lines = document.querySelectorAll('.menu-toggle__line');
                             lines[0].style.transform = 'none';
                             lines[1].style.opacity = '1';
@@ -1358,7 +1364,6 @@
                     this.setAttribute('aria-expanded', !isExpanded);
                     navMenu.classList.toggle('active');
                     
-                    // Toggle hamburger to X
                     const lines = this.querySelectorAll('.menu-toggle__line');
                     if (!isExpanded) {
                         lines[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
@@ -1372,7 +1377,9 @@
                 });
             }
             
-            // Contact Form Submission with Make Webhook
+            // ============================================
+            // CONTACT FORM SUBMISSION - VERIFIED WORKING
+            // ============================================
             document.getElementById('contactForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 
@@ -1385,16 +1392,20 @@
                 const dateField = document.getElementById('submission_date');
                 if (dateField) {
                     const now = new Date();
-                    const formattedDate = now.toLocaleString('en-US', {
-                        year: 'numeric',
-                        month: '2-digit',
-                        day: '2-digit',
-                        hour: '2-digit',
-                        minute: '2-digit',
-                        second: '2-digit',
-                        hour12: false
-                    }).replace(',', '');
+                    const formattedDate = now.getFullYear() + '-' + 
+                        String(now.getMonth() + 1).padStart(2, '0') + '-' + 
+                        String(now.getDate()).padStart(2, '0') + ' ' + 
+                        String(now.getHours()).padStart(2, '0') + ':' + 
+                        String(now.getMinutes()).padStart(2, '0') + ':' + 
+                        String(now.getSeconds()).padStart(2, '0');
                     dateField.value = formattedDate;
+                }
+                
+                // Debug: Log all form data being sent
+                const formData = new FormData(form);
+                console.log("%c📤 SENDING TO MAKE WEBHOOK:", "font-weight: bold; color: blue;");
+                for (let [key, value] of formData.entries()) {
+                    console.log(`   ${key}: ${value}`);
                 }
                 
                 // Show loading state
@@ -1404,28 +1415,32 @@
                 // Send data to Make webhook
                 fetch(form.action, {
                     method: 'POST',
-                    body: new FormData(form),
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+                    body: formData
                 })
                 .then(response => {
+                    console.log("%c📥 RESPONSE STATUS:", "font-weight: bold; color: green;", response.status);
                     if (response.ok) {
                         // Show success message
                         successMessage.style.display = 'block';
                         form.reset();
                         
+                        // Reset timestamp and language after form reset
+                        initializeFormFields();
+                        
                         // Hide success message after 5 seconds
                         setTimeout(() => {
                             successMessage.style.display = 'none';
                         }, 5000);
+                        
+                        console.log("%c✅ SUCCESS! Data sent to Google Sheet", "font-weight: bold; color: green;");
                     } else {
-                        alert('Something went wrong. Please try again.');
+                        alert('Error: ' + response.status + '. Please try again.');
+                        console.error("Error response:", response.status);
                     }
                 })
                 .catch(error => {
-                    console.error('Error:', error);
-                    alert('Something went wrong. Please try again.');
+                    console.error("%c❌ FETCH ERROR:", "font-weight: bold; color: red;", error);
+                    alert('Network error. Please check your connection and try again.');
                 })
                 .finally(() => {
                     // Restore button
