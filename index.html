@@ -1157,6 +1157,63 @@
                     }
                 });
             }
+
+
+
+            // Initialize Events Swiper
+let eventsSwiper = null;
+
+function initializeEventsSwiper() {
+    eventsSwiper = new Swiper('.events__slider', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.events__slider .swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.events__slider .swiper-button-next',
+            prevEl: '.events__slider .swiper-button-prev',
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 2,
+            },
+            1024: {
+                slidesPerView: 3,
+            }
+        }
+    });
+}
+
+// Add to your existing DOMContentLoaded event listener
+document.addEventListener('DOMContentLoaded', function() {
+    // ... existing initialization code ...
+    
+    // Initialize Events Swiper
+    initializeEventsSwiper();
+    
+    // ... rest of your code ...
+});
+
+// Add this to your changeLanguage function to update Swiper on language change
+function changeLanguage(lang) {
+    // ... existing language change code ...
+    
+    // Update Events Swiper
+    if (eventsSwiper) {
+        setTimeout(() => {
+            eventsSwiper.update();
+        }, 100);
+    }
+    
+    // ... rest of your code ...
+}
         </script>
         
         <script src="https://unpkg.com/scrollreveal"></script>
@@ -1166,6 +1223,7 @@
         <script src="main.js"></script>
     </body>
 </html>
+
 
 
 
