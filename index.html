@@ -1432,14 +1432,14 @@
                             successMessage.style.display = 'none';
                         }, 5000);
                         
-                        console.log("%c✅ SUCCESS! Data sent to Google Sheet", "font-weight: bold; color: green;");
+                        console.log("%c SUCCESS! Data sent to Google Sheet", "font-weight: bold; color: green;");
                     } else {
                         alert('Error: ' + response.status + '. Please try again.');
                         console.error("Error response:", response.status);
                     }
                 })
                 .catch(error => {
-                    console.error("%c❌ FETCH ERROR:", "font-weight: bold; color: red;", error);
+                    console.error("%c FETCH ERROR:", "font-weight: bold; color: red;", error);
                     alert('Network error. Please check your connection and try again.');
                 })
                 .finally(() => {
@@ -1457,3 +1457,4 @@
         <script src="main.js"></script>
     </body>
 </html>
+
