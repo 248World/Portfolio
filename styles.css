@@ -301,7 +301,7 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .nav__brand {
@@ -352,12 +352,13 @@ section {
 .nav__menu {
   display: flex;
   align-items: center;
+  margin-left: auto;
 }
 
 .nav__list {
   display: flex;
   align-items: center;
-  gap: var(--mb-4);
+  gap: 2rem;
 }
 
 .nav__item {
@@ -416,45 +417,62 @@ section {
 .language-switcher {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 14px;
   flex-shrink: 0;
 }
 
 .language-option {
   display: flex;
   align-items: center;
-  gap: 5px;
-  padding: 6px 12px;
+  gap: 8px;
+  padding: 6px 10px;
   background: transparent;
-  border: 1px solid var(--gray-light);
+  border: 1px solid transparent;
   border-radius: var(--border-radius);
   color: var(--dark-color);
   font-size: var(--small-font-size);
   cursor: pointer;
   transition: var(--transition);
+  line-height: 1;
+}
+
+.language-option img {
+  width: 24px;
+  height: 16px;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+}
+
+.language-option span {
+  display: inline-block;
+  line-height: 1;
+  font-weight: 500;
 }
 
 .dark-theme .language-option {
   color: var(--dark-color);
-  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .language-option.active,
 .language-option:hover {
-  background-color: var(--first-color);
-  color: white;
-  border-color: var(--first-color);
-}
-
-.language-option img {
-  width: 20px;
-  height: 15px;
-  object-fit: cover;
-  border-radius: 2px;
+  background-color: rgba(37, 99, 235, 0.08);
+  border-color: rgba(37, 99, 235, 0.15);
+  color: var(--first-color);
 }
 
 .language-option-mobile {
   display: none;
+  align-items: center;
+  gap: 10px;
+}
+
+.language-option-mobile img {
+  width: 22px;
+  height: 15px;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
 }
 
 /* ===== HERO SECTION ===== */
@@ -533,7 +551,7 @@ section {
 .hero__blob {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(74, 122, 255, 0.28), rgba(74, 122, 255, 0.18));
+  background: linear-gradient(135deg, rgba(74, 122, 255, 0.16), rgba(74, 122, 255, 0.08));
   border-radius: 52% 48% 46% 54% / 42% 58% 42% 58%;
   animation: blob-animation 8s ease-in-out infinite;
   z-index: 1;
