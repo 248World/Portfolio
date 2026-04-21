@@ -523,11 +523,11 @@ section {
 
 .hero__blob {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(74, 122, 255, 0.18), rgba(74, 122, 255, 0.07));
-  border-radius: 54% 46% 50% 50% / 42% 58% 42% 58%;
-  animation: blob-animation 8s ease-in-out infinite;
+  inset: 2% 0 0 0;
+  background: linear-gradient(135deg, rgba(74, 122, 255, 0.16), rgba(74, 122, 255, 0.08));
+  border-radius: 50%;
   z-index: 1;
+  transform: scale(1.08);
 }
 
 @keyframes blob-animation {
@@ -1366,6 +1366,7 @@ section {
     width: min(360px, 84vw);
     margin: 0 auto;
   }
+  
 
   .hero__social {
     justify-content: center;
