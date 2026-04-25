@@ -3,9 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Basketball scoreboard app by Varney D. Fahnbulleh">
-    <meta name="author" content="Varney D. Fahnbulleh">
-
     <title>Basketball Scoreboard</title>
 
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet" type="text/css">
@@ -20,265 +17,184 @@
 
         body {
             min-height: 100vh;
-            font-family: Arial, sans-serif;
-            background: radial-gradient(circle at top, #1e3a8a, #020617 65%);
+            background: #1b244a;
             color: #ffffff;
+            font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
-        }
-
-        .scoreboard-wrapper {
-            flex: 1;
-            width: 100%;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            padding: 2rem 1rem;
         }
 
-        .scoreboard-card {
-            width: 100%;
-            max-width: 900px;
-            background: rgba(15, 23, 42, 0.92);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 24px;
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 2rem auto 1rem;
             padding: 2rem;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
-        }
-
-        .scoreboard-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .scoreboard-header h1 {
-            font-size: clamp(1.8rem, 4vw, 3rem);
-            margin-bottom: 0.5rem;
-        }
-
-        .scoreboard-header p {
-            color: #cbd5e1;
-            font-size: 1rem;
-        }
-
-        .teams-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            background: #1b244a;
+            display: flex;
+            justify-content: space-around;
             gap: 2rem;
-        }
-
-        .team-card {
-            background: #111827;
-            border-radius: 20px;
-            padding: 2rem 1.5rem;
             text-align: center;
-            box-shadow: inset 0 0 25px rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
         }
 
-        .team-card h2 {
-            font-size: clamp(1.5rem, 3vw, 2.2rem);
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
-        }
-
-        .score-display {
+        .home,
+        .guest {
             width: 100%;
-            max-width: 220px;
-            height: 140px;
-            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            margin-bottom: 1rem;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        #home--btn,
+        #guest--btn {
+            width: 160px;
+            height: 120px;
             border: none;
-            border-radius: 14px;
-            background: #020617;
-            color: #f97316;
+            border-radius: 8px;
+            background: #080001;
+            color: #f94f6d;
             font-family: "Orbitron", sans-serif;
             font-size: clamp(3rem, 8vw, 5rem);
+            margin-bottom: 1.5rem;
             cursor: default;
-            box-shadow: inset 0 0 20px rgba(249, 115, 22, 0.12);
         }
 
         .operate {
             display: flex;
             justify-content: center;
-            gap: 0.8rem;
+            gap: 0.6rem;
             flex-wrap: wrap;
         }
 
-        .operate button,
-        .save--btn,
-        .reset--btn {
-            border: none;
-            border-radius: 12px;
-            padding: 0.85rem 1.1rem;
-            background: #2563eb;
-            color: #ffffff;
-            font-weight: 700;
+        .operate button {
+            width: 48px;
+            height: 42px;
+            border: 2px solid #9aabd8;
+            border-radius: 5px;
+            background: transparent;
+            color: #9aabd8;
+            font-family: "Orbitron", sans-serif;
             font-size: 1rem;
             cursor: pointer;
             transition: 0.25s ease;
         }
 
-        .operate button:hover,
-        .save--btn:hover,
-        .reset--btn:hover {
-            background: #1d4ed8;
-            transform: translateY(-2px);
+        .operate button:hover {
+            background: #9aabd8;
+            color: #1b244a;
         }
 
-        .controls {
-            margin-top: 2rem;
-            display: flex;
-            align-items: stretch;
-            justify-content: space-between;
-            gap: 1rem;
-        }
-
-        .actions {
-            display: flex;
-            gap: 0.8rem;
+        .container-two {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            padding: 1.5rem 2rem;
+            background: #111936;
+            border-radius: 12px;
+            text-align: center;
         }
 
         .save--btn {
-            background: #16a34a;
-            min-width: 120px;
+            border: 2px solid #9aabd8;
+            border-radius: 5px;
+            background: transparent;
+            color: #9aabd8;
+            padding: 0.8rem 2rem;
+            font-family: "Orbitron", sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.25s ease;
+            margin-bottom: 1rem;
         }
 
         .save--btn:hover {
-            background: #15803d;
+            background: #9aabd8;
+            color: #1b244a;
         }
 
-        .reset--btn {
-            background: #dc2626;
-            min-width: 120px;
-        }
-
-        .reset--btn:hover {
-            background: #b91c1c;
-        }
-
-        .count-box {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.06);
-            border-radius: 14px;
-            padding: 1rem;
-            color: #e5e7eb;
-            line-height: 1.8;
+        #home--count,
+        #guest--count {
+            color: #ffffff;
+            font-size: 1rem;
+            margin: 0.4rem 0;
         }
 
         footer {
             text-align: center;
             padding: 1rem;
-            color: #cbd5e1;
-            font-size: 0.95rem;
+            color: #d1d5db;
+            font-size: 0.9rem;
         }
 
         .designer {
-            color: #60a5fa;
+            color: #f94f6d;
             font-weight: 700;
         }
 
         @media screen and (max-width: 768px) {
-            .scoreboard-wrapper {
-                align-items: flex-start;
-                padding-top: 1rem;
+            body {
+                justify-content: flex-start;
             }
 
-            .scoreboard-card {
-                padding: 1.3rem;
-                border-radius: 18px;
-            }
-
-            .teams-container {
-                grid-template-columns: 1fr;
-                gap: 1.2rem;
-            }
-
-            .team-card {
+            .container {
+                flex-direction: column;
                 padding: 1.5rem 1rem;
+                gap: 2rem;
+                margin-top: 1rem;
             }
 
-            .score-display {
-                height: 120px;
-                max-width: 200px;
+            #home--btn,
+            #guest--btn {
+                width: 150px;
+                height: 110px;
             }
 
-            .controls {
-                flex-direction: column;
-            }
-
-            .actions {
-                width: 100%;
-                flex-direction: column;
-            }
-
-            .save--btn,
-            .reset--btn {
-                width: 100%;
-            }
-
-            .count-box {
-                width: 100%;
-                text-align: center;
+            .container-two {
+                padding: 1.2rem 1rem;
             }
 
             footer {
-                font-size: 0.85rem;
-                padding: 1rem 0.8rem;
+                font-size: 0.8rem;
             }
         }
     </style>
 </head>
 
 <body>
-    <main class="scoreboard-wrapper">
-        <section class="scoreboard-card">
-            <header class="scoreboard-header">
-                <h1>Basketball Scoreboard</h1>
-                <p>Track home and guest scores easily</p>
-            </header>
+    <div class="container">
+        <div class="home">
+            <h1>HOME</h1>
+            <button id="home--btn" type="button">0</button>
 
-            <div class="teams-container">
-                <div class="team-card home">
-                    <h2>HOME</h2>
-
-                    <button id="home--btn" class="score-display" type="button" aria-label="Home score">
-                        0
-                    </button>
-
-                    <div class="operate">
-                        <button type="button" onclick="plusOne()">+1</button>
-                        <button type="button" onclick="plusTwo()">+2</button>
-                        <button type="button" onclick="plusThree()">+3</button>
-                    </div>
-                </div>
-
-                <div class="team-card guest">
-                    <h2>GUEST</h2>
-
-                    <button id="guest--btn" class="score-display" type="button" aria-label="Guest score">
-                        0
-                    </button>
-
-                    <div class="operate">
-                        <button type="button" onclick="guestPlusOne()">+1</button>
-                        <button type="button" onclick="guestPlusTwo()">+2</button>
-                        <button type="button" onclick="guestPlusThree()">+3</button>
-                    </div>
-                </div>
+            <div class="operate">
+                <button type="button" onclick="plusOne()">+1</button>
+                <button type="button" onclick="plusTwo()">+2</button>
+                <button type="button" onclick="plusThree()">+3</button>
             </div>
+        </div>
 
-            <div class="controls">
-                <div class="actions">
-                    <button class="save--btn" type="button" onclick="saveClick()">SAVE</button>
-                    <button class="reset--btn" type="button" onclick="resetScore()">RESET</button>
-                </div>
+        <div class="guest">
+            <h1>GUEST</h1>
+            <button id="guest--btn" type="button">0</button>
 
-                <div class="count-box">
-                    <p id="home--count">Home Count:</p>
-                    <p id="guest--count">Guest Count:</p>
-                </div>
+            <div class="operate">
+                <button type="button" onclick="guestPlusOne()">+1</button>
+                <button type="button" onclick="guestPlusTwo()">+2</button>
+                <button type="button" onclick="guestPlusThree()">+3</button>
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
+
+    <div class="container-two">
+        <button class="save--btn" type="button" onclick="saveClick()">SAVE</button>
+        <p id="home--count">Home Count:</p>
+        <p id="guest--count">Guest Count:</p>
+    </div>
 
     <footer>
         <p>
@@ -294,7 +210,6 @@
 
         const homeBtn = document.getElementById("home--btn");
         const guestBtn = document.getElementById("guest--btn");
-
         const homeCount = document.getElementById("home--count");
         const guestCount = document.getElementById("guest--count");
 
@@ -331,17 +246,6 @@
         function saveClick() {
             homeCount.textContent = "Home Count: " + homeScore;
             guestCount.textContent = "Guest Count: " + guestScore;
-        }
-
-        function resetScore() {
-            homeScore = 0;
-            guestScore = 0;
-
-            homeBtn.textContent = homeScore;
-            guestBtn.textContent = guestScore;
-
-            homeCount.textContent = "Home Count:";
-            guestCount.textContent = "Guest Count:";
         }
     </script>
 </body>
