@@ -17,106 +17,6 @@
     <link rel="stylesheet" href="responsive-navbar.css">
 
     <title>Varney D. Fahnbulleh | Full-Stack Web & Mobile Developer</title>
-
-    <style>
-        /* ===== HERO PROFILE BLOB IMPROVEMENT ===== */
-        .hero__image-container {
-            position: relative;
-            width: 420px;
-            height: 460px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: visible;
-            isolation: isolate;
-        }
-
-        .hero__blob {
-            position: absolute;
-            width: 390px;
-            height: 390px;
-            background: radial-gradient(circle at 30% 25%, #1e40af 0%, #0f172a 45%, #020617 100%);
-            border-radius: 42% 58% 65% 35% / 45% 38% 62% 55%;
-            z-index: 1;
-            box-shadow:
-                0 0 45px rgba(37, 99, 235, 0.35),
-                0 0 90px rgba(14, 165, 233, 0.18),
-                inset 0 0 45px rgba(255, 255, 255, 0.04);
-            filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.45));
-            animation: blobMove 8s ease-in-out infinite;
-        }
-
-        .hero__blob::before {
-            content: "";
-            position: absolute;
-            inset: -18px;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.25), rgba(14, 165, 233, 0.08));
-            border-radius: inherit;
-            filter: blur(22px);
-            z-index: -1;
-        }
-
-        .hero__image {
-            position: relative;
-            z-index: 2;
-            width: 345px;
-            max-width: 100%;
-            height: auto;
-            object-fit: contain;
-            object-position: center bottom;
-            filter: drop-shadow(0 24px 35px rgba(0, 0, 0, 0.5));
-        }
-
-        @keyframes blobMove {
-            0% {
-                border-radius: 42% 58% 65% 35% / 45% 38% 62% 55%;
-                transform: translateY(0) scale(1);
-            }
-
-            50% {
-                border-radius: 58% 42% 38% 62% / 55% 60% 40% 45%;
-                transform: translateY(-10px) scale(1.03);
-            }
-
-            100% {
-                border-radius: 42% 58% 65% 35% / 45% 38% 62% 55%;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        @media screen and (max-width: 768px) {
-            .hero__image-container {
-                width: 320px;
-                height: 370px;
-                margin: 2rem auto 0;
-            }
-
-            .hero__blob {
-                width: 300px;
-                height: 300px;
-            }
-
-            .hero__image {
-                width: 270px;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .hero__image-container {
-                width: 280px;
-                height: 330px;
-            }
-
-            .hero__blob {
-                width: 260px;
-                height: 260px;
-            }
-
-            .hero__image {
-                width: 240px;
-            }
-        }
-    </style>
 </head>
 <body>
 
@@ -224,7 +124,601 @@
             </div>
         </section>
 
-        <!-- Keep the rest of your page exactly the same from here -->
+        <section class="about section" id="about">
+            <div class="section__header">
+                <span class="section__subtitle" data-en="Get to know me" data-fr="Apprenez à me connaître">Get to know me</span>
+                <h2 class="section__title" data-en="About Me" data-fr="À propos de moi">About Me</h2>
+                <div class="section__divider"></div>
+            </div>
+
+            <div class="about__container bd-grid">
+                <div class="about__content">
+                    <h3 class="about__tagline">
+                        <span data-en="I build" data-fr="Je construis">I build</span>
+                        <span class="highlight" data-en="web interfaces" data-fr="interfaces web">web interfaces</span>
+                        <span data-en="and" data-fr="et">and</span>
+                        <span class="highlight" data-en="mobile experiences" data-fr="expériences mobiles">mobile experiences</span>
+                        <span data-en="powered by solid backend systems." data-fr="alimentées par des systèmes backend solides.">powered by solid backend systems.</span>
+                    </h3>
+
+                    <div class="about__text">
+                        <p data-en="I'm a passionate full-stack web and mobile developer focused on creating clean, functional, and user-friendly digital products. I enjoy turning ideas into reliable applications that solve real problems."
+                           data-fr="Je suis un développeur web et mobile full stack passionné, spécialisé dans la création de produits numériques propres, fonctionnels et conviviaux. J'aime transformer les idées en applications fiables qui résolvent de vrais problèmes.">
+                            I'm a passionate full-stack web and mobile developer focused on creating clean, functional, and user-friendly digital products. I enjoy turning ideas into reliable applications that solve real problems.
+                        </p>
+
+                        <p data-en="My experience spans frontend interfaces, backend logic, databases, APIs, and mobile app development. I work with technologies such as HTML, CSS, JavaScript, PHP, React, Flutter, Java, Python, and MySQL."
+                           data-fr="Mon expérience couvre les interfaces frontend, la logique backend, les bases de données, les API et le développement d'applications mobiles. Je travaille avec des technologies telles que HTML, CSS, JavaScript, PHP, React, Flutter, Java, Python et MySQL.">
+                            My experience spans frontend interfaces, backend logic, databases, APIs, and mobile app development. I work with technologies such as HTML, CSS, JavaScript, PHP, React, Flutter, Java, Python, and MySQL.
+                        </p>
+
+                        <p data-en="From portfolio websites and dashboards to mobile apps and problem-solving projects, I aim to build software that is scalable, responsive, and meaningful. I'm always learning, improving, and ready for the next challenge."
+                           data-fr="Des sites portfolio et tableaux de bord aux applications mobiles et projets de résolution de problèmes, je cherche à créer des logiciels évolutifs, réactifs et utiles. J'apprends toujours, je m'améliore constamment et je suis prêt pour le prochain défi.">
+                            From portfolio websites and dashboards to mobile apps and problem-solving projects, I aim to build software that is scalable, responsive, and meaningful. I'm always learning, improving, and ready for the next challenge.
+                        </p>
+                    </div>
+
+                    <div class="about__stats">
+                        <div class="stat">
+                            <span class="stat__number">10+</span>
+                            <span class="stat__label" data-en="Projects Completed" data-fr="Projets Terminés">Projects Completed</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number">2+</span>
+                            <span class="stat__label" data-en="Years of Learning & Building" data-fr="Années d'Apprentissage et de Création">Years of Learning & Building</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number">Full</span>
+                            <span class="stat__label" data-en="Stack Focus" data-fr="Orientation Full Stack">Stack Focus</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills section" id="skills">
+            <div class="section__header">
+                <span class="section__subtitle" data-en="What I'm good at" data-fr="Ce que je fais bien">What I'm good at</span>
+                <h2 class="section__title" data-en="Technical Skills" data-fr="Compétences Techniques">Technical Skills</h2>
+                <div class="section__divider"></div>
+            </div>
+
+            <div class="skills__container bd-grid">
+                <div class="skills__intro">
+                    <h3 class="skills__subtitle" data-en="Professional Expertise" data-fr="Expertise Professionnelle">Professional Expertise</h3>
+                    <p class="skills__description"
+                       data-en="My stack combines modern web development, backend problem-solving, database management, and mobile app development. I focus on building responsive user interfaces and reliable application logic."
+                       data-fr="Ma stack combine le développement web moderne, la résolution de problèmes backend, la gestion des bases de données et le développement d'applications mobiles. Je me concentre sur la création d'interfaces réactives et d'une logique applicative fiable.">
+                        My stack combines modern web development, backend problem-solving, database management, and mobile app development. I focus on building responsive user interfaces and reliable application logic.
+                    </p>
+                </div>
+
+                <div class="skills__grid">
+                    <div class="skill-category">
+                        <h4 class="skill-category__title">
+                            <i class='bx bx-code-alt'></i>
+                            <span data-en="Frontend Development" data-fr="Développement Frontend">Frontend Development</span>
+                        </h4>
+                        <div class="skill-list">
+                            <div class="skill">
+                                <span class="skill__name">HTML/CSS</span>
+                                <div class="skill__bar"><div class="skill__level" data-level="95"></div></div>
+                            </div>
+                            <div class="skill">
+                                <span class="skill__name">JavaScript</span>
+                                <div class="skill__bar"><div class="skill__level" data-level="90"></div></div>
+                            </div>
+                            <div class="skill">
+                                <span class="skill__name">React</span>
+                                <div class="skill__bar"><div class="skill__level" data-level="85"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4 class="skill-category__title">
+                            <i class='bx bx-server'></i>
+                            <span data-en="Backend Development" data-fr="Développement Backend">Backend Development</span>
+                        </h4>
+                        <div class="skill-list">
+                            <div class="skill">
+                                <span class="skill__name">PHP</span>
+                                <div class="skill__bar"><div class="skill__level" data-level="88"></div></div>
+                            </div>
+                            <div class="skill">
+                                <span class="skill__name">Java</span>
+                                <div class="skill__bar"><div class="skill__level" data-level="85"></div></div>
+                            </div>
+                            <div class="skill">
+                                <span class="skill__name">Python</span>
+                                <div class="skill__bar"><div class="skill__level" data-level="80"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4 class="skill-category__title">
+                            <i class='bx bx-cog'></i>
+                            <span data-en="Tools & Technologies" data-fr="Outils & Technologies">Tools & Technologies</span>
+                        </h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">Flutter</span>
+                            <span class="skill-tag">OpenCV</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">REST API</span>
+                            <span class="skill-tag">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects section" id="work">
+            <div class="section__header">
+                <span class="section__subtitle" data-en="My recent work" data-fr="Mon travail récent">My recent work</span>
+                <h2 class="section__title" data-en="Featured Projects" data-fr="Projets en Vedette">Featured Projects</h2>
+                <div class="section__divider"></div>
+            </div>
+
+            <div class="projects__container bd-grid">
+                <div class="project-card">
+                    <div class="project-card__image">
+                        <img src="work.JPG" alt="Basketball Scoreboard Application">
+                        <div class="project-card__overlay">
+                            <a href="scoreindex.html" class="project-card__link" aria-label="View Basketball Scoreboard">
+                                <i class='bx bx-link-external'></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-card__content">
+                        <h3 class="project-card__title" data-en="Basketball Scoreboard" data-fr="Tableau de Score Basketball">Basketball Scoreboard</h3>
+                        <p class="project-card__description"
+                           data-en="A responsive scoreboard application for tracking basketball games with live score updates and a simple user interface."
+                           data-fr="Une application de tableau de score réactive pour suivre les matchs de basketball avec des mises à jour en direct et une interface simple.">
+                            A responsive scoreboard application for tracking basketball games with live score updates and a simple user interface.
+                        </p>
+                        <div class="project-card__tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <a href="https://github.com/248World/Scoreboard248" class="project-card__github" target="_blank">
+                            <i class='bx bxl-github'></i>
+                            <span data-en="View Code" data-fr="Voir le Code">View Code</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-card__image">
+                        <img src="Capture.JPG" alt="Weather Application">
+                        <div class="project-card__overlay">
+                            <a href="weather.html" class="project-card__link" aria-label="View Weather App">
+                                <i class='bx bx-link-external'></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-card__content">
+                        <h3 class="project-card__title" data-en="Weather Dashboard" data-fr="Tableau de Bord Météo">Weather Dashboard</h3>
+                        <p class="project-card__description"
+                           data-en="A real-time weather application using API data to display forecasts, location-based updates, and a clean user experience."
+                           data-fr="Une application météo en temps réel utilisant des données API pour afficher les prévisions, les mises à jour basées sur la localisation et une expérience utilisateur propre.">
+                            A real-time weather application using API data to display forecasts, location-based updates, and a clean user experience.
+                        </p>
+                        <div class="project-card__tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">API</span>
+                            <span class="tech-tag">CSS3</span>
+                        </div>
+                        <a href="https://github.com/248World/WeatherApp248" class="project-card__github" target="_blank">
+                            <i class='bx bxl-github'></i>
+                            <span data-en="View Code" data-fr="Voir le Code">View Code</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-card__image">
+                        <img src="Encrypt_Decrypt.png" alt="Encryption Application">
+                        <div class="project-card__overlay">
+                            <a href="https://varcode.pythonanywhere.com/" class="project-card__link" aria-label="View Encryption App" target="_blank">
+                                <i class='bx bx-link-external'></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-card__content">
+                        <h3 class="project-card__title" data-en="Encryption Tool" data-fr="Outil de Cryptage">Encryption Tool</h3>
+                        <p class="project-card__description"
+                           data-en="A security-focused web application for encryption and decryption, built to demonstrate backend logic and practical problem-solving."
+                           data-fr="Une application web orientée sécurité pour le cryptage et le décryptage, conçue pour démontrer la logique backend et la résolution pratique de problèmes.">
+                            A security-focused web application for encryption and decryption, built to demonstrate backend logic and practical problem-solving.
+                        </p>
+                        <div class="project-card__tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">Security</span>
+                        </div>
+                        <a href="https://github.com/248World/Encryption_Decryption" class="project-card__github" target="_blank">
+                            <i class='bx bxl-github'></i>
+                            <span data-en="View Code" data-fr="Voir le Code">View Code</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-card__image">
+                        <img src="his.png" alt="Image Processing Application">
+                        <div class="project-card__overlay">
+                            <a href="#" class="project-card__link" aria-label="View Image Processing App">
+                                <i class='bx bx-link-external'></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-card__content">
+                        <h3 class="project-card__title" data-en="Image Processing App" data-fr="Application de Traitement d'Image">Image Processing App</h3>
+                        <p class="project-card__description"
+                           data-en="A computer vision project built with C++ and OpenCV for image manipulation, analysis, and visual processing tasks."
+                           data-fr="Un projet de vision par ordinateur développé avec C++ et OpenCV pour la manipulation d'images, l'analyse et les traitements visuels.">
+                            A computer vision project built with C++ and OpenCV for image manipulation, analysis, and visual processing tasks.
+                        </p>
+                        <div class="project-card__tech">
+                            <span class="tech-tag">C++</span>
+                            <span class="tech-tag">OpenCV</span>
+                            <span class="tech-tag">Computer Vision</span>
+                        </div>
+                        <a href="https://github.com/248World/Applications-on-Image-Processing-in-Open-CV-with-C-" class="project-card__github" target="_blank">
+                            <i class='bx bxl-github'></i>
+                            <span data-en="View Code" data-fr="Voir le Code">View Code</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects__cta">
+                <a href="https://github.com/248World" class="btn btn--outline" target="_blank">
+                    <span data-en="View All Projects on GitHub" data-fr="Voir Tous les Projets sur GitHub">View All Projects on GitHub</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="services section" id="services">
+            <div class="section__header">
+                <span class="section__subtitle" data-en="What I offer" data-fr="Ce que j'offre">What I offer</span>
+                <h2 class="section__title" data-en="My Services" data-fr="Mes Services">My Services</h2>
+                <div class="section__divider"></div>
+            </div>
+
+            <div class="services__grid bd-grid">
+                <div class="service-card">
+                    <div class="service-card__icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="service-card__title" data-en="Mobile Development" data-fr="Développement Mobile">Mobile Development</h3>
+                    <p class="service-card__description"
+                       data-en="I build modern mobile applications with responsive layouts, clean user interfaces, and solid performance using Flutter and mobile development best practices."
+                       data-fr="Je développe des applications mobiles modernes avec des mises en page réactives, des interfaces propres et de bonnes performances en utilisant Flutter et les meilleures pratiques du développement mobile.">
+                        I build modern mobile applications with responsive layouts, clean user interfaces, and solid performance using Flutter and mobile development best practices.
+                    </p>
+                    <ul class="service-card__features">
+                        <li data-en="Cross-platform App Development" data-fr="Développement d'applications multiplateformes">Cross-platform App Development</li>
+                        <li data-en="Responsive UI Implementation" data-fr="Implémentation d'interfaces réactives">Responsive UI Implementation</li>
+                        <li data-en="Performance Optimization" data-fr="Optimisation des performances">Performance Optimization</li>
+                        <li data-en="App Deployment Support" data-fr="Support au déploiement des applications">App Deployment Support</li>
+                    </ul>
+                    <a href="#contact" class="service-card__link">
+                        <span data-en="Get Started" data-fr="Commencer">Get Started</span>
+                        <i class='bx bx-chevron-right'></i>
+                    </a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-card__icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="service-card__title" data-en="Backend Development" data-fr="Développement Backend">Backend Development</h3>
+                    <p class="service-card__description"
+                       data-en="I develop backend systems, business logic, database structures, and API integrations that make applications scalable and reliable."
+                       data-fr="Je développe des systèmes backend, de la logique métier, des structures de bases de données et des intégrations API qui rendent les applications évolutives et fiables.">
+                        I develop backend systems, business logic, database structures, and API integrations that make applications scalable and reliable.
+                    </p>
+                    <ul class="service-card__features">
+                        <li data-en="PHP / Java / Python Logic" data-fr="Logique PHP / Java / Python">PHP / Java / Python Logic</li>
+                        <li data-en="Database Design & Integration" data-fr="Conception et intégration de bases de données">Database Design & Integration</li>
+                        <li data-en="API Development" data-fr="Développement d'API">API Development</li>
+                        <li data-en="System Optimization" data-fr="Optimisation des systèmes">System Optimization</li>
+                    </ul>
+                    <a href="#contact" class="service-card__link">
+                        <span data-en="Get Started" data-fr="Commencer">Get Started</span>
+                        <i class='bx bx-chevron-right'></i>
+                    </a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-card__icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="service-card__title" data-en="Web Development" data-fr="Développement Web">Web Development</h3>
+                    <p class="service-card__description"
+                       data-en="I create responsive, modern, and user-friendly websites and web applications that combine strong frontend presentation with efficient backend support."
+                       data-fr="Je crée des sites web et des applications web réactifs, modernes et conviviaux qui combinent une forte présentation frontend et un support backend efficace.">
+                        I create responsive, modern, and user-friendly websites and web applications that combine strong frontend presentation with efficient backend support.
+                    </p>
+                    <ul class="service-card__features">
+                        <li data-en="Full Stack Development" data-fr="Développement Full Stack">Full Stack Development</li>
+                        <li data-en="API Integration" data-fr="Intégration d'API">API Integration</li>
+                        <li data-en="Responsive Interfaces" data-fr="Interfaces réactives">Responsive Interfaces</li>
+                        <li data-en="Maintenance & Support" data-fr="Maintenance & Support">Maintenance & Support</li>
+                    </ul>
+                    <a href="#contact" class="service-card__link">
+                        <span data-en="Get Started" data-fr="Commencer">Get Started</span>
+                        <i class='bx bx-chevron-right'></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials section" id="testimonials">
+            <div class="section__header">
+                <span class="section__subtitle" data-en="Client feedback" data-fr="Retour client">Client feedback</span>
+                <h2 class="section__title" data-en="Testimonials" data-fr="Témoignages">Testimonials</h2>
+                <div class="section__divider"></div>
+            </div>
+
+            <p class="testimonials__instruction"
+               data-en="Click a flag to view testimonials in English or French."
+               data-fr="Cliquez sur un drapeau pour voir les témoignages en anglais ou en français.">
+                Click a flag to view testimonials in English or French.
+            </p>
+
+            <div class="language-toggle">
+                <button class="language-btn active" data-lang="en" onclick="toggleTestimonialLanguage('en')">
+                    <img src="https://flagcdn.com/w20/gb.png" alt="English">
+                    <span data-en="English" data-fr="Anglais">English</span>
+                </button>
+                <button class="language-btn" data-lang="fr" onclick="toggleTestimonialLanguage('fr')">
+                    <img src="https://flagcdn.com/w20/fr.png" alt="French">
+                    <span data-en="Français" data-fr="Français">Français</span>
+                </button>
+            </div>
+
+            <div class="testimonials__slider swiper bd-grid">
+                <div class="swiper-wrapper">
+                    <div class="testimonial-card swiper-slide">
+                        <div class="testimonial-card__content">
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text" data-lang="en">
+                                Varney loves and knows what he does. He's goal oriented and persistent.
+                                As a go-getter, he's spent his past years deepening his programming
+                                knowledge through learning and application. His portfolio is evidence
+                                of his works. I'd recommend him to your team.
+                            </p>
+                            <p class="testimonial-text" data-lang="fr" style="display: none;">
+                                Varney aime et sait ce qu'il fait. Il est orienté vers ses objectifs
+                                et persévérant. En tant que personne ambitieuse, il a passé ces dernières
+                                années à approfondir ses connaissances en programmation par l'apprentissage
+                                et l'application. Son portfolio est une preuve de ses travaux.
+                                Je le recommanderais à votre équipe.
+                            </p>
+                        </div>
+                        <div class="testimonial-card__author">
+                            <img src="markie.jpg" alt="Emmanuel Markie Morris" class="author-avatar">
+                            <div class="author-info">
+                                <h4 class="author-name">Emmanuel Markie Morris</h4>
+                                <span class="author-role" data-en="Full-Stack Developer" data-fr="Développeur Full-Stack">Full-Stack Developer</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card swiper-slide">
+                        <div class="testimonial-card__content">
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text" data-lang="en">
+                                Mr. Varney D Fahnbulleh is an exceptional programmer known for his technical
+                                expertise and innovative problem-solving skills. His dedication and commitment
+                                to delivering high-quality results make him an invaluable asset.
+                            </p>
+                            <p class="testimonial-text" data-lang="fr" style="display: none;">
+                                M. Varney D Fahnbulleh est un programmeur exceptionnel connu pour son expertise
+                                technique et ses compétences innovantes en résolution de problèmes.
+                                Son dévouement et son engagement à fournir des résultats de haute qualité
+                                en font un atout inestimable.
+                            </p>
+                        </div>
+                        <div class="testimonial-card__author">
+                            <img src="james.jpg" alt="James Madavie" class="author-avatar">
+                            <div class="author-info">
+                                <h4 class="author-name">James Madavie</h4>
+                                <span class="author-role" data-en="Web Developer" data-fr="Développeur Web">Web Developer</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card swiper-slide">
+                        <div class="testimonial-card__content">
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text" data-lang="en">
+                                Varney is the ideal person when it comes to solving technical problems.
+                                Throughout our collaboration, his perseverance and determination inspired me.
+                                I highly recommend him for his competence and excellent communication skills.
+                            </p>
+                            <p class="testimonial-text" data-lang="fr" style="display: none;">
+                                Varney est la personne idéale quand il s'agit de résoudre des problèmes techniques.
+                                Durant notre collaboration, sa persévérance et sa détermination m'ont inspiré.
+                                Je le recommande vivement pour sa compétence et ses excellentes compétences en communication.
+                            </p>
+                        </div>
+                        <div class="testimonial-card__author">
+                            <img src="ammid.jpg" alt="Ammid Said Omar" class="author-avatar">
+                            <div class="author-info">
+                                <h4 class="author-name">Ammid Said Omar</h4>
+                                <span class="author-role" data-en="Software Developer" data-fr="Développeur Logiciel">Software Developer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-button-next testimonials-next"></div>
+                <div class="swiper-button-prev testimonials-prev"></div>
+                <div class="swiper-pagination testimonials-pagination"></div>
+            </div>
+        </section>
+
+        <section class="events section" id="events">
+            <div class="section__header">
+                <span class="section__subtitle" data-en="Developer journey" data-fr="Parcours développeur">Developer journey</span>
+                <h2 class="section__title" data-en="Events & Conferences" data-fr="Événements & Conférences">Events & Conferences</h2>
+                <div class="section__divider"></div>
+            </div>
+
+            <div class="events__slider swiper bd-grid">
+                <div class="swiper-wrapper">
+                    <div class="event-slide swiper-slide">
+                        <div class="event-image">
+                            <img src="scUIS.jpeg" alt="Leading an Inclusive Technical Training Session" loading="lazy">
+                        </div>
+                        <div class="event-title">
+                            <h3 data-en="Leading an Inclusive Technical Training Session" data-fr="Animation d'une session de formation technique inclusive">Leading an Inclusive Technical Training Session</h3>
+                        </div>
+                    </div>
+
+                    <div class="event-slide swiper-slide">
+                        <div class="event-image">
+                            <img src="Sat.jpeg" alt="Artificial Intelligence and Ethical Hacking Workshop" loading="lazy">
+                        </div>
+                        <div class="event-title">
+                            <h3 data-en="Artificial Intelligence and Ethical Hacking Workshop" data-fr="Atelier sur l'Intelligence Artificielle et le Hacking Éthique">Artificial Intelligence and Ethical Hacking Workshop</h3>
+                        </div>
+                    </div>
+
+                    <div class="event-slide swiper-slide">
+                        <div class="event-image">
+                            <img src="disable.jpeg" alt="Computer training for persons with disabilities" loading="lazy">
+                        </div>
+                        <div class="event-title">
+                            <h3 data-en="Led beginner computer training for persons with disabilities" data-fr="Formation informatique pour débutants pour personnes handicapées">Led beginner computer training for persons with disabilities</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-button-next events-next"></div>
+                <div class="swiper-button-prev events-prev"></div>
+                <div class="swiper-pagination events-pagination"></div>
+            </div>
+        </section>
+
+        <section class="contact section" id="contact">
+            <div class="section__header">
+                <span class="section__subtitle" data-en="Get in touch" data-fr="Entrer en contact">Get in touch</span>
+                <h2 class="section__title" data-en="Contact Me" data-fr="Contactez-moi">Contact Me</h2>
+                <div class="section__divider"></div>
+            </div>
+
+            <div class="contact__container bd-grid">
+                <div class="contact__form-container">
+                    <h3 class="contact__form-title" data-en="Send a Message" data-fr="Envoyer un Message">Send a Message</h3>
+
+                    <div id="form-success" class="form-success" style="display: none;">
+                        <i class='bx bx-check-circle'></i>
+                        <span data-en="Thank you! Your message has been sent successfully." data-fr="Merci! Votre message a été envoyé avec succès.">
+                            Thank you! Your message has been sent successfully.
+                        </span>
+                    </div>
+
+                    <form id="contactForm"
+                          action="https://formspree.io/f/yourFormID"
+                          method="POST"
+                          class="contact__form">
+
+                        <input type="hidden" name="_subject" value="New Portfolio Message">
+                        <input type="hidden" name="_captcha" value="false">
+
+                        <div class="form-group">
+                            <input type="text"
+                                   name="name"
+                                   placeholder="Your Name"
+                                   class="form-input"
+                                   data-en-placeholder="Your Name"
+                                   data-fr-placeholder="Votre Nom"
+                                   required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email"
+                                   name="email"
+                                   placeholder="Your Email"
+                                   class="form-input"
+                                   data-en-placeholder="Your Email"
+                                   data-fr-placeholder="Votre Email"
+                                   required>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea name="message"
+                                      placeholder="How can I help you?"
+                                      rows="4"
+                                      class="form-textarea"
+                                      data-en-placeholder="How can I help you?"
+                                      data-fr-placeholder="Comment puis-je vous aider?"
+                                      required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn--primary form-submit">
+                            <i class='bx bx-send'></i>
+                            <span data-en="Send Message" data-fr="Envoyer le Message">Send Message</span>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="contact__info">
+                    <h3 class="contact__info-title" data-en="Contact Information" data-fr="Informations de Contact">Contact Information</h3>
+                    <div class="contact__info-items">
+                        <div class="contact__info-item">
+                            <i class='bx bx-phone'></i>
+                            <div>
+                                <h4 data-en="Phone" data-fr="Téléphone">Phone</h4>
+                                <a href="tel:+212621096641">+212 621 096 641</a>
+                            </div>
+                        </div>
+
+                        <div class="contact__info-item">
+                            <i class='bx bx-envelope'></i>
+                            <div>
+                                <h4 data-en="Email" data-fr="Email">Email</h4>
+                                <a href="mailto:varfahnbulleh@gmail.com">varfahnbulleh@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact__info-item">
+                            <i class='bx bx-map'></i>
+                            <div>
+                                <h4 data-en="Location" data-fr="Localisation">Location</h4>
+                                <span data-en="Morocco • Available for remote opportunities worldwide"
+                                      data-fr="Maroc • Disponible pour des opportunités à distance dans le monde entier">
+                                    Morocco • Available for remote opportunities worldwide
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact__hours">
+                        <h4 data-en="Response Time" data-fr="Temps de Réponse">Response Time</h4>
+                        <p data-en="I typically respond within 24 hours during business days."
+                           data-fr="Je réponds généralement dans les 24 heures pendant les jours ouvrables.">
+                            I typically respond within 24 hours during business days.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
