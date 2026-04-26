@@ -2401,5 +2401,179 @@
     <script src="script.js"></script>
     <script src="responsive-navbar.js"></script>
     <script src="main.js"></script>
+
+
+    <!-- FINAL BURGER MENU FIX: placed after all scripts to prevent conflicts -->
+    <style>
+        @media screen and (max-width: 768px) {
+            .l-header {
+                z-index: 10050 !important;
+            }
+
+            .menu-toggle {
+                border: 0 !important;
+                background: transparent !important;
+                cursor: pointer !important;
+                position: relative !important;
+                z-index: 10080 !important;
+            }
+
+            .menu-toggle__line {
+                display: block !important;
+                width: 32px !important;
+                height: 4px !important;
+                margin: 3px 0 !important;
+                background: #0f172a !important;
+                border-radius: 20px !important;
+                transition: transform 0.3s ease, opacity 0.3s ease !important;
+            }
+
+            .nav__menu {
+                position: fixed !important;
+                top: 86px !important;
+                left: 1rem !important;
+                right: 1rem !important;
+                width: auto !important;
+                max-width: calc(100vw - 2rem) !important;
+                max-height: calc(100dvh - 105px) !important;
+                overflow-y: auto !important;
+                background: #f8fafc !important;
+                padding: 2.2rem 1.8rem !important;
+                border-radius: 28px !important;
+                box-shadow: 0 22px 70px rgba(15, 23, 42, 0.22) !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+                pointer-events: none !important;
+                transform: translateY(-12px) scale(0.98) !important;
+                transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease !important;
+                z-index: 10070 !important;
+            }
+
+            .nav__menu.active {
+                opacity: 1 !important;
+                visibility: visible !important;
+                pointer-events: auto !important;
+                transform: translateY(0) scale(1) !important;
+                display: block !important;
+            }
+
+            body.menu-open {
+                overflow: hidden !important;
+                touch-action: none !important;
+            }
+
+            .nav__list {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 0.9rem !important;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            .nav__link,
+            .language-option-mobile {
+                width: 100% !important;
+                min-height: 48px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: flex-start !important;
+                padding: 0.85rem 1rem !important;
+                border-radius: 14px !important;
+            }
+
+            .theme-toggle {
+                margin-top: 0.5rem !important;
+            }
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('.nav__menu');
+            const navLinks = document.querySelectorAll('.nav__link');
+            const menuLines = document.querySelectorAll('.menu-toggle__line');
+
+            if (!menuToggle || !navMenu) return;
+
+            function setBurgerIcon(open) {
+                if (menuLines.length !== 3) return;
+
+                if (open) {
+                    menuLines[0].style.transform = 'rotate(45deg) translate(7px, 7px)';
+                    menuLines[1].style.opacity = '0';
+                    menuLines[2].style.transform = 'rotate(-45deg) translate(7px, -7px)';
+                } else {
+                    menuLines[0].style.transform = 'none';
+                    menuLines[1].style.opacity = '1';
+                    menuLines[2].style.transform = 'none';
+                }
+            }
+
+            function openMenu() {
+                navMenu.classList.add('active');
+                menuToggle.classList.add('active');
+                menuToggle.setAttribute('aria-expanded', 'true');
+                document.body.classList.add('menu-open');
+                setBurgerIcon(true);
+            }
+
+            function closeMenu() {
+                navMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                document.body.classList.remove('menu-open');
+                setBurgerIcon(false);
+            }
+
+            function toggleMenu() {
+                if (navMenu.classList.contains('active')) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
+            }
+
+            menuToggle.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+                toggleMenu();
+            }, true);
+
+            navLinks.forEach(function (link) {
+                link.addEventListener('click', function () {
+                    closeMenu();
+                }, true);
+            });
+
+            document.querySelectorAll('.language-option-mobile, .theme-toggle').forEach(function (item) {
+                item.addEventListener('click', function () {
+                    setTimeout(closeMenu, 150);
+                }, true);
+            });
+
+            document.addEventListener('click', function (e) {
+                if (
+                    navMenu.classList.contains('active') &&
+                    !navMenu.contains(e.target) &&
+                    !menuToggle.contains(e.target)
+                ) {
+                    closeMenu();
+                }
+            }, true);
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeMenu();
+            });
+
+            window.addEventListener('resize', function () {
+                if (window.innerWidth > 768) closeMenu();
+            });
+        });
+    </script>
+
 </body>
 </html>
