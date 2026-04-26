@@ -97,6 +97,21 @@
         }
 
         /* ============================================================
+           HERO — REMOVE BACKGROUND ON MOBILE
+           Clears any background image / texture from styles.css
+        ============================================================ */
+        @media screen and (max-width: 768px) {
+            .hero,
+            .hero.bd-grid,
+            section#home,
+            section#home.hero {
+                background-image: none !important;
+                background-color: #ffffff !important;
+                background: #ffffff !important;
+            }
+        }
+
+        /* ============================================================
            HERO — TABLET / MOBILE (≤ 768px)
            Fix: stack content vertically, image centred below text,
            no overflow / clipping, no dark rectangle artefact.
