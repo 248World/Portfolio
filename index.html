@@ -826,6 +826,484 @@
             background: rgba(15, 23, 42, 0.72);
             border-color: rgba(148, 163, 184, 0.18);
         }
+
+
+        /* =====================================================
+           FINAL MOBILE VIEW FIX
+           Strong overrides placed last to keep the same logic
+           ===================================================== */
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            min-width: 0;
+        }
+
+        .l-main {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .nav,
+        .hero__content,
+        .section__header,
+        .skills__intro,
+        .skills__grid,
+        .project-card,
+        .service-card,
+        .testimonial-card,
+        .event-slide,
+        .contact__form-container,
+        .contact__info,
+        .footer__content {
+            min-width: 0;
+        }
+
+        .btn,
+        .project-card__github,
+        .service-card__link,
+        .language-option,
+        .language-btn {
+            min-height: 44px;
+        }
+
+        .hero__image-container,
+        .hero__image-container *,
+        .hero__blob,
+        .hero__blob::before,
+        .hero__blob::after {
+            box-shadow: none !important;
+            filter: none !important;
+            -webkit-filter: none !important;
+        }
+
+        .hero__image-container::before,
+        .hero__image-container::after,
+        .hero__blob::before,
+        .hero__blob::after {
+            display: none !important;
+            content: none !important;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                overflow-x: hidden !important;
+            }
+
+            .l-header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                z-index: 9999;
+            }
+
+            .nav.bd-grid {
+                width: 100%;
+                max-width: 100%;
+                min-height: 70px;
+                padding: 0.75rem 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 0.75rem;
+            }
+
+            .nav__brand {
+                flex: 1 1 auto;
+                min-width: 0;
+                max-width: calc(100vw - 76px);
+            }
+
+            .nav__logo,
+            .nav__sublogo {
+                max-width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .menu-toggle {
+                flex: 0 0 44px;
+                width: 44px;
+                height: 44px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 12px;
+            }
+
+            .nav__menu {
+                position: fixed !important;
+                top: 76px !important;
+                left: 0.75rem !important;
+                right: 0.75rem !important;
+                width: auto !important;
+                max-width: calc(100vw - 1.5rem) !important;
+                max-height: calc(100dvh - 92px);
+                overflow-y: auto;
+                padding: 0.85rem !important;
+                border-radius: 18px;
+                box-shadow: 0 18px 50px rgba(15, 23, 42, 0.18);
+            }
+
+            .nav__list {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            .nav__link,
+            .language-option-mobile {
+                min-height: 44px;
+            }
+
+            .hero.bd-grid {
+                width: 100%;
+                max-width: 100%;
+                padding: 6.4rem 1rem 3rem;
+                margin: 0;
+            }
+
+            .hero__content {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .hero__text {
+                width: 100%;
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .hero__title {
+                max-width: 100%;
+                overflow-wrap: anywhere;
+                font-size: clamp(2rem, 10vw, 2.85rem) !important;
+                line-height: 1.08;
+            }
+
+            .hero__typewriter {
+                width: 100%;
+                min-height: 32px;
+                overflow: hidden;
+                overflow-wrap: anywhere;
+            }
+
+            .hero__description {
+                width: 100%;
+                max-width: 34rem;
+                padding: 0;
+                text-align: center;
+            }
+
+            .hero__cta {
+                width: 100%;
+                max-width: 340px;
+                display: grid !important;
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+                margin: 0 auto;
+            }
+
+            .hero__cta .btn {
+                width: 100%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0.9rem 1rem;
+                white-space: normal;
+                text-align: center;
+            }
+
+            .hero__social {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .hero__visual {
+                width: 100%;
+                overflow: visible !important;
+            }
+
+            .hero__image-container {
+                width: min(292px, 82vw) !important;
+                height: min(326px, 91vw) !important;
+                margin: 0.3rem auto 0 !important;
+                overflow: hidden !important;
+                background: transparent !important;
+                box-shadow: none !important;
+                filter: none !important;
+            }
+
+            .hero__blob {
+                inset: 0 !important;
+                box-shadow: none !important;
+                filter: none !important;
+            }
+
+            .hero__image {
+                width: 86% !important;
+                max-width: 86% !important;
+                max-height: 93% !important;
+                object-fit: contain !important;
+                object-position: center bottom !important;
+                transform: none !important;
+                box-shadow: none !important;
+                filter: none !important;
+            }
+
+            .section {
+                width: 100%;
+                padding: 3.5rem 1rem !important;
+            }
+
+            .section__header {
+                width: 100%;
+                max-width: 100%;
+                padding: 0 !important;
+                margin: 0 auto 2rem;
+                text-align: center;
+            }
+
+            .bd-grid,
+            .skills__container,
+            .projects__container,
+            .services__grid,
+            .testimonials__slider,
+            .events__slider,
+            .contact__container,
+            .footer__content {
+                width: 100% !important;
+                max-width: 100% !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+
+            #about .about__container {
+                padding: 0 !important;
+            }
+
+            #about .about__tagline,
+            #about .about__text p,
+            .skills__subtitle,
+            .skills__description,
+            .project-card__title,
+            .project-card__description,
+            .service-card__title,
+            .service-card__description,
+            .contact__form-title,
+            .contact__info-title {
+                text-align: center !important;
+            }
+
+            #about .about__stats,
+            .skills__grid,
+            .projects__container,
+            .services__grid,
+            .contact__container {
+                display: grid !important;
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+
+            .skill-category,
+            .project-card,
+            .service-card,
+            .testimonial-card,
+            .event-slide,
+            .contact__form-container,
+            .contact__info {
+                width: 100% !important;
+                max-width: 100% !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+
+            .skill-category,
+            .service-card,
+            .project-card__content,
+            .testimonial-card,
+            .contact__form-container,
+            .contact__info {
+                padding: 1.15rem !important;
+            }
+
+            .skill-tags,
+            .project-card__tech,
+            .footer__nav,
+            .footer__social {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .skill-tag,
+            .tech-tag {
+                max-width: 100%;
+                white-space: normal;
+                text-align: center;
+            }
+
+            .project-card {
+                overflow: hidden;
+            }
+
+            .project-card__image {
+                width: 100%;
+                height: 200px !important;
+            }
+
+            .project-card__image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .project-card__github {
+                width: fit-content;
+                max-width: 100%;
+                align-self: center;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .service-card__features {
+                width: 100%;
+                max-width: 310px;
+                margin: 1rem auto;
+                padding-left: 1.2rem;
+            }
+
+            .testimonials.section,
+            .events.section {
+                overflow: hidden;
+            }
+
+            .testimonials__slider.swiper,
+            .events__slider.swiper {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding-bottom: 3rem !important;
+                overflow: hidden !important;
+            }
+
+            .swiper-wrapper,
+            .swiper-slide {
+                max-width: 100%;
+            }
+
+            .testimonial-card__author {
+                align-items: center;
+                justify-content: center;
+            }
+
+            .author-avatar {
+                flex: 0 0 auto;
+            }
+
+            .event-image {
+                height: 220px !important;
+            }
+
+            .contact__form {
+                width: 100%;
+            }
+
+            .form-group,
+            .form-input,
+            .form-textarea,
+            .form-submit {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            .contact__info-item {
+                display: flex;
+                width: 100%;
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            .contact__info-item > div {
+                min-width: 0;
+            }
+
+            .contact__info-item a,
+            .contact__info-item span,
+            .footer__tagline,
+            .footer__copyright {
+                overflow-wrap: anywhere;
+                word-break: normal;
+            }
+
+            .footer {
+                width: 100%;
+                padding: 2rem 1rem 1.2rem !important;
+                text-align: center;
+            }
+
+            .footer__content {
+                display: grid !important;
+                grid-template-columns: 1fr !important;
+                gap: 1.2rem;
+                padding: 0 !important;
+            }
+        }
+
+        @media screen and (max-width: 420px) {
+            .nav.bd-grid {
+                padding-inline: 0.8rem;
+            }
+
+            .nav__logo {
+                font-size: 0.82rem !important;
+            }
+
+            .nav__sublogo {
+                font-size: 0.6rem !important;
+            }
+
+            .hero.bd-grid {
+                padding-left: 0.85rem;
+                padding-right: 0.85rem;
+            }
+
+            .hero__title {
+                font-size: clamp(1.8rem, 10.5vw, 2.35rem) !important;
+            }
+
+            .hero__image-container {
+                width: min(260px, 80vw) !important;
+                height: min(300px, 88vw) !important;
+            }
+
+            .section {
+                padding-left: 0.85rem !important;
+                padding-right: 0.85rem !important;
+            }
+
+            .project-card__image,
+            .event-image {
+                height: 185px !important;
+            }
+
+            .language-toggle {
+                width: 100% !important;
+            }
+        }
     </style>
 
 </head>
