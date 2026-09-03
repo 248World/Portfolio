@@ -25,10 +25,10 @@
 
     <header class="l-header">
         <nav class="nav bd-grid">
-            <div class="nav__brand">
-                <a href="#home" class="nav__logo">Varney D. Fahnbulleh</a>
+            <a href="#home" class="nav__logo-box">
+                <span class="nav__logo">Varney D. Fahnbulleh</span>
                 <span class="nav__sublogo">Full-Stack Web & Mobile Developer</span>
-            </div>
+            </a>
 
             <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span class="menu-toggle__line"></span>
@@ -38,20 +38,51 @@
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
-                    <li class="nav__item"><a href="#home" class="nav__link active-link" data-en="Home" data-fr="Accueil">Home</a></li>
-                    <li class="nav__item"><a href="#about" class="nav__link" data-en="About" data-fr="À propos">About</a></li>
-                    <li class="nav__item"><a href="#skills" class="nav__link" data-en="Skills" data-fr="Compétences">Skills</a></li>
-                    <li class="nav__item"><a href="#work" class="nav__link" data-en="Projects" data-fr="Projets">Projects</a></li>
-                    <li class="nav__item"><a href="#services" class="nav__link" data-en="Services" data-fr="Services">Services</a></li>
-                    <li class="nav__item"><a href="#contact" class="nav__link" data-en="Contact" data-fr="Contact">Contact</a></li>
-
-                    <li class="nav__item language-option-mobile" data-lang="en" onclick="changeLanguage('en')">
-                        <img src="https://flagcdn.com/w20/gb.png" alt="English">
-                        <span>English</span>
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active-link">
+                            <i class='bx bx-home-alt'></i>
+                            <span data-en="Home" data-fr="Accueil">Home</span>
+                        </a>
                     </li>
-                    <li class="nav__item language-option-mobile" data-lang="fr" onclick="changeLanguage('fr')">
-                        <img src="https://flagcdn.com/w20/fr.png" alt="French">
-                        <span>Français</span>
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link">
+                            <i class='bx bx-user'></i>
+                            <span data-en="About" data-fr="À propos">About</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#skills" class="nav__link">
+                            <i class='bx bx-code-alt'></i>
+                            <span data-en="Skills" data-fr="Compétences">Skills</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#work" class="nav__link">
+                            <i class='bx bx-briefcase'></i>
+                            <span data-en="Projects" data-fr="Projets">Projects</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#services" class="nav__link">
+                            <i class='bx bx-cog'></i>
+                            <span data-en="Services" data-fr="Services">Services</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link">
+                            <i class='bx bx-envelope'></i>
+                            <span data-en="Contact" data-fr="Contact">Contact</span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item nav__item--lang">
+                        <div class="nav__lang-select">
+                            <i class='bx bx-globe'></i>
+                            <select id="langSelect" onchange="changeLanguage(this.value)" aria-label="Select language">
+                                <option value="en">English</option>
+                                <option value="fr">Français</option>
+                            </select>
+                        </div>
                     </li>
 
                     <li class="nav__item">
@@ -61,19 +92,9 @@
                     </li>
                 </ul>
             </div>
-
-            <div class="language-switcher">
-                <button class="language-option active" data-lang="en" onclick="changeLanguage('en')">
-                    <img src="https://flagcdn.com/w20/gb.png" alt="English">
-                    <span>English</span>
-                </button>
-                <button class="language-option" data-lang="fr" onclick="changeLanguage('fr')">
-                    <img src="https://flagcdn.com/w20/fr.png" alt="French">
-                    <span>Français</span>
-                </button>
-            </div>
         </nav>
     </header>
+
 
     <main class="l-main">
         <section class="hero bd-grid" id="home">
@@ -888,15 +909,10 @@
             // FIX: keep the <html lang="..."> attribute in sync for accessibility/SEO.
             document.documentElement.lang = lang;
 
-            // FIX: use data-lang instead of matching visible text (was fragile —
-            // broke if the button label ever changed).
-            document.querySelectorAll('.language-option').forEach(btn => {
-                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-            });
-
-            document.querySelectorAll('.language-option-mobile').forEach(btn => {
-                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-            });
+            // FIX: replaced the old flag-button active-state loops (buttons no longer exist)
+            // with syncing the single language <select> dropdown.
+            const langSelect = document.getElementById('langSelect');
+            if (langSelect) langSelect.value = lang;
 
             document.querySelectorAll('[data-en]').forEach(element => {
                 if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
