@@ -1,110 +1,134 @@
 :root {
-    /* Light theme (default) */
-    --body-color: #cbc9c9;
-    --text-color: #0c0c0c;
-    --title-color: #0c0c0c;
-    --title-color-dark: #000;
-    --container-color: #fafafa;
-    --section-bg: #f5f5f5;
-    --card-bg: #fff;
-    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    --skills-bar-color: #4070f4;
-    --button-bg: #4070f4;
-    --button-color: #fff;
-    --border-color: #e0e0e0;
-    --footer-bg: #0b0a0a;
-    --footer-text: #fff;
-  }
-  
-  [data-theme="dark"] {
-    /* Dark theme */
-    --body-color: #110d1e;
-    --text-color: #f6f3f3;
+  /* Light theme (default) */
+  --body-color: #cbc9c9;
+  --text-color: #0c0c0c;
+  --title-color: #0c0c0c;
+  --title-color-dark: #000;
+  --container-color: #fafafa;
+  --section-bg: #f5f5f5;
+  --card-bg: #fff;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --skills-bar-color: #4070f4;
+  --button-bg: #4070f4;
+  --button-color: #fff;
+  --border-color: #e0e0e0;
+  --footer-bg: #0b0a0a;
+  --footer-text: #fff;
 
-    --title-color: #f5f0f0;
-    --title-color-dark: #fff;
-    --container-color: white;
-    --section-bg: #f8f4f4;
-    --card-bg: #1e1e1e;
-    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    --skills-bar-color: #9bb4fa;
-    --button-bg: #7a9cf9;
-    --button-color: #fff;
-    --border-color: #fbf7f7;
-    --footer-bg: #000;
-    --footer-text: #f0f0f0;
+  /* FIX: added these so responsive-navbar.css (which expects --header-bg, --first-color,
+     --second-color, etc.) actually pulls from this theme instead of silently falling back
+     to its own hardcoded defaults. */
+  --header-bg: var(--container-color);
+  --first-color: var(--skills-bar-color);
+  --second-color: var(--text-color);
+  --z-fixed: 100;
+  --header-height: 4rem;
+  --font-semi: 600;
+  --normal-font-size: 0.938rem;
+}
 
-  }
-  .contact_input{
-    color: #f0f0f0;
-  } 
-  
-  
-  body {
-    background-color: var(--body-color);
-    color: var(--text-color);
-    transition: all 0.3s ease;
-  }
-  
-  .section-title,
-  .home__title,
-  .about__subtitle,
-  .skills__subtitle,
-  .certification__name,
-  .card h2 {
-    color: var(--title-color);
-  }
-  
-  .home__title-color {
-    color: var(--skills-bar-color);
-  }
-  
-  .card,
-  .testimonials-box {
-    background-color: var(--card-bg);
-    box-shadow: var(--card-shadow);
-  }
-  
-  .button,
-  .button1,
-  .contact__button {
-    background-color: var(--button-bg);
-    color: white;
-  }
-  
-  .skills__bar {
-    background-color: var(--border-color);
-  }
-  
-  .skills__html,
-  .skills__css,
-  .skills__js,
-  .skills__ux {
-    background-color: var(--skills-bar-color);
-  }
-  
-  .footer {
-    background-color: var(--footer-bg);
-    color: var(--footer-text);
-  }
-  
-  /* Theme toggle button */
-  .theme-toggle {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-    margin-left: 1rem;
-    color: var(--text-color);
-    transition: all 0.3s ease;
-  }
-  
-  .theme-toggle:hover {
-    color: var(--skills-bar-color);
-  }
-  
-  .theme-toggle i {
-    font-size: 1.5rem;
-  }
-  
+[data-theme="dark"] {
+  /* Dark theme */
+  --body-color: #110d1e;
+  --text-color: #f6f3f3;
+  --title-color: #f5f0f0;
+  --title-color-dark: #fff;
+  --container-color: #1a1626;
+  --section-bg: #171320;
+  --card-bg: #1e1e1e;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  --skills-bar-color: #9bb4fa;
+  --button-bg: #7a9cf9;
+  --button-color: #fff;
+  --border-color: #3a3540;
+  --footer-bg: #000;
+  --footer-text: #f0f0f0;
+
+  --header-bg: var(--container-color);
+  --first-color: var(--skills-bar-color);
+  --second-color: var(--text-color);
+}
+
+/* FIX: this rule targeted .contact_input, which doesn't exist in index.html.
+   The real class is .form-input / .form-textarea. */
+.form-input,
+.form-textarea {
+  color: var(--text-color);
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+body {
+  background-color: var(--body-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+/* FIX: original selectors (.section-title, .home__title, .about__subtitle,
+   .skills__subtitle, .certification__name, .card h2) referenced classes that don't
+   exist in this page. Mapped to the real BEM classes used in index.html. */
+.section__title,
+.hero__title,
+.about__tagline,
+.skills__subtitle,
+.contact__form-title,
+.contact__info-title,
+.project-card__title,
+.service-card__title {
+  color: var(--title-color);
+}
+
+.hero__highlight {
+  color: var(--skills-bar-color);
+}
+
+/* FIX: .card, .testimonials-box didn't exist — the real card elements are these. */
+.project-card,
+.service-card,
+.testimonial-card {
+  background-color: var(--card-bg);
+  box-shadow: var(--card-shadow);
+}
+
+/* FIX: .button, .button1, .contact__button didn't exist — real buttons use .btn. */
+.btn,
+.form-submit {
+  background-color: var(--button-bg);
+  color: var(--button-color);
+}
+
+/* FIX: .skills__bar didn't exist — real skill bar track/fill are .skill__bar / .skill__level. */
+.skill__bar {
+  background-color: var(--border-color);
+}
+
+.skill__level {
+  background-color: var(--skills-bar-color);
+}
+
+.footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  margin-left: 1rem;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  background: none;
+  border: none;
+}
+
+.theme-toggle:hover {
+  color: var(--skills-bar-color);
+}
+
+.theme-toggle i {
+  font-size: 1.5rem;
+}
