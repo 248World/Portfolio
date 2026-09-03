@@ -1,16 +1,15 @@
 /* Responsive Navbar Styles */
-/* FIX: rewritten to target the ACTUAL classes in index.html.
-   Original file used .navbar / .navbar-container / .navbar-links / .navbar-theme-toggle,
-   none of which exist on this page — the real markup uses .l-header / .nav / .nav__menu /
-   .theme-toggle. Also swapped the undefined --font-semi/--z-fixed/--first-color/--second-color
-   fallbacks for the real variables now defined in theme.css. */
+/* Redesigned to a solid brand-color bar with icon-over-label nav items and a single
+   language dropdown, matching the requested reference look. The header keeps a fixed
+   brand color regardless of light/dark theme (like the reference), while the rest of
+   the page still switches via [data-theme="dark"]. */
 
 /* Base navbar styles */
 .l-header {
   width: 100%;
-  background-color: var(--header-bg, #fff);
+  background-color: var(--first-color, #4070f4);
   box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease;
   position: fixed;
   top: 0;
   left: 0;
@@ -25,20 +24,31 @@
   height: var(--header-height, 4rem);
   max-width: 1200px;
   margin: 0 auto;
+  gap: 1rem;
+}
+
+/* White logo box, like the reference's brand mark */
+.nav__logo-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  line-height: 1.2;
+  flex-shrink: 0;
 }
 
 .nav__logo {
   font-weight: var(--font-semi, 600);
-  color: var(--second-color, #000);
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
+  color: var(--first-color, #4070f4);
+  font-size: 1.05rem;
 }
 
 .nav__sublogo {
-  font-size: 0.8rem;
-  color: var(--text-color, #666);
-  margin-left: 0.5rem;
+  font-size: 0.7rem;
+  color: #555;
 }
 
 /* Mobile menu button */
@@ -60,7 +70,7 @@
   height: 3px;
   width: 100%;
   border-radius: 3px;
-  background-color: var(--second-color, #000);
+  background-color: #fff;
   transition: all 0.3s ease;
 }
 
@@ -68,6 +78,8 @@
 .nav__menu {
   display: flex;
   align-items: center;
+  flex: 1;
+  justify-content: flex-end;
 }
 
 .nav__list {
@@ -76,80 +88,81 @@
   margin: 0;
   padding: 0;
   list-style: none;
+  gap: 0.5rem;
 }
 
 .nav__item {
-  margin: 0 1rem;
   list-style: none;
 }
 
+/* Icon-over-label links, matching the reference navbar */
 .nav__link {
-  color: var(--second-color, #000);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   font-weight: var(--font-semi, 600);
-  font-size: var(--normal-font-size, 0.938rem);
-  transition: color 0.3s ease;
-  position: relative;
+  font-size: 0.75rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  transition: color 0.2s ease, background-color 0.2s ease;
 }
 
-.nav__link:hover {
-  color: var(--first-color, #4070f4);
+.nav__link i {
+  font-size: 1.2rem;
 }
 
+.nav__link:hover,
 .nav__link.active-link {
-  color: var(--first-color, #4070f4);
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
-.nav__link.active-link::after,
-.nav__link:hover::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 0.18rem;
-  left: 0;
-  bottom: -0.5rem;
-  background-color: var(--first-color, #4070f4);
-}
-
-/* Language switcher (desktop) */
-.language-switcher {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-left: 1rem;
-}
-
-.language-option {
+/* Language dropdown, replaces the old dual flag-button switcher */
+.nav__lang-select {
   display: flex;
   align-items: center;
   gap: 0.35rem;
-  background: none;
+  color: #fff;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+}
+
+.nav__lang-select i {
+  font-size: 1.1rem;
+}
+
+.nav__lang-select select {
+  background: transparent;
   border: none;
-  cursor: pointer;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  color: var(--second-color, #000);
-  opacity: 0.6;
-  transition: opacity 0.2s ease;
-}
-
-.language-option.active {
-  opacity: 1;
+  color: #fff;
+  font-size: 0.85rem;
   font-weight: var(--font-semi, 600);
+  cursor: pointer;
 }
 
-.language-option img {
-  width: 18px;
-  height: auto;
-  border-radius: 2px;
+.nav__lang-select select:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 2px;
 }
 
-/* Language options shown only inside the mobile menu */
-.language-option-mobile {
-  display: none;
+/* Options render with default OS styling (dark text on light background) since
+   <option> can't inherit transparent/white styling cross-browser. */
+.nav__lang-select select option {
+  color: #000;
 }
 
-/* Theme toggle lives inside .nav__item already, styled by theme.css's .theme-toggle */
+/* Theme toggle sits inside the colored bar, so force it white regardless of theme */
+.theme-toggle {
+  color: #fff !important;
+}
+
+.theme-toggle:hover {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
 
 /* Mobile styles */
 @media screen and (max-width: 767px) {
@@ -165,23 +178,13 @@
     display: none;
   }
 
-  .language-switcher {
-    display: none;
-  }
-
-  .language-option-mobile {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
   .nav__menu {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(20, 20, 30, 0.97);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -199,10 +202,11 @@
   .nav__list {
     flex-direction: column;
     align-items: center;
+    gap: 0;
   }
 
   .nav__item {
-    margin: 1.5rem 0;
+    margin: 1rem 0;
     opacity: 0;
     transform: translateY(15px);
     transition: transform 0.4s ease, opacity 0.4s ease;
@@ -224,20 +228,17 @@
   .nav__item:nth-child(8) { transition-delay: 0.8s; }
 
   .nav__link {
+    flex-direction: row;
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
-  .nav__link.active-link::after,
-  .nav__link:hover::after {
-    bottom: -0.75rem;
+  .nav__link i {
+    font-size: 1.3rem;
   }
 
-  /* FIX: original hamburger animation relied on .menu-toggle.active, but the JS in
-     index.html never adds an "active" class to .menu-toggle — it sets aria-expanded
-     and animates the lines directly via inline styles. Matched to aria-expanded so
-     this CSS and the JS agree (the JS's inline styles will still take precedence,
-     this is just here as the non-JS fallback / for consistency). */
+  /* Matched to aria-expanded, since the JS in index.html animates the lines via
+     inline styles driven by aria-expanded rather than an "active" class. */
   .menu-toggle[aria-expanded="true"] .menu-toggle__line:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
   }
@@ -250,21 +251,7 @@
     transform: rotate(-45deg) translate(7px, -6px);
   }
 
-  /* Dark theme overrides for the mobile menu */
-  [data-theme="dark"] .l-header {
-    background-color: var(--header-bg, #0a0a0a);
-  }
-
-  [data-theme="dark"] .menu-toggle__line {
-    background-color: var(--text-color, #f0f0f0);
-  }
-
-  [data-theme="dark"] .nav__logo {
-    color: var(--text-color, #f0f0f0);
-  }
-
-  /* Mobile hero section fixes — matched to .hero__* classes actually used in index.html
-     (original file referenced .home__* classes that don't exist on this page). */
+  /* Mobile hero section fixes — matched to .hero__* classes actually used in index.html. */
   body {
     margin-top: var(--header-height, 4rem);
   }
@@ -317,14 +304,11 @@
   }
 
   .nav__link {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 }
 
-/* Prevent scrolling when the mobile menu is open.
-   NOTE: index.html's JS doesn't currently add "menu-open" to <body> — add
-   document.body.classList.toggle('menu-open') alongside the nav__menu.active toggle
-   in the inline script if you want this to take effect. */
+/* Prevent scrolling when the mobile menu is open (toggled via body.menu-open in index.html's JS). */
 body.menu-open {
   overflow: hidden;
 }
