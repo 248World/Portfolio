@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html-root">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="theme.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!-- NOTE: file references below (var.JPG, Var.png, work.JPG, Capture.JPG, scUIS.jpeg, Sat.jpeg, disable.jpeg)
+         must match the ACTUAL casing of the files in your repo. GitHub Pages is case-sensitive Linux hosting,
+         so "var.JPG" and "Var.jpg" are two different files there even if they look the same on Windows/Mac. -->
     <link rel="shortcut icon" href="var.JPG" type="image/x-icon">
     <link rel="stylesheet" href="responsive-navbar.css">
 
@@ -42,11 +45,11 @@
                     <li class="nav__item"><a href="#services" class="nav__link" data-en="Services" data-fr="Services">Services</a></li>
                     <li class="nav__item"><a href="#contact" class="nav__link" data-en="Contact" data-fr="Contact">Contact</a></li>
 
-                    <li class="nav__item language-option-mobile" onclick="changeLanguage('en')">
+                    <li class="nav__item language-option-mobile" data-lang="en" onclick="changeLanguage('en')">
                         <img src="https://flagcdn.com/w20/gb.png" alt="English">
                         <span>English</span>
                     </li>
-                    <li class="nav__item language-option-mobile" onclick="changeLanguage('fr')">
+                    <li class="nav__item language-option-mobile" data-lang="fr" onclick="changeLanguage('fr')">
                         <img src="https://flagcdn.com/w20/fr.png" alt="French">
                         <span>Français</span>
                     </li>
@@ -60,11 +63,11 @@
             </div>
 
             <div class="language-switcher">
-                <button class="language-option active" onclick="changeLanguage('en')">
+                <button class="language-option active" data-lang="en" onclick="changeLanguage('en')">
                     <img src="https://flagcdn.com/w20/gb.png" alt="English">
                     <span>English</span>
                 </button>
-                <button class="language-option" onclick="changeLanguage('fr')">
+                <button class="language-option" data-lang="fr" onclick="changeLanguage('fr')">
                     <img src="https://flagcdn.com/w20/fr.png" alt="French">
                     <span>Français</span>
                 </button>
@@ -92,7 +95,11 @@
                     </p>
 
                     <div class="hero__cta">
-                        <a href="https://248world.github.io/CV/" class="btn btn--primary" download target="_blank">
+                        <!-- FIX: `download` only works for same-origin files, and this pointed at a webpage
+                             (https://248world.github.io/CV/), not a PDF, so it just navigated instead of downloading.
+                             Point this directly at the CV file itself (e.g. a .pdf hosted in this repo or a direct
+                             asset link) and keep `download` only if it's same-origin. -->
+                        <a href="https://248world.github.io/CV/CV.pdf" class="btn btn--primary" download target="_blank">
                             <i class='bx bx-download'></i>
                             <span data-en="Download CV" data-fr="Télécharger CV">Download CV</span>
                         </a>
@@ -633,6 +640,8 @@
                         </span>
                     </div>
 
+                    <!-- TODO: Replace "yourFormID" below with your real Formspree form ID
+                         (create one free at https://formspree.io) — as written, submissions will fail. -->
                     <form id="contactForm"
                           action="https://formspree.io/f/yourFormID"
                           method="POST"
@@ -876,14 +885,17 @@
             currentLanguage = lang;
             localStorage.setItem('portfolioLanguage', lang);
 
+            // FIX: keep the <html lang="..."> attribute in sync for accessibility/SEO.
+            document.documentElement.lang = lang;
+
+            // FIX: use data-lang instead of matching visible text (was fragile —
+            // broke if the button label ever changed).
             document.querySelectorAll('.language-option').forEach(btn => {
-                const isActive = btn.textContent.includes(lang === 'en' ? 'English' : 'Français');
-                btn.classList.toggle('active', isActive);
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
             });
 
             document.querySelectorAll('.language-option-mobile').forEach(btn => {
-                const isActive = btn.textContent.includes(lang === 'en' ? 'English' : 'Français');
-                btn.classList.toggle('active', isActive);
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
             });
 
             document.querySelectorAll('[data-en]').forEach(element => {
@@ -933,22 +945,27 @@
             });
         }
 
+        // FIX: theme.css styles the page via a `[data-theme="dark"]` ATTRIBUTE on the document,
+        // not a "dark-theme" class on <body> — the old code toggled a class that no CSS rule
+        // ever matched, so clicking the button did nothing visually.
         document.getElementById('theme-toggle').addEventListener('click', function() {
-            document.body.classList.toggle('dark-theme');
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
             const icon = document.getElementById('theme-icon');
-            if (document.body.classList.contains('dark-theme')) {
-                icon.classList.remove('bx-moon');
-                icon.classList.add('bx-sun');
-                localStorage.setItem('theme', 'dark');
-            } else {
+            if (isDark) {
+                document.documentElement.removeAttribute('data-theme');
                 icon.classList.remove('bx-sun');
                 icon.classList.add('bx-moon');
                 localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                icon.classList.remove('bx-moon');
+                icon.classList.add('bx-sun');
+                localStorage.setItem('theme', 'dark');
             }
         });
 
         if (localStorage.getItem('theme') === 'dark') {
-            document.body.classList.add('dark-theme');
+            document.documentElement.setAttribute('data-theme', 'dark');
             document.getElementById('theme-icon').classList.replace('bx-moon', 'bx-sun');
         }
 
@@ -988,6 +1005,7 @@
                 const isExpanded = this.getAttribute('aria-expanded') === 'true';
                 this.setAttribute('aria-expanded', !isExpanded);
                 navMenu.classList.toggle('active');
+                document.body.classList.toggle('menu-open');
 
                 const lines = this.querySelectorAll('.menu-toggle__line');
                 if (!isExpanded) {
@@ -1042,10 +1060,25 @@
         });
     </script>
 
+    <!-- CHECK: the inline script above already implements the full menu-toggle / theme-toggle /
+         swiper logic. If script.js, main.js, or responsive-navbar.js below ALSO attach listeners
+         to .menu-toggle, #theme-toggle, or re-initialize Swiper, you'll get duplicate/conflicting
+         behavior (e.g. the mobile menu opening and immediately closing). Send me those files and
+         I'll de-duplicate them, or remove whichever implementation you're not using. -->
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="scroll-reveal.js"></script>
-    <script src="script.js"></script>
+    <!-- script.js removed: it called new Swiper(".mySwiper", ...) with pagination/nav selectors
+         that don't exist in this page's markup, so it did nothing. The inline script above already
+         correctly initializes both sliders (.testimonials__slider and .events__slider). If you want
+         to keep script.js for another page, just don't load it here. -->
+    <!-- main.js removed: it re-implemented the hamburger menu and theme toggle, using the SAME
+         click listeners on .menu-toggle and #theme-toggle as the inline script above. Two listeners
+         toggling navMenu's "active" class on the same click cancelled each other out (menu appeared
+         not to open), and the theme toggle fought over a different class name ("light-mode" vs
+         "dark-theme"), leaving inconsistent state. The inline script's version is kept since it also
+         handles aria-expanded and persists the theme choice in localStorage, which main.js didn't do.
+         If your CSS specifically styles ".light-mode" rather than ".dark-theme", let me know and I'll
+         reconcile the class name instead of dropping main.js outright. -->
     <script src="responsive-navbar.js"></script>
-    <script src="main.js"></script>
 </body>
 </html>
