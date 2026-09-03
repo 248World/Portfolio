@@ -5,9 +5,16 @@
    the page still switches via [data-theme="dark"]. */
 
 /* Base navbar styles */
+/* NOTE: !important is used throughout this block because styles.css (not yet reviewed)
+   has its own, apparently higher-specificity rules for these same classes — that's why
+   the redesign wasn't rendering (header stayed white, logo box had no visible background,
+   sublogo ran inline instead of stacking, old blue underline bled through on the active
+   link). Forcing these to win is a stopgap; sending over styles.css would let this be
+   fixed properly by removing/adjusting the conflicting rules there instead of stacking
+   !important on top. */
 .l-header {
-  width: 100%;
-  background-color: var(--first-color, #4070f4);
+  width: 100% !important;
+  background-color: var(--first-color, #4070f4) !important;
   box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
   transition: background-color 0.3s ease;
   position: fixed;
@@ -17,9 +24,9 @@
 }
 
 .nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
   padding: 0 1.5rem;
   height: var(--header-height, 4rem);
   max-width: 1200px;
@@ -29,26 +36,28 @@
 
 /* White logo box, like the reference's brand mark */
 .nav__logo-box {
-  display: flex;
-  flex-direction: column;
+  display: flex !important;
+  flex-direction: column !important;
   justify-content: center;
-  background-color: #fff;
+  background-color: #fff !important;
   padding: 0.5rem 1rem;
   border-radius: 6px;
-  text-decoration: none;
+  text-decoration: none !important;
   line-height: 1.2;
   flex-shrink: 0;
 }
 
 .nav__logo {
   font-weight: var(--font-semi, 600);
-  color: var(--first-color, #4070f4);
+  color: var(--first-color, #4070f4) !important;
   font-size: 1.05rem;
+  display: block !important;
 }
 
 .nav__sublogo {
-  font-size: 0.7rem;
-  color: #555;
+  font-size: 0.7rem !important;
+  color: #555 !important;
+  display: block !important;
 }
 
 /* Mobile menu button */
@@ -70,21 +79,21 @@
   height: 3px;
   width: 100%;
   border-radius: 3px;
-  background-color: #fff;
+  background-color: #fff !important;
   transition: all 0.3s ease;
 }
 
 /* Nav links */
 .nav__menu {
-  display: flex;
-  align-items: center;
+  display: flex !important;
+  align-items: center !important;
   flex: 1;
-  justify-content: flex-end;
+  justify-content: flex-end !important;
 }
 
 .nav__list {
-  display: flex;
-  align-items: center;
+  display: flex !important;
+  align-items: center !important;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -93,16 +102,17 @@
 
 .nav__item {
   list-style: none;
+  margin: 0 !important;
 }
 
 /* Icon-over-label links, matching the reference navbar */
 .nav__link {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
   gap: 0.2rem;
-  color: rgba(255, 255, 255, 0.85);
-  text-decoration: none;
+  color: rgba(255, 255, 255, 0.85) !important;
+  text-decoration: none !important;
   font-weight: var(--font-semi, 600);
   font-size: 0.75rem;
   padding: 0.4rem 0.6rem;
@@ -112,17 +122,25 @@
 
 .nav__link i {
   font-size: 1.2rem;
+  color: inherit !important;
 }
 
 .nav__link:hover,
 .nav__link.active-link {
-  color: #fff;
-  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff !important;
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Kill styles.css's old underline-on-active-link effect, which was bleeding through */
+.nav__link.active-link::after,
+.nav__link:hover::after {
+  content: none !important;
+  display: none !important;
 }
 
 /* Language dropdown, replaces the old dual flag-button switcher */
 .nav__lang-select {
-  display: flex;
+  display: flex !important;
   align-items: center;
   gap: 0.35rem;
   color: #fff;
@@ -133,12 +151,13 @@
 
 .nav__lang-select i {
   font-size: 1.1rem;
+  color: #fff !important;
 }
 
 .nav__lang-select select {
-  background: transparent;
+  background: transparent !important;
   border: none;
-  color: #fff;
+  color: #fff !important;
   font-size: 0.85rem;
   font-weight: var(--font-semi, 600);
   cursor: pointer;
