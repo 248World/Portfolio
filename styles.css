@@ -1407,17 +1407,35 @@ section {
     display: flex;
   }
 
+  /* Dimmed backdrop behind the sliding panel, tap to close */
+  .nav__overlay {
+    position: fixed;
+    inset: 0;
+    top: var(--header-height);
+    background-color: rgba(15, 15, 20, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: calc(var(--z-modal) - 1);
+  }
+
+  .nav__overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
   .nav__menu {
     position: fixed;
     top: var(--header-height);
     right: -100%;
-    width: min(320px, 85%);
+    width: min(300px, 82%);
     height: calc(100vh - var(--header-height));
     background-color: var(--light-color);
-    padding: var(--mb-4);
+    padding: 1.25rem 1rem;
     transition: var(--transition);
     z-index: var(--z-modal);
     box-shadow: var(--shadow-lg);
+    border-radius: var(--border-radius-lg) 0 0 var(--border-radius-lg);
     overflow-y: auto;
   }
 
@@ -1427,30 +1445,95 @@ section {
 
   .nav__list {
     flex-direction: column;
-    align-items: flex-start;
-    gap: var(--mb-3);
+    align-items: stretch;
+    gap: 0.2rem;
     width: 100%;
   }
 
   .nav__item {
     width: 100%;
+    opacity: 0;
+    transform: translateX(12px);
+    transition: transform 0.35s ease, opacity 0.35s ease;
   }
 
-  /* Inside the light mobile panel, links go back to row layout (icon + label side by
-     side) since the panel isn't a colored bar and there's no horizontal space pressure. */
+  /* Staggered entrance as the panel slides open */
+  .nav__menu.active .nav__item { opacity: 1; transform: translateX(0); }
+  .nav__menu.active .nav__item:nth-child(1) { transition-delay: 0.05s; }
+  .nav__menu.active .nav__item:nth-child(2) { transition-delay: 0.1s; }
+  .nav__menu.active .nav__item:nth-child(3) { transition-delay: 0.15s; }
+  .nav__menu.active .nav__item:nth-child(4) { transition-delay: 0.2s; }
+  .nav__menu.active .nav__item:nth-child(5) { transition-delay: 0.25s; }
+  .nav__menu.active .nav__item:nth-child(6) { transition-delay: 0.3s; }
+  .nav__menu.active .nav__item:nth-child(7) { transition-delay: 0.32s; }
+  .nav__menu.active .nav__item:nth-child(8) { transition-delay: 0.34s; }
+  .nav__menu.active .nav__item:nth-child(9) { transition-delay: 0.36s; }
+
+  /* Labeled section divider before the language/theme controls */
+  .nav__divider {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0.75rem 0 0.4rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .nav__divider span {
+    font-size: var(--smaller-font-size);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gray-color);
+    font-weight: var(--font-semi);
+  }
+
+  /* Inside the light mobile panel, links go back to row layout (icon badge + label
+     side by side) with a left accent bar marking the active/hovered item. */
   .nav__link {
     flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
     color: var(--dark-color);
-    font-size: 1.05rem;
+    font-size: 0.98rem;
     display: flex;
     width: 100%;
-    padding: 0.6rem 0.4rem;
+    padding: 0.55rem 0.6rem;
+    border-radius: var(--border-radius);
+    border-left: 3px solid transparent;
   }
 
-  .nav__link:hover,
+  .nav__link-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background-color: var(--gray-light);
+    color: var(--gray-color);
+    flex-shrink: 0;
+    transition: var(--transition);
+  }
+
+  .nav__link-icon i {
+    font-size: 1.05rem;
+  }
+
+  .nav__link:hover {
+    background-color: rgba(37, 99, 235, 0.06);
+  }
+
   .nav__link.active-link {
     color: var(--first-color);
     background-color: rgba(37, 99, 235, 0.08);
+    border-left-color: var(--first-color);
+    font-weight: var(--font-bold);
+  }
+
+  .nav__link:hover .nav__link-icon,
+  .nav__link.active-link .nav__link-icon {
+    background-color: var(--first-color);
+    color: var(--white-color);
   }
 
   .nav__lang-select {
