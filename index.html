@@ -47,40 +47,42 @@
                 <ul class="nav__list">
                     <li class="nav__item">
                         <a href="#home" class="nav__link active-link">
-                            <i class='bx bx-home-alt'></i>
+                            <span class="nav__link-icon"><i class='bx bx-home-alt'></i></span>
                             <span data-en="Home" data-fr="Accueil">Home</span>
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#about" class="nav__link">
-                            <i class='bx bx-user'></i>
+                            <span class="nav__link-icon"><i class='bx bx-user'></i></span>
                             <span data-en="About" data-fr="À propos">About</span>
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#skills" class="nav__link">
-                            <i class='bx bx-code-alt'></i>
+                            <span class="nav__link-icon"><i class='bx bx-code-alt'></i></span>
                             <span data-en="Skills" data-fr="Compétences">Skills</span>
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#work" class="nav__link">
-                            <i class='bx bx-briefcase'></i>
+                            <span class="nav__link-icon"><i class='bx bx-briefcase'></i></span>
                             <span data-en="Projects" data-fr="Projets">Projects</span>
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#services" class="nav__link">
-                            <i class='bx bx-cog'></i>
+                            <span class="nav__link-icon"><i class='bx bx-cog'></i></span>
                             <span data-en="Services" data-fr="Services">Services</span>
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#contact" class="nav__link">
-                            <i class='bx bx-envelope'></i>
+                            <span class="nav__link-icon"><i class='bx bx-envelope'></i></span>
                             <span data-en="Contact" data-fr="Contact">Contact</span>
                         </a>
                     </li>
+
+                    <li class="nav__divider" aria-hidden="true"><span>Preferences</span></li>
 
                     <li class="nav__item nav__item--lang">
                         <div class="nav__lang-select">
@@ -99,6 +101,7 @@
                     </li>
                 </ul>
             </div>
+            <div class="nav__overlay" id="nav-overlay"></div>
         </nav>
     </header>
 
@@ -1006,12 +1009,16 @@
                         behavior: 'smooth'
                     });
 
-                    const navMenu = document.querySelector('.nav__menu');
-                    if (navMenu.classList.contains('active')) {
-                        navMenu.classList.remove('active');
-                        document.querySelector('.menu-toggle').setAttribute('aria-expanded', 'false');
+                    const navMenuEl = document.querySelector('.nav__menu');
+                    if (navMenuEl.classList.contains('active')) {
+                        navMenuEl.classList.remove('active');
+                        document.body.classList.remove('menu-open');
+                        const overlayEl = document.getElementById('nav-overlay');
+                        if (overlayEl) overlayEl.classList.remove('active');
 
-                        const lines = document.querySelectorAll('.menu-toggle__line');
+                        const toggleBtn = document.querySelector('.menu-toggle');
+                        toggleBtn.setAttribute('aria-expanded', 'false');
+                        const lines = toggleBtn.querySelectorAll('.menu-toggle__line');
                         lines[0].style.transform = 'none';
                         lines[1].style.opacity = '1';
                         lines[2].style.transform = 'none';
@@ -1022,26 +1029,45 @@
 
         const menuToggle = document.querySelector('.menu-toggle');
         const navMenu = document.querySelector('.nav__menu');
+        const navOverlay = document.getElementById('nav-overlay');
+
+        function setMobileMenu(open) {
+            if (!menuToggle || !navMenu) return;
+            menuToggle.setAttribute('aria-expanded', open);
+            navMenu.classList.toggle('active', open);
+            document.body.classList.toggle('menu-open', open);
+            if (navOverlay) navOverlay.classList.toggle('active', open);
+
+            const lines = menuToggle.querySelectorAll('.menu-toggle__line');
+            if (open) {
+                lines[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                lines[1].style.opacity = '0';
+                lines[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            } else {
+                lines[0].style.transform = 'none';
+                lines[1].style.opacity = '1';
+                lines[2].style.transform = 'none';
+            }
+        }
 
         if (menuToggle && navMenu) {
             menuToggle.addEventListener('click', function() {
                 const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                this.setAttribute('aria-expanded', !isExpanded);
-                navMenu.classList.toggle('active');
-                document.body.classList.toggle('menu-open');
-
-                const lines = this.querySelectorAll('.menu-toggle__line');
-                if (!isExpanded) {
-                    lines[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-                    lines[1].style.opacity = '0';
-                    lines[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-                } else {
-                    lines[0].style.transform = 'none';
-                    lines[1].style.opacity = '1';
-                    lines[2].style.transform = 'none';
-                }
+                setMobileMenu(!isExpanded);
             });
         }
+
+        // Closing the panel by tapping the dimmed backdrop behind it, or pressing Escape —
+        // standard behavior for a proper slide-in sidebar.
+        if (navOverlay) {
+            navOverlay.addEventListener('click', () => setMobileMenu(false));
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                setMobileMenu(false);
+            }
+        });
 
         document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
