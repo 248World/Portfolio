@@ -11,13 +11,20 @@
     <link rel="stylesheet" href="styles.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="theme.css">
+    <!-- theme.css removed: it was a leftover file with its own, DIFFERENT variable system
+         ([data-theme="dark"] attribute, --body-color/--card-bg/etc.) that never matched
+         styles.css's actual theming system (.dark-theme class, --first-color/--dark-color/etc.).
+         styles.css already fully implements dark mode; loading both caused conflicting rules
+         for the same elements. -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <!-- NOTE: file references below (var.JPG, Var.png, work.JPG, Capture.JPG, scUIS.jpeg, Sat.jpeg, disable.jpeg)
          must match the ACTUAL casing of the files in your repo. GitHub Pages is case-sensitive Linux hosting,
          so "var.JPG" and "Var.jpg" are two different files there even if they look the same on Windows/Mac. -->
     <link rel="shortcut icon" href="var.JPG" type="image/x-icon">
-    <link rel="stylesheet" href="responsive-navbar.css">
+    <!-- responsive-navbar.css removed: it used .navbar-*/.home__* classes from an earlier
+         version of this page that don't match the current .nav__*/.hero__* markup, and its
+         mobile menu (clip-path circle reveal) duplicated/conflicted with the slide-in panel
+         already built into styles.css. The navbar redesign now lives directly in styles.css. -->
 
     <title>Varney D. Fahnbulleh | Full-Stack Web & Mobile Developer</title>
 </head>
@@ -961,27 +968,27 @@
             });
         }
 
-        // FIX: theme.css styles the page via a `[data-theme="dark"]` ATTRIBUTE on the document,
-        // not a "dark-theme" class on <body> — the old code toggled a class that no CSS rule
-        // ever matched, so clicking the button did nothing visually.
+        // Toggles the "dark-theme" class on <body>, which is what styles.css's [:root / .dark-theme]
+        // custom-property system actually keys off. (An earlier fix mistakenly switched this to a
+        // data-theme attribute to match theme.css's convention — but theme.css has been removed
+        // since it was a leftover file with its own unrelated variable system. styles.css was
+        // right all along.)
         document.getElementById('theme-toggle').addEventListener('click', function() {
-            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            document.body.classList.toggle('dark-theme');
             const icon = document.getElementById('theme-icon');
-            if (isDark) {
-                document.documentElement.removeAttribute('data-theme');
-                icon.classList.remove('bx-sun');
-                icon.classList.add('bx-moon');
-                localStorage.setItem('theme', 'light');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
+            if (document.body.classList.contains('dark-theme')) {
                 icon.classList.remove('bx-moon');
                 icon.classList.add('bx-sun');
                 localStorage.setItem('theme', 'dark');
+            } else {
+                icon.classList.remove('bx-sun');
+                icon.classList.add('bx-moon');
+                localStorage.setItem('theme', 'light');
             }
         });
 
         if (localStorage.getItem('theme') === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
+            document.body.classList.add('dark-theme');
             document.getElementById('theme-icon').classList.replace('bx-moon', 'bx-sun');
         }
 
