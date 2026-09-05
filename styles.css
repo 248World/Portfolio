@@ -365,6 +365,11 @@ section {
   position: relative;
 }
 
+/* Only shown inside the mobile sidebar, above the language/theme controls */
+.nav__divider {
+  display: none;
+}
+
 /* Icon-over-label links */
 .nav__link {
   display: flex;
