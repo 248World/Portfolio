@@ -536,14 +536,14 @@ section {
 
 .hero__image {
   position: relative;
-  width: 86%;
-  height: 92%;
-  object-fit: contain;
+  width: 84%;
+  height: 84%;
+  object-fit: cover;
   object-position: center top;
-  border-radius: 0;
+  border-radius: 50%;
   z-index: 2;
-  box-shadow: none;
-  background: transparent;
+  box-shadow: var(--shadow-lg);
+  border: 4px solid rgba(255, 255, 255, 0.08);
 }
 
 /* ===== SOCIAL LINKS ===== */
@@ -1506,8 +1506,8 @@ section {
   }
 
   .hero__image {
-    width: 88%;
-    height: 94%;
+    width: 84%;
+    height: 84%;
   }
 
   .hero__cta {
