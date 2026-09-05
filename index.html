@@ -82,15 +82,18 @@
                         </a>
                     </li>
 
-                    <li class="nav__divider" aria-hidden="true"><span>Preferences</span></li>
+                    <li class="nav__divider" aria-hidden="true"></li>
 
                     <li class="nav__item nav__item--lang">
-                        <div class="nav__lang-select">
-                            <i class='bx bx-globe'></i>
-                            <select id="langSelect" onchange="changeLanguage(this.value)" aria-label="Select language">
-                                <option value="en">English</option>
-                                <option value="fr">Français</option>
-                            </select>
+                        <div class="nav__lang-toggle">
+                            <button type="button" class="nav__lang-btn active" data-lang="en" onclick="changeLanguage('en')" aria-label="English">
+                                <img src="https://flagcdn.com/w20/gb.png" alt="">
+                                <span>EN</span>
+                            </button>
+                            <button type="button" class="nav__lang-btn" data-lang="fr" onclick="changeLanguage('fr')" aria-label="Français">
+                                <img src="https://flagcdn.com/w20/fr.png" alt="">
+                                <span>FR</span>
+                            </button>
                         </div>
                     </li>
 
@@ -919,10 +922,10 @@
             // FIX: keep the <html lang="..."> attribute in sync for accessibility/SEO.
             document.documentElement.lang = lang;
 
-            // FIX: replaced the old flag-button active-state loops (buttons no longer exist)
-            // with syncing the single language <select> dropdown.
-            const langSelect = document.getElementById('langSelect');
-            if (langSelect) langSelect.value = lang;
+            // Highlight whichever flag button matches the active language.
+            document.querySelectorAll('.nav__lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            });
 
             document.querySelectorAll('[data-en]').forEach(element => {
                 if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
