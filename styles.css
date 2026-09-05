@@ -275,18 +275,24 @@ section {
 }
 
 /* ===== HEADER & NAVIGATION ===== */
-/* Redesigned to a solid brand-color bar with a white logo mark and icon-over-label
-   nav items, per the requested reference look. --first-color already shifts to a
-   lighter blue under .dark-theme, so the header stays on-brand and readable in both
-   modes automatically without needing a separate hardcoded color. */
+/* Solid brand-color bar with a white logo mark and icon-over-label nav items, given a
+   3D relief treatment: a top-to-bottom gradient (lighter at top, darker at bottom) plus
+   a glossy inset highlight and a real drop shadow so the bar reads as a raised, physical
+   panel rather than a flat color fill. --first-color already shifts lighter under
+   .dark-theme, so this stays on-brand and readable in both modes automatically. */
 .l-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--first-color);
+  background: linear-gradient(
+    180deg,
+    hsl(var(--hue-color), 89%, 68%) 0%,
+    var(--first-color) 45%,
+    hsl(var(--hue-color), 89%, 48%) 100%
+  );
   z-index: var(--z-fixed);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.35);
   transition: var(--transition);
 }
 
@@ -298,7 +304,7 @@ section {
   gap: 1.5rem;
 }
 
-/* White logo mark */
+/* White logo mark, lifted off the bar with its own shadow */
 .nav__logo-box {
   display: flex;
   flex-direction: column;
@@ -310,6 +316,13 @@ section {
   text-decoration: none;
   line-height: 1.2;
   flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: var(--transition);
+}
+
+.nav__logo-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
 }
 
 .nav__logo {
@@ -370,7 +383,7 @@ section {
   display: none;
 }
 
-/* Icon-over-label links */
+/* Icon-over-label links, each a subtly raised "button" with its own highlight/shadow */
 .nav__link {
   display: flex;
   flex-direction: column;
@@ -381,6 +394,8 @@ section {
   font-size: var(--smaller-font-size);
   padding: 0.4rem 0.6rem;
   border-radius: var(--border-radius);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   transition: var(--transition);
 }
 
@@ -388,63 +403,80 @@ section {
   font-size: 1.2rem;
 }
 
-.nav__link:hover,
-.nav__link.active-link {
+.nav__link:hover {
   color: var(--white-color);
-  background-color: rgba(255, 255, 255, 0.15);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.05));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Language dropdown */
-.nav__lang-select {
+.nav__link.active-link {
+  color: var(--white-color);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.08));
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+/* Language flag toggle, styled as a small raised pill matching the 3D bar */
+.nav__lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.nav__lang-btn {
   display: flex;
   align-items: center;
   gap: 0.35rem;
-  color: var(--white-color);
-  padding: 0.4rem 0.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: var(--border-radius);
-}
-
-.nav__lang-select i {
-  font-size: 1.1rem;
-}
-
-.nav__lang-select select {
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
   background: transparent;
-  border: none;
-  color: var(--white-color);
-  font-size: var(--small-font-size);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: var(--smaller-font-size);
   font-weight: var(--font-semi);
-  cursor: pointer;
+  transition: var(--transition);
 }
 
-.nav__lang-select select:focus {
-  outline: 2px solid rgba(255, 255, 255, 0.6);
-  outline-offset: 2px;
+.nav__lang-btn img {
+  width: 18px;
+  height: 13px;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
 }
 
-/* Option text renders with default OS styling since <option> can't reliably
-   inherit a transparent/white background cross-browser. */
-.nav__lang-select select option {
-  color: var(--dark-color);
-  background-color: var(--white-color);
+.nav__lang-btn:hover {
+  color: var(--white-color);
 }
+
+.nav__lang-btn.active {
+  background: var(--white-color);
+  color: var(--first-color);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
 
 .theme-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.15);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.08));
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   color: var(--white-color);
   cursor: pointer;
   transition: var(--transition);
 }
 
 .theme-toggle:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.12));
 }
 
 .theme-toggle i {
@@ -1541,25 +1573,39 @@ section {
     color: var(--white-color);
   }
 
-  .nav__lang-select {
-    color: var(--dark-color);
-    border-color: rgba(0, 0, 0, 0.15);
+  .nav__lang-toggle {
     width: 100%;
+    justify-content: center;
+    background: var(--gray-light);
+    box-shadow: none;
   }
 
-  .nav__lang-select i,
-  .nav__lang-select select {
+  .nav__lang-btn {
+    flex: 1;
+    justify-content: center;
+    color: var(--gray-color);
+  }
+
+  .nav__lang-btn:hover {
     color: var(--dark-color);
+  }
+
+  .nav__lang-btn.active {
+    color: var(--first-color);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   }
 
   .theme-toggle {
-    background-color: var(--gray-light);
+    background: var(--gray-light);
+    box-shadow: none;
     color: var(--dark-color);
   }
 
   .theme-toggle:hover {
-    background-color: var(--first-color);
+    background: var(--first-color);
     color: white;
+    transform: none;
+    box-shadow: none;
   }
 
   .hero__title {
