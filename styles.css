@@ -762,17 +762,19 @@ section {
 }
 
 .skills__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--mb-6);
 }
 
 .skill-category {
+  flex: 1 1 300px;
+  max-width: 380px;
   background-color: var(--gray-light);
   padding: var(--mb-4);
   border-radius: var(--border-radius-lg);
   transition: var(--transition);
-  height: 100%;
 }
 
 .skill-category:hover {
@@ -842,19 +844,21 @@ section {
 
 /* ===== PROJECTS SECTION ===== */
 .projects__container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--mb-4);
   margin-bottom: var(--mb-6);
 }
 
 .project-card {
+  flex: 1 1 290px;
+  max-width: 400px;
   background-color: white;
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
-  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -964,19 +968,21 @@ section {
 
 /* ===== SERVICES SECTION ===== */
 .services__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--mb-4);
 }
 
 .service-card {
+  flex: 1 1 290px;
+  max-width: 380px;
   background-color: white;
   padding: var(--mb-4);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
   text-align: center;
-  height: 100%;
 }
 
 .service-card:hover {
@@ -1680,11 +1686,10 @@ section {
     flex-direction: column;
   }
 
-  .services__grid,
-  .skills__grid,
-  .projects__container {
-    grid-template-columns: 1fr;
-  }
+  /* .services__grid / .skills__grid / .projects__container no longer need a forced
+     single-column override here: they're flexbox now, and each card's flex-basis
+     (~290-300px) already exceeds half the available width on a phone, so they wrap
+     to one per row naturally. */
 
   .event-image {
     height: 220px;
