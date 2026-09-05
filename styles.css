@@ -624,15 +624,35 @@ section {
 }
 
 /* ===== ABOUT SECTION ===== */
+/* Two-column layout: text on the left (line length capped for readability), a vertical
+   stack of icon stat cards on the right instead of the previous single-column wall of
+   text with the stats squeezed underneath as an afterthought. */
 .about__container {
   display: grid;
+  grid-template-columns: 1.5fr 1fr;
   gap: var(--mb-6);
+  align-items: start;
+}
+
+.about__text-col {
+  max-width: 62ch;
 }
 
 .about__tagline {
+  position: relative;
   font-size: var(--h2-font-size);
   margin-bottom: var(--mb-4);
   line-height: 1.4;
+  padding-left: 2.5rem;
+}
+
+.about__quote-icon {
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  font-size: 1.6rem;
+  color: var(--first-color);
+  opacity: 0.5;
 }
 
 .highlight {
@@ -662,38 +682,59 @@ section {
   line-height: 1.9;
 }
 
+/* Vertical stat cards, each a small "info tile" with an icon badge instead of plain
+   centered numbers sitting in a flat gray box. */
 .about__stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--mb-4);
-  margin-top: var(--mb-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--mb-3);
 }
 
 .stat {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: var(--mb-3);
+  text-align: left;
   padding: var(--mb-3);
-  background-color: var(--gray-light);
-  border-radius: var(--border-radius);
+  background-color: var(--card-bg, white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
   transition: var(--transition);
 }
 
 .stat:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-md);
+  border-color: transparent;
+}
+
+.stat__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: rgba(37, 99, 235, 0.12);
+  color: var(--first-color);
+  font-size: 1.5rem;
 }
 
 .stat__number {
   display: block;
-  font-size: 2.2rem;
+  font-size: 1.6rem;
   font-weight: var(--font-bold);
-  color: var(--first-color);
-  margin-bottom: var(--mb-1);
+  color: var(--dark-color);
+  line-height: 1.2;
 }
 
 .stat__label {
+  display: block;
   font-size: var(--small-font-size);
   color: var(--gray-color);
-  line-height: 1.6;
+  line-height: 1.4;
 }
 
 /* ===== SKILLS SECTION ===== */
@@ -1415,8 +1456,21 @@ section {
     justify-content: center;
   }
 
+  .about__container {
+    grid-template-columns: 1fr;
+  }
+
+  .about__text-col {
+    max-width: 100%;
+  }
+
   .about__stats {
-    grid-template-columns: repeat(3, 1fr);
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    flex: 1 1 220px;
   }
 
   .contact__container {
@@ -1617,7 +1671,7 @@ section {
   }
 
   .about__stats {
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
 
   .services__grid,
