@@ -310,12 +310,13 @@ section {
   flex-direction: column;
   justify-content: center;
   min-width: 0;
+  max-width: calc(100% - 60px);
   background-color: var(--white-color);
   padding: 0.5rem 1rem;
   border-radius: var(--border-radius);
   text-decoration: none;
   line-height: 1.2;
-  flex-shrink: 0;
+  flex-shrink: 1;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
   transition: var(--transition);
 }
@@ -1493,7 +1494,7 @@ section {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .menu-toggle {
     display: flex;
   }
@@ -1661,7 +1662,12 @@ section {
     transform: none;
     box-shadow: none;
   }
+}
 
+/* Content sizing for phones specifically — separate from the nav breakpoint above,
+   since a tablet/small laptop (769–1024px) needs the collapsed nav but still has
+   plenty of room for the desktop-sized hero text and multi-column grids. */
+@media screen and (max-width: 768px) {
   .hero__title {
     font-size: 2.5rem;
   }
@@ -1753,6 +1759,20 @@ section {
     width: 36px;
     height: 36px;
     font-size: 0.9rem;
+  }
+
+  /* On the narrowest phones, drop the tagline under the name so the logo box
+     never has to compete with the hamburger button for horizontal space. */
+  .nav__sublogo {
+    display: none;
+  }
+
+  .nav__logo {
+    font-size: 0.95rem;
+  }
+
+  .nav__logo-box {
+    padding: 0.4rem 0.7rem;
   }
 }
 
