@@ -1,0 +1,47 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="%BASE_URL%weathercss.css">
+  <link rel="icon" href="%BASE_URL%weather-icon.svg" type="image/svg+xml">
+</head>
+<body>
+  <div class="app-wrap">
+    <header>
+      <input
+        type="text"
+        autocomplete="off"
+        class="search-box"
+        placeholder="Search for a city..."
+        aria-label="Search for a city"
+      >
+    </header>
+
+    <main>
+      <section class="location">
+        <div class="city">Search for a city</div>
+        <div class="date">Weather information</div>
+      </section>
+
+      <div class="current">
+        <div class="temp">--<span>°C</span></div>
+        <div class="weather">Enter a city and press Enter</div>
+        <div class="hi-low">--°C / --°C</div>
+      </div>
+    </main>
+  </div>
+
+  <script src="%BASE_URL%weathermain.js"></script>
+
+  <footer>
+    <div id="footer">
+      Copyright &copy; 2024
+      <span class="FOOT">Varney D. Fahnbulleh</span>.
+      All Rights Reserved.
+    </div>
+  </footer>
+</body>
+</html>
