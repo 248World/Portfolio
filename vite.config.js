@@ -11,12 +11,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: page('./index.html'),
-        cv: page('./cv.html'),
-        nestedCv: page('./cv/cv.html'),
-        notes: page('./noteapp.html'),
-        scoreboard: page('./scoreindex.html'),
-        todo: page('./todo.html'),
-        weather: page('./weather.html'),
+        scoreboard: page('./scoreboard/index.html'),
+        weather: page('./weather/index.html'),
       },
     },
   },

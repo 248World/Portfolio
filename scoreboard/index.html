@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basketball Scoreboard</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="/Portfolio/basketball-png-1.png" type="image/x-icon">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #1b244a;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 2rem auto 1rem;
+            padding: 2rem;
+            background: #1b244a;
+            display: flex;
+            justify-content: space-around;
+            gap: 2rem;
+            text-align: center;
+            border-radius: 12px;
+        }
+
+        .home,
+        .guest {
+            width: 100%;
+        }
+
+        h1 {
+            margin-bottom: 1rem;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        #home--btn,
+        #guest--btn {
+            width: 160px;
+            height: 120px;
+            border: none;
+            border-radius: 8px;
+            background: #080001;
+            color: #f94f6d;
+            font-family: "Orbitron", sans-serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            margin-bottom: 1.5rem;
+            cursor: default;
+        }
+
+        .operate {
+            display: flex;
+            justify-content: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .operate button {
+            width: 48px;
+            height: 42px;
+            border: 2px solid #9aabd8;
+            border-radius: 5px;
+            background: transparent;
+            color: #9aabd8;
+            font-family: "Orbitron", sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.25s ease;
+        }
+
+        .operate button:hover {
+            background: #9aabd8;
+            color: #1b244a;
+        }
+
+        .container-two {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            padding: 1.5rem 2rem;
+            background: #111936;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .save--btn {
+            border: 2px solid #9aabd8;
+            border-radius: 5px;
+            background: transparent;
+            color: #9aabd8;
+            padding: 0.8rem 2rem;
+            font-family: "Orbitron", sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.25s ease;
+            margin-bottom: 1rem;
+        }
+
+        .save--btn:hover {
+            background: #9aabd8;
+            color: #1b244a;
+        }
+
+        #home--count,
+        #guest--count {
+            color: #ffffff;
+            font-size: 1rem;
+            margin: 0.4rem 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            color: #d1d5db;
+            font-size: 0.9rem;
+        }
+
+        .designer {
+            color: #f94f6d;
+            font-weight: 700;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                justify-content: flex-start;
+            }
+
+            .container {
+                flex-direction: column;
+                padding: 1.5rem 1rem;
+                gap: 2rem;
+                margin-top: 1rem;
+            }
+
+            #home--btn,
+            #guest--btn {
+                width: 150px;
+                height: 110px;
+            }
+
+            .container-two {
+                padding: 1.2rem 1rem;
+            }
+
+            footer {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="home">
+            <h1>HOME</h1>
+            <button id="home--btn" type="button">0</button>
+
+            <div class="operate">
+                <button type="button" onclick="plusOne()">+1</button>
+                <button type="button" onclick="plusTwo()">+2</button>
+                <button type="button" onclick="plusThree()">+3</button>
+            </div>
+        </div>
+
+        <div class="guest">
+            <h1>GUEST</h1>
+            <button id="guest--btn" type="button">0</button>
+
+            <div class="operate">
+                <button type="button" onclick="guestPlusOne()">+1</button>
+                <button type="button" onclick="guestPlusTwo()">+2</button>
+                <button type="button" onclick="guestPlusThree()">+3</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-two">
+        <button class="save--btn" type="button" onclick="saveClick()">SAVE</button>
+        <p id="home--count">Home Count:</p>
+        <p id="guest--count">Guest Count:</p>
+    </div>
+
+    <footer>
+        <p>
+            Copyright &copy; 2024
+            <span class="designer">Varney D. Fahnbulleh</span>.
+            All Rights Reserved.
+        </p>
+    </footer>
+
+    <script>
+        let homeScore = 0;
+        let guestScore = 0;
+
+        const homeBtn = document.getElementById("home--btn");
+        const guestBtn = document.getElementById("guest--btn");
+        const homeCount = document.getElementById("home--count");
+        const guestCount = document.getElementById("guest--count");
+
+        function plusOne() {
+            homeScore += 1;
+            homeBtn.textContent = homeScore;
+        }
+
+        function plusTwo() {
+            homeScore += 2;
+            homeBtn.textContent = homeScore;
+        }
+
+        function plusThree() {
+            homeScore += 3;
+            homeBtn.textContent = homeScore;
+        }
+
+        function guestPlusOne() {
+            guestScore += 1;
+            guestBtn.textContent = guestScore;
+        }
+
+        function guestPlusTwo() {
+            guestScore += 2;
+            guestBtn.textContent = guestScore;
+        }
+
+        function guestPlusThree() {
+            guestScore += 3;
+            guestBtn.textContent = guestScore;
+        }
+
+        function saveClick() {
+            homeCount.textContent = "Home Count: " + homeScore;
+            guestCount.textContent = "Guest Count: " + guestScore;
+        }
+    </script>
+</body>
+</html>
